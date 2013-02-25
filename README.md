@@ -1,4 +1,6 @@
 StudyCppUTest
 =============
 
-Study CppUTest in Mac
+Study CppUTest, gtest and gmock in Mac.
+
+Use the make to build the gmock in Mac.
