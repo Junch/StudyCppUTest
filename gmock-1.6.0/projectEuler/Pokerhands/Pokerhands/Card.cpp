@@ -36,7 +36,7 @@ CardConverter::cardToString(Card card)
             c='A';
             break;
         default:
-            assert(num>1 && num<15);
+            assert(num>1 && num<10);
             c='0' + num;
             break;
     };
@@ -144,7 +144,7 @@ Card::Card(int num, CardSuit suit)
 :_num(num),_suit(suit)
 {
     if (_num<2 || _num>14)
-        throw std::out_of_range("Card's num should be [2, 13]."); 
+        throw std::out_of_range("Card's num should be [2, 14]."); 
 }
 
 std::string
