@@ -123,16 +123,15 @@ void
 CardConverter::stringToCards(std::string str, std::vector<Card> &cards)
 {
     std::stringstream ss(str);
-    std::string sub;
-
+    
     while (true) {
+        std::string sub;
         ss >> sub;
         if (sub.empty())
             break;
 
         Card card = stringToCard(sub);
         cards.push_back(card);
-        sub.clear();
     }
 }
 
