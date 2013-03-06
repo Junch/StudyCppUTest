@@ -168,20 +168,32 @@ Card::suit()
 bool
 Card:: operator == (const Card& val)
 {
-    return _num==val._num && _suit==val._suit;
+    return _num==val._num /*&& _suit==val._suit*/;
+}
+
+bool
+Card:: operator < (const Card& val)
+{
+    return _num < val._num;
 }
 
 ////////////////////////////////////////
 //              Hand
 ////////////////////////////////////////
 
-int Hand::add(Card card)
+int
+Hand::add(Card card)
 {
-    _cards.push_back(card);
+    std::vector<Card>::iterator iter=_cards.begin();
+    while(iter != _cards.end() && *iter < card)
+        ++iter;
+    
+    _cards.insert(iter, card);   
     return (int)_cards.size();
 }
 
-int Hand::length()
+int
+Hand::length()
 {
     return (int)_cards.size();
 }

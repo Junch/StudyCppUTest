@@ -38,6 +38,7 @@ public:
     int      number();
     CardSuit suit();
     bool operator == (const Card& val);
+    bool operator < (const Card& val);
     
 private:
     int      _num;
@@ -47,7 +48,7 @@ private:
 class Hand
 {
 public:
-    int add(Card card);
+    int add(Card card); // it will sort the card when adding
     int length();
     
 private:

@@ -51,6 +51,28 @@ TEST(Card, toString)
     EXPECT_STREQ("AH", Card(14,  SuitHeart).toString().c_str());
 }
 
+TEST(Card, operatorEqual)
+{
+    EXPECT_TRUE(Card(2, SuitSpade) == Card(2, SuitHeart));
+    EXPECT_TRUE(Card(2, SuitSpade) == Card(2, SuitSpade));
+}
+
+TEST(Hand, add)
+{
+    Hand hand;
+    EXPECT_EQ(0, hand.length());
+    hand.add(Card(14, SuitSpade));
+    hand.add(Card(2, SuitSpade));
+    EXPECT_EQ(2, hand.length());
+}
+
+TEST(Card, operatorLittle)
+{
+    EXPECT_TRUE(Card(2, SuitSpade) < Card(14, SuitHeart));
+    EXPECT_FALSE(Card(14, SuitSpade) < Card(10, SuitSpade));
+    EXPECT_FALSE(Card(2, SuitSpade) < Card(2, SuitHeart));
+}
+
 TEST(Game, run)
 {
     Game game;
