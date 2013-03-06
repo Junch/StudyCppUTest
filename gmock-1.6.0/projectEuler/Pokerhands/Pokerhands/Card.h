@@ -22,6 +22,21 @@ enum CardSuit
     SuitDiamond
 };
 
+enum CardsRank
+{
+    RankNone,        //Not ranked
+    RankHighCard,    //Highest value card.
+    RankOnePair,     //Two cards of the same value.
+    RankTwoPairs,    //Two different pairs.
+    RankThreeOfaKind,//Three cards of the same value.
+    RankStraight,    //All cards are consecutive values.
+    RankFlush,       //All cards of the same suit.
+    RankFullHouse,   //Three of a kind and a pair.
+    RankFourOfaKind, //Four cards of the same value.
+    RankStraightFlush,//All cards are consecutive values of same suit.
+    RankRoyalFlush   //Ten, Jack, Queen, King, Ace, in same suit.
+};
+
 class CardConverter
 {
 public:
@@ -50,7 +65,8 @@ class Hand
 public:
     int add(Card card); // it will sort the card when adding
     int length();
-    
+    CardsRank HighestCards();
+
 private:
     std::vector<Card> _cards;
 };
