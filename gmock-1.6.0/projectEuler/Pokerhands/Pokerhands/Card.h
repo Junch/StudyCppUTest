@@ -63,12 +63,17 @@ private:
 class Hand
 {
 public:
+    Hand():_rank(RankNone), _num(0){}
     int add(Card card); // it will sort the card when adding
     int length();
-    CardsRank HighestCards();
+    CardsRank rank();
+    int       number();
+    void computeRank();
 
 private:
     std::vector<Card> _cards;
+    CardsRank _rank;
+    int       _num; // It represent the biggest num of the Rank.
 };
 
 class Game

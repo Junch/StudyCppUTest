@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 wolf76. All rights reserved.
 //
 //  http://projecteuler.net/problem=54
+//  http://www.pagat.com/poker/rules/ranking.html
 //  http://en.wikipedia.org/wiki/List_of_poker_hands
 //
 

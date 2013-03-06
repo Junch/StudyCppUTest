@@ -198,6 +198,24 @@ Hand::length()
     return (int)_cards.size();
 }
 
+CardsRank
+Hand::rank()
+{
+    return _rank;
+}
+
+int
+Hand::number()
+{
+    return _num;
+}
+
+void
+Hand::computeRank()
+{
+    
+}
+
 ////////////////////////////////////////
 //              Game
 ////////////////////////////////////////

@@ -60,6 +60,13 @@ TEST(Card, operatorEqual)
     EXPECT_TRUE(Card(2, SuitSpade) == Card(2, SuitSpade));
 }
 
+TEST(Card, operatorLittle)
+{
+    EXPECT_TRUE(Card(2, SuitSpade) < Card(14, SuitHeart));
+    EXPECT_FALSE(Card(14, SuitSpade) < Card(10, SuitSpade));
+    EXPECT_FALSE(Card(2, SuitSpade) < Card(2, SuitHeart));
+}
+
 TEST(Hand, add)
 {
     Hand hand;
@@ -69,11 +76,110 @@ TEST(Hand, add)
     EXPECT_EQ(2, hand.length());
 }
 
-TEST(Card, operatorLittle)
+TEST(Hand, computeRank_highcard)
 {
-    EXPECT_TRUE(Card(2, SuitSpade) < Card(14, SuitHeart));
-    EXPECT_FALSE(Card(14, SuitSpade) < Card(10, SuitSpade));
-    EXPECT_FALSE(Card(2, SuitSpade) < Card(2, SuitHeart));
+    // 7S 5S 9S JD KD
+    Hand hand;
+    hand.add(Card(7, SuitSpade));
+    hand.add(Card(5, SuitSpade));
+    hand.add(Card(9, SuitSpade));
+    hand.add(Card(11, SuitDiamond));
+    hand.add(Card(13, SuitDiamond));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankHighCard, hand.rank());
+    EXPECT_EQ(13, hand.number());
+}
+
+TEST(Hand, computeRank_onePair)
+{
+    // 5H 5C 6S 7S KD
+    Hand hand;
+    hand.add(Card(5,  SuitHeart));
+    hand.add(Card(5,  SuitClub));
+    hand.add(Card(6,  SuitSpade));
+    hand.add(Card(7,  SuitSpade));
+    hand.add(Card(13, SuitDiamond));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankOnePair, hand.rank());
+    EXPECT_EQ(5, hand.number());
+}
+
+TEST(Hand, computeRank_twoPairs)
+{
+    // 5H 5C 6S 6D KD
+    Hand hand;
+    hand.add(Card(5,  SuitHeart));
+    hand.add(Card(5,  SuitClub));
+    hand.add(Card(6,  SuitSpade));
+    hand.add(Card(6,  SuitDiamond));
+    hand.add(Card(13, SuitDiamond));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankTwoPairs, hand.rank());
+    EXPECT_EQ(6, hand.number());
+}
+
+TEST(Hand, computeRank_threeOfaKind)
+{
+    // 5H 5C 5S 6D KD
+    Hand hand;
+    hand.add(Card(5,  SuitHeart));
+    hand.add(Card(5,  SuitClub));
+    hand.add(Card(5,  SuitSpade));
+    hand.add(Card(6,  SuitDiamond));
+    hand.add(Card(13, SuitDiamond));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankThreeOfaKind, hand.rank());
+    EXPECT_EQ(5, hand.number());
+}
+
+TEST(Hand, computeRank_straight)
+{
+    // 3H 4C 5S 6D 7D
+    Hand hand;
+    hand.add(Card(3, SuitHeart));
+    hand.add(Card(4, SuitClub));
+    hand.add(Card(5, SuitSpade));
+    hand.add(Card(6, SuitDiamond));
+    hand.add(Card(7, SuitDiamond));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankStraight, hand.rank());
+    EXPECT_EQ(7, hand.number());
+}
+
+
+TEST(Hand, computeRank_flush)
+{
+    // 5H 5H 5H 6H KH
+    Hand hand;
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(6, SuitHeart));
+    hand.add(Card(13, SuitHeart));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankFlush, hand.rank());
+    EXPECT_EQ(13, hand.number());
+}
+
+TEST(Hand, computeRank_fullHouse)
+{
+    // 5H 5C 5D 9H 9S
+    Hand hand;
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(5, SuitClub));
+    hand.add(Card(5, SuitDiamond));
+    hand.add(Card(9, SuitHeart));
+    hand.add(Card(9, SuitSpade));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankFullHouse, hand.rank());
+    EXPECT_EQ(9, hand.number());
 }
 
 TEST(Game, run)
