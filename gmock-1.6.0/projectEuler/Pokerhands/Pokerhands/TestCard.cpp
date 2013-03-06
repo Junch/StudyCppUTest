@@ -151,7 +151,6 @@ TEST(Hand, computeRank_straight)
     EXPECT_EQ(7, hand.number());
 }
 
-
 TEST(Hand, computeRank_flush)
 {
     // 5H 5H 5H 6H KH
@@ -181,6 +180,124 @@ TEST(Hand, computeRank_fullHouse)
     EXPECT_EQ(RankFullHouse, hand.rank());
     EXPECT_EQ(9, hand.number());
 }
+
+TEST(Hand, computeRank_fourOfaKind)
+{
+    // 5H 5C 5S 5D KD
+    Hand hand;
+    hand.add(Card(5,  SuitHeart));
+    hand.add(Card(5,  SuitClub));
+    hand.add(Card(5,  SuitSpade));
+    hand.add(Card(5,  SuitDiamond));
+    hand.add(Card(13, SuitDiamond));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankFourOfaKind, hand.rank());
+    EXPECT_EQ(5, hand.number());
+}
+
+TEST(Hand, computeRank_straightFlush)
+{
+    // 3C 4C 5C 6C 7C
+    Hand hand;
+    hand.add(Card(3, SuitClub));
+    hand.add(Card(4, SuitClub));
+    hand.add(Card(5, SuitClub));
+    hand.add(Card(6, SuitClub));
+    hand.add(Card(7, SuitClub));
+    
+    hand.computeRank();
+    EXPECT_EQ(RankStraightFlush, hand.rank());
+    EXPECT_EQ(7, hand.number());
+}
+
+TEST(Hand, isFlush_True)
+{
+    // 5H 5H 5H 6H KH
+    Hand hand;
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(6, SuitHeart));
+    hand.add(Card(13, SuitHeart));
+    
+    EXPECT_TRUE(hand.isFlush());
+}
+
+TEST(Hand, isFlush_False)
+{
+    // 5H 5H 5H 6H KH
+    Hand hand;
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(6, SuitDiamond));
+    hand.add(Card(13, SuitHeart));
+    
+    EXPECT_FALSE(hand.isFlush());
+}
+
+TEST(Hand, isStraight_True)
+{
+    // 3C 4H 5S 6H 7D
+    Hand hand;
+    hand.add(Card(3, SuitClub));
+    hand.add(Card(4, SuitHeart));
+    hand.add(Card(5, SuitSpade));
+    hand.add(Card(6, SuitHeart));
+    hand.add(Card(7, SuitDiamond));
+    
+    EXPECT_TRUE(hand.isStraight());
+}
+
+TEST(Hand, isStraight_False)
+{
+    // 3C 4H 7S 8H 9D
+    Hand hand;
+    hand.add(Card(3, SuitClub));
+    hand.add(Card(4, SuitHeart));
+    hand.add(Card(7, SuitSpade));
+    hand.add(Card(8, SuitHeart));
+    hand.add(Card(9, SuitDiamond));
+    
+    EXPECT_FALSE(hand.isStraight());
+}
+
+TEST(Hand, longestSameCardsLength_3)
+{
+    // 3C 7H 7S 7H 9D
+    Hand hand;
+    hand.add(Card(3, SuitClub));
+    hand.add(Card(7, SuitHeart));
+    hand.add(Card(7, SuitSpade));
+    hand.add(Card(7, SuitHeart));
+    hand.add(Card(9, SuitDiamond));
+    
+    int cardNum;
+    int len = hand.longestSameCardsLength(cardNum);
+    
+    EXPECT_EQ(3, len);
+    EXPECT_EQ(7, cardNum);
+}
+
+TEST(Hand, longestSameCardsLength_1)
+{
+    // 3C 7H AS TH 9D
+    Hand hand;
+    hand.add(Card(3, SuitClub));
+    hand.add(Card(7, SuitHeart));
+    hand.add(Card(14, SuitSpade));
+    hand.add(Card(10, SuitHeart));
+    hand.add(Card(9, SuitDiamond));
+    
+    int cardNum;
+    int len = hand.longestSameCardsLength(cardNum);
+    
+    EXPECT_EQ(1, len);
+    EXPECT_EQ(14, cardNum);
+}
+
+
 
 TEST(Game, run)
 {

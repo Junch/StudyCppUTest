@@ -24,17 +24,16 @@ enum CardSuit
 
 enum CardsRank
 {
-    RankNone,        //Not ranked
-    RankHighCard,    //Highest value card.
-    RankOnePair,     //Two cards of the same value.
-    RankTwoPairs,    //Two different pairs.
-    RankThreeOfaKind,//Three cards of the same value.
-    RankStraight,    //All cards are consecutive values.
-    RankFlush,       //All cards of the same suit.
-    RankFullHouse,   //Three of a kind and a pair.
-    RankFourOfaKind, //Four cards of the same value.
+    RankNone,         //Not ranked
+    RankHighCard,     //Highest value card.
+    RankOnePair,      //Two cards of the same value.
+    RankTwoPairs,     //Two different pairs.
+    RankThreeOfaKind, //Three cards of the same value.
+    RankStraight,     //All cards are consecutive values.
+    RankFlush,        //All cards of the same suit.
+    RankFullHouse,    //Three of a kind and a pair.
+    RankFourOfaKind,  //Four cards of the same value.
     RankStraightFlush,//All cards are consecutive values of same suit.
-    RankRoyalFlush   //Ten, Jack, Queen, King, Ace, in same suit.
 };
 
 class CardConverter
@@ -50,10 +49,10 @@ class Card
 public:
     Card(int num, CardSuit suit);
     std::string toString();
-    int      number();
-    CardSuit suit();
-    bool operator == (const Card& val);
-    bool operator < (const Card& val);
+    int      number() const;
+    CardSuit suit() const;
+    bool operator == (const Card& val) const;
+    bool operator < (const Card& val) const;
     
 private:
     int      _num;
@@ -65,11 +64,15 @@ class Hand
 public:
     Hand():_rank(RankNone), _num(0){}
     int add(Card card); // it will sort the card when adding
-    int length();
-    CardsRank rank();
-    int       number();
+    int length() const;
+    CardsRank rank() const;
+    int       number()const;
     void computeRank();
-
+    
+    bool isFlush() const;
+    bool isStraight() const;
+    int  longestSameCardsLength(int& cardNum) const;
+    
 private:
     std::vector<Card> _cards;
     CardsRank _rank;
