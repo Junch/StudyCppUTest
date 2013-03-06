@@ -19,6 +19,8 @@ TEST(CardConverter, cardToString)
     CardConverter converter;
     EXPECT_STREQ("2D", converter.cardToString(Card(2, SuitDiamond)).c_str());
     EXPECT_STREQ("JS", converter.cardToString(Card(11, SuitSpade)).c_str());
+    EXPECT_STREQ("TH", converter.cardToString(Card(10, SuitHeart)).c_str());
+    EXPECT_STREQ("AC", converter.cardToString(Card(14, SuitClub)).c_str());
 }
 
 TEST(CardConverter, stringToCard)
@@ -28,6 +30,7 @@ TEST(CardConverter, stringToCard)
     EXPECT_TRUE(Card(2, SuitDiamond) == converter.stringToCard("2D"));
     EXPECT_TRUE(Card(10, SuitSpade) == converter.stringToCard("TS"));
     EXPECT_TRUE(Card(12, SuitClub) == converter.stringToCard("QC"));
+    EXPECT_TRUE(Card(14, SuitHeart) == converter.stringToCard("AH"));
 }
 
 TEST(CardConverter, stringToCards)
