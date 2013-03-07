@@ -352,8 +352,62 @@ TEST(Hand, longestSameCardsLength_1)
     EXPECT_EQ(14, cardNum);
 }
 
-TEST(Game, run)
+TEST(Hand, stringToHand)
 {
-    Game game;
-    game.run("poker.txt");
+    CardConverter converter;
+    Hand hand;
+    converter.stringToHand("7S 5S 9S JD KD", hand);
+    
+    hand.computeRank();
+    EXPECT_EQ(RankHighCard, hand.rank());
+    
+    std::vector<int> pts;
+    hand.points(pts);
+    ASSERT_EQ(5,  pts.size());
+    EXPECT_EQ(13, pts[0]);
+    EXPECT_EQ(11, pts[1]);
+    EXPECT_EQ(9,  pts[2]);
+    EXPECT_EQ(7,  pts[3]);
+    EXPECT_EQ(5,  pts[4]);
 }
+
+TEST(Hand, gt_test_OnePair)
+{
+    Hand hand1("5H 5C 6S 7S KD");
+    Hand hand2("2C 3S 8S 8D TD");
+    
+    EXPECT_TRUE(hand2 > hand1);
+}
+
+TEST(Hand, gt_test_highestcard)
+{
+    Hand hand1("5D 8C 9S JS AC");
+    Hand hand2("2C 5C 7D 8S QH");
+    
+    EXPECT_TRUE(hand1 > hand2);
+}
+
+TEST(Hand, gt_test_flush)
+{
+    Hand hand1("2D 9C AS AH AC");
+    Hand hand2("3D 6D 7D TD QD");
+    
+    EXPECT_TRUE(hand2 > hand1);
+}
+
+TEST(Hand, gt_test_twotimes)
+{
+    Hand hand1("4D 6S 9H QH QC");
+    Hand hand2("3D 6D 7H QD QS");
+    
+    EXPECT_TRUE(hand1 > hand2);
+}
+
+TEST(Hand, gt_test_fullhouse)
+{
+    Hand hand1("2H 2D 4C 4D 4S");
+    Hand hand2("3C 3D 3S 9S 9D");
+    
+    EXPECT_TRUE(hand1 > hand2);
+}
+

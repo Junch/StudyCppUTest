@@ -29,16 +29,19 @@ class Hand
 {
 public:
     Hand():_rank(RankNone){}
+    Hand(std::string str);
     int add(Card card); // it will sort the card when adding
     int length() const;
 
     CardsRank rank() const;
-    void      points(std::vector<int>& pts)const;
-    void      computeRank();
+    void    points(std::vector<int>& pts)const;
+    void    computeRank();
     
-    bool isFlush() const;
-    bool isStraight() const;
-    int  longestSameCardsLength(int& cardNum) const;
+    bool    isFlush() const;
+    bool    isStraight() const;
+    int     longestSameCardsLength(int& cardNum) const;
+    
+    bool    operator > (Hand& hand);
     
 private:
     int  longestSameCardsLength(const std::vector<Card>& cards, int& cardNum) const;

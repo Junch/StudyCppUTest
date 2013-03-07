@@ -11,9 +11,24 @@
 //
 
 #include <gtest/gtest.h>
+#include "Game.h"
+
+#define UNITTEST 0
+
+#if UNITTEST==1
 
 int main( int argc , const char * argv [])
 {
     testing::InitGoogleTest (&argc, (char **)argv);
     return RUN_ALL_TESTS();
 }
+
+#else
+
+int main( int argc , const char * argv [])
+{
+    Game game;
+    game.run("poker.txt");
+}
+
+#endif

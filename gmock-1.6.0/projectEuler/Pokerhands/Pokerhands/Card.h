@@ -28,6 +28,7 @@ public:
     std::string cardToString(Card c);
     Card stringToCard(std::string str);
     void stringToCards(std::string str, std::vector<Card>& cards);
+    void stringToHand(std::string str, Hand& hand);
 };
 
 class Card

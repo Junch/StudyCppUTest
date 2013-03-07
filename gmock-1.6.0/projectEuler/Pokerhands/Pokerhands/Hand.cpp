@@ -13,6 +13,12 @@
 //              Hand
 ////////////////////////////////////////
 
+Hand::Hand(std::string str): _rank(RankNone)
+{
+    CardConverter converter;
+    converter.stringToHand(str, *this);
+}
+
 int
 Hand::add(Card card)
 {
@@ -199,6 +205,41 @@ Hand::computeRank()
     }
     else
         throw std::logic_error("The longest card should be [1, 4]");
+}
+
+bool Hand:: operator > (Hand& hand)
+{
+    CardsRank rank1 = rank();
+    if (rank1 == RankNone) {
+        computeRank();
+        rank1 = rank();
+    }
+    
+    CardsRank rank2 = hand.rank();
+    if (rank2 == RankNone) {
+        hand.computeRank();
+        rank2 = hand.rank();
+    }
+    
+    if (rank1 > rank2)
+        return true;
+    
+    if (rank1 < rank2)
+        return false;
+    
+    std::vector<int> pts1;
+    points(pts1);
+    std::vector<int> pts2;
+    hand.points(pts2);
+    
+    for (int i=0; i<pts1.size(); ++i){
+        if (pts1[i] > pts2[i])
+        {
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 void

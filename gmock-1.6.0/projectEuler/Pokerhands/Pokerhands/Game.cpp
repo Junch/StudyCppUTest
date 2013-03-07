@@ -10,6 +10,7 @@
 #include "Hand.h"
 #include "Game.h"
 
+#include <iostream>
 #include <fstream>
 #include <stdexcept>
 
@@ -21,8 +22,13 @@ Game::run(std::string filename)
     {
         CardConverter converter;
         
+        int nCount = 0;
+        int total = 0;
+        
         for(std::string line; std::getline(file, line);)
         {
+            ++total;
+            
             std::vector<Card> cards;
             converter.stringToCards(line, cards);
             if (cards.size() == 10)
@@ -34,10 +40,18 @@ Game::run(std::string filename)
                     hand1.add(cards[i]);
                     hand2.add(cards[i+5]);
                 }
+                
+                if (hand1 > hand2)
+                    ++nCount;
             }
             else{
                 throw std::runtime_error("The size is not correct");
             }
         }
+        
+        std::cout << "Total=" << total << "  winning=" << nCount <<std::endl;
+    }
+    else{
+        std::cout << "Fail to open the file:" << filename << std::endl;
     }
 }

@@ -7,6 +7,7 @@
 //
 
 #include "Card.h"
+#include "Hand.h"
 #include <stdexcept>
 #include <cassert>
 #include <sstream>
@@ -132,6 +133,16 @@ CardConverter::stringToCards(std::string str, std::vector<Card> &cards)
         Card card = stringToCard(sub);
         cards.push_back(card);
     }
+}
+
+void
+CardConverter::stringToHand(std::string str, Hand& hand)
+{
+    std::vector<Card> cards;
+    stringToCards(str, cards);
+    
+    for (int i=0; i<cards.size(); i++)
+        hand.add(cards[i]);
 }
 
 ////////////////////////////////////////
