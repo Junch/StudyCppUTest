@@ -28,12 +28,11 @@ enum CardsRank
 class Hand
 {
 public:
-    Hand():_rank(RankNone), _num(0){}
+    Hand():_rank(RankNone){}
     int add(Card card); // it will sort the card when adding
     int length() const;
 
     CardsRank rank() const;
-    int       number()const;
     void      points(std::vector<int>& pts)const;
     void      computeRank();
     
@@ -46,7 +45,6 @@ private:
     
     std::vector<Card> _cards;
     CardsRank _rank;
-    int       _num; // It represent the biggest num of the Rank.
     std::vector<int> _points;
 };
 

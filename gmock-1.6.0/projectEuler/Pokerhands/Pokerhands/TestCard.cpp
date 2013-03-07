@@ -90,7 +90,6 @@ TEST(Hand, computeRank_highcard)
     
     hand.computeRank();
     EXPECT_EQ(RankHighCard, hand.rank());
-    EXPECT_EQ(13, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -114,7 +113,6 @@ TEST(Hand, computeRank_onePair)
     
     hand.computeRank();
     EXPECT_EQ(RankOnePair, hand.rank());
-    EXPECT_EQ(5, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -137,7 +135,6 @@ TEST(Hand, computeRank_twoPairs)
     
     hand.computeRank();
     EXPECT_EQ(RankTwoPairs, hand.rank());
-    EXPECT_EQ(6, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -159,7 +156,6 @@ TEST(Hand, computeRank_threeOfaKind)
     
     hand.computeRank();
     EXPECT_EQ(RankThreeOfaKind, hand.rank());
-    EXPECT_EQ(5, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -181,7 +177,6 @@ TEST(Hand, computeRank_straight)
     
     hand.computeRank();
     EXPECT_EQ(RankStraight, hand.rank());
-    EXPECT_EQ(7, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -201,7 +196,6 @@ TEST(Hand, computeRank_flush)
     
     hand.computeRank();
     EXPECT_EQ(RankFlush, hand.rank());
-    EXPECT_EQ(13, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -225,7 +219,6 @@ TEST(Hand, computeRank_fullHouse)
     
     hand.computeRank();
     EXPECT_EQ(RankFullHouse, hand.rank());
-    EXPECT_EQ(5, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -246,7 +239,6 @@ TEST(Hand, computeRank_fourOfaKind)
     
     hand.computeRank();
     EXPECT_EQ(RankFourOfaKind, hand.rank());
-    EXPECT_EQ(5, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
@@ -267,7 +259,6 @@ TEST(Hand, computeRank_straightFlush)
     
     hand.computeRank();
     EXPECT_EQ(RankStraightFlush, hand.rank());
-    EXPECT_EQ(7, hand.number());
     
     std::vector<int> pts;
     hand.points(pts);
