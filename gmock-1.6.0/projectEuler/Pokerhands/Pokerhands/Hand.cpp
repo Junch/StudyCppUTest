@@ -121,11 +121,17 @@ Hand::computeRank()
         if (bFlush && bStraight) {
             _rank = RankStraightFlush;
             _num = _cards[0].number();
+
+            _points.push_back(_cards[0].number());
             return;
         }
         
         if (bFlush && !bStraight){
             _rank = RankFlush;
+            
+            for (size_t i=0, len=_cards.size(); i<len; i++)
+                _points.push_back(_cards[i].number());
+
             _num = _cards[0].number();
             return;
         }
@@ -133,37 +139,87 @@ Hand::computeRank()
         if(!bFlush && bStraight){
             _rank = RankStraight;
             _num = _cards[0].number();
+            
+            _points.push_back(_cards[0].number());
             return;
         }
         
         int cardNum = 0;
         int length = longestSameCardsLength(cardNum);
         if (length == 4)
+        {
             _rank = RankFourOfaKind;
+            
+            _points.push_back(cardNum);
+            for (size_t i=0, len=_cards.size(); i<len; i++)
+            {
+                if (_cards[i].number() != cardNum)
+                {
+                    _points.push_back(_cards[i].number());
+                    break;
+                }
+            }
+        }
         else if(length == 3 ||length == 2)
         {
-            std::vector<Card> cards = _cards;
-            for (std::vector<Card>::iterator iter = cards.begin(); iter != cards.end();)
+            std::vector<Card> cardsLeft = _cards;
+            for (std::vector<Card>::iterator iter = cardsLeft.begin();
+                 iter != cardsLeft.end();)
             {
                 if (iter->number() == cardNum)
-                    cards.erase(iter);
+                    cardsLeft.erase(iter);
                 else
                     ++iter;
             }
             
             int nextCardNum = 0;
-            int nextLength = longestSameCardsLength(cards, nextCardNum);
+            int nextLength = longestSameCardsLength(cardsLeft, nextCardNum);
             
             if (nextLength == 2)
                 _rank = (length == 3)? RankFullHouse : RankTwoPairs;
             else
                 _rank = (length == 3)? RankThreeOfaKind : RankOnePair;
+            
+            _points.push_back(cardNum);
+            switch (_rank) {
+                case RankFullHouse:
+                case RankTwoPairs:
+                {
+                    _points.push_back(nextCardNum);
+                    
+                    for (size_t i=0, len=cardsLeft.size(); i<len; i++)
+                    {
+                        if (cardsLeft[i].number() != nextCardNum)
+                            _points.push_back(cardsLeft[i].number());
+                    }
+                    break;
+                }
+                case RankThreeOfaKind:
+                case RankOnePair:
+                {
+                    for (size_t i=0, len=cardsLeft.size(); i<len; i++)
+                        _points.push_back(cardsLeft[i].number());
+                    break;
+                }
+                default:
+                    break;
+            }           
         }
         else if ( length == 1)
+        {
             _rank = RankHighCard;
+            for (size_t i=0, len=_cards.size(); i<len; i++)
+                _points.push_back(_cards[i].number());
+        }
         else
             throw std::logic_error("The longest card should be [1, 4]");
     
         _num  = cardNum;  
     }
+}
+
+void
+Hand::points(std::vector<int>& pts)const
+{
+    pts = _points;
 }

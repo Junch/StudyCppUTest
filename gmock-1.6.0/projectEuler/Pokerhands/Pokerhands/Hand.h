@@ -31,9 +31,11 @@ public:
     Hand():_rank(RankNone), _num(0){}
     int add(Card card); // it will sort the card when adding
     int length() const;
+
     CardsRank rank() const;
     int       number()const;
-    void computeRank();
+    void      points(std::vector<int>& pts)const;
+    void      computeRank();
     
     bool isFlush() const;
     bool isStraight() const;
@@ -45,6 +47,7 @@ private:
     std::vector<Card> _cards;
     CardsRank _rank;
     int       _num; // It represent the biggest num of the Rank.
+    std::vector<int> _points;
 };
 
 #endif /* defined(__Pokerhands__Hand__) */
