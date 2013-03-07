@@ -377,6 +377,7 @@ TEST(Hand, gt_test_OnePair)
     Hand hand2("2C 3S 8S 8D TD");
     
     EXPECT_TRUE(hand2 > hand1);
+    EXPECT_FALSE(hand1 > hand2);
 }
 
 TEST(Hand, gt_test_highestcard)
@@ -385,6 +386,7 @@ TEST(Hand, gt_test_highestcard)
     Hand hand2("2C 5C 7D 8S QH");
     
     EXPECT_TRUE(hand1 > hand2);
+    EXPECT_FALSE(hand2 > hand1);
 }
 
 TEST(Hand, gt_test_flush)
@@ -393,6 +395,7 @@ TEST(Hand, gt_test_flush)
     Hand hand2("3D 6D 7D TD QD");
     
     EXPECT_TRUE(hand2 > hand1);
+    EXPECT_FALSE(hand1 > hand2);
 }
 
 TEST(Hand, gt_test_twotimes)
@@ -401,6 +404,7 @@ TEST(Hand, gt_test_twotimes)
     Hand hand2("3D 6D 7H QD QS");
     
     EXPECT_TRUE(hand1 > hand2);
+    EXPECT_FALSE(hand2 > hand1);
 }
 
 TEST(Hand, gt_test_fullhouse)
@@ -409,5 +413,6 @@ TEST(Hand, gt_test_fullhouse)
     Hand hand2("3C 3D 3S 9S 9D");
     
     EXPECT_TRUE(hand1 > hand2);
+    EXPECT_FALSE(hand2 > hand1);
 }
 
