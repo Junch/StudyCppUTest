@@ -76,18 +76,23 @@ Hand::isStraight() const
 int
 Hand::longestSameCardsLength(int& cardNum) const
 {
+    return longestSameCardsLength(_cards, cardNum);
+}
+
+int
+Hand::longestSameCardsLength(const std::vector<Card>& cards, int& cardNum) const
+{
     int maxLen = 0;
     
-    int i = 0;
-    int j = 0;
-    int size = (int)_cards.size();
+    int i = 0, j = 0;
+    int size = (int)cards.size();
     
     while (i < size)
     {
         int len = 1;
         
         j = i + 1;
-        while (j < size && _cards[i] == _cards[j])
+        while (j < size && cards[i] == _cards[j])
         {
             ++len;
             ++j;
@@ -96,7 +101,7 @@ Hand::longestSameCardsLength(int& cardNum) const
         if (len > maxLen)
         {
             maxLen = len;
-            cardNum = _cards[i].number();
+            cardNum = cards[i].number();
         }
         
         i = j;

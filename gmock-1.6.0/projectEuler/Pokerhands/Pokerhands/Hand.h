@@ -40,6 +40,8 @@ public:
     int  longestSameCardsLength(int& cardNum) const;
     
 private:
+    int  longestSameCardsLength(const std::vector<Card>& cards, int& cardNum) const;
+    
     std::vector<Card> _cards;
     CardsRank _rank;
     int       _num; // It represent the biggest num of the Rank.
