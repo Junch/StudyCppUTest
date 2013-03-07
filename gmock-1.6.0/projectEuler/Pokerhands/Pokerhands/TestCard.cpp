@@ -180,7 +180,7 @@ TEST(Hand, computeRank_fullHouse)
     
     hand.computeRank();
     EXPECT_EQ(RankFullHouse, hand.rank());
-    EXPECT_EQ(9, hand.number());
+    EXPECT_EQ(5, hand.number());
 }
 
 TEST(Hand, computeRank_fourOfaKind)

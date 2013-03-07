@@ -92,7 +92,7 @@ Hand::longestSameCardsLength(const std::vector<Card>& cards, int& cardNum) const
         int len = 1;
         
         j = i + 1;
-        while (j < size && cards[i] == _cards[j])
+        while (j < size && cards[i] == cards[j])
         {
             ++len;
             ++j;
@@ -140,15 +140,24 @@ Hand::computeRank()
         int length = longestSameCardsLength(cardNum);
         if (length == 4)
             _rank = RankFourOfaKind;
-        else if(length == 3)
+        else if(length == 3 ||length == 2)
         {
-            //TODO: it maybe is a full house.
-            _rank = RankThreeOfaKind;
-        }
-        else if( length == 2)
-        {
-            //TODO: it maybe is a two pairs.
-            _rank = RankOnePair;
+            std::vector<Card> cards = _cards;
+            for (std::vector<Card>::iterator iter = cards.begin(); iter != cards.end();)
+            {
+                if (iter->number() == cardNum)
+                    cards.erase(iter);
+                else
+                    ++iter;
+            }
+            
+            int nextCardNum = 0;
+            int nextLength = longestSameCardsLength(cards, nextCardNum);
+            
+            if (nextLength == 2)
+                _rank = (length == 3)? RankFullHouse : RankTwoPairs;
+            else
+                _rank = (length == 3)? RankThreeOfaKind : RankOnePair;
         }
         else if ( length == 1)
             _rank = RankHighCard;
