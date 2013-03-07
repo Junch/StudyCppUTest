@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8E7D281B16E5F1A90070D83D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D281A16E5F1A90070D83D /* main.cpp */; };
-		8E7D281D16E5F1A90070D83D /* Pokerhands.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E7D281C16E5F1A90070D83D /* Pokerhands.1 */; };
 		8E7D282516E5F20C0070D83D /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D282316E5F20C0070D83D /* Card.cpp */; };
 		8E7D282A16E5F2950070D83D /* gmock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7D282916E5F2940070D83D /* gmock.a */; };
 		8E7D282D16E5F89E0070D83D /* TestCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D282B16E5F89D0070D83D /* TestCard.cpp */; };
+		8E93E36816E831C70023A267 /* Hand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E93E36616E831C70023A267 /* Hand.cpp */; };
+		8E93E36B16E8338B0023A267 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E93E36916E8338B0023A267 /* Game.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,7 +22,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				8E7D281D16E5F1A90070D83D /* Pokerhands.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -30,11 +30,14 @@
 /* Begin PBXFileReference section */
 		8E7D281716E5F1A90070D83D /* Pokerhands */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pokerhands; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7D281A16E5F1A90070D83D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8E7D281C16E5F1A90070D83D /* Pokerhands.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Pokerhands.1; sourceTree = "<group>"; };
 		8E7D282316E5F20C0070D83D /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
 		8E7D282416E5F20C0070D83D /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		8E7D282916E5F2940070D83D /* gmock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = gmock.a; path = ../../lib/gmock.a; sourceTree = "<group>"; };
 		8E7D282B16E5F89D0070D83D /* TestCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCard.cpp; sourceTree = "<group>"; };
+		8E93E36616E831C70023A267 /* Hand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Hand.cpp; sourceTree = "<group>"; };
+		8E93E36716E831C70023A267 /* Hand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hand.h; sourceTree = "<group>"; };
+		8E93E36916E8338B0023A267 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		8E93E36A16E8338B0023A267 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +73,23 @@
 			isa = PBXGroup;
 			children = (
 				8E7D281A16E5F1A90070D83D /* main.cpp */,
-				8E7D281C16E5F1A90070D83D /* Pokerhands.1 */,
 				8E7D282316E5F20C0070D83D /* Card.cpp */,
 				8E7D282416E5F20C0070D83D /* Card.h */,
-				8E7D282B16E5F89D0070D83D /* TestCard.cpp */,
+				8E93E36616E831C70023A267 /* Hand.cpp */,
+				8E93E36716E831C70023A267 /* Hand.h */,
+				8E93E36916E8338B0023A267 /* Game.cpp */,
+				8E93E36A16E8338B0023A267 /* Game.h */,
+				8E93E36C16E8365E0023A267 /* test */,
 			);
 			path = Pokerhands;
+			sourceTree = "<group>";
+		};
+		8E93E36C16E8365E0023A267 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				8E7D282B16E5F89D0070D83D /* TestCard.cpp */,
+			);
+			name = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +146,8 @@
 				8E7D281B16E5F1A90070D83D /* main.cpp in Sources */,
 				8E7D282516E5F20C0070D83D /* Card.cpp in Sources */,
 				8E7D282D16E5F89E0070D83D /* TestCard.cpp in Sources */,
+				8E93E36816E831C70023A267 /* Hand.cpp in Sources */,
+				8E93E36B16E8338B0023A267 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +254,7 @@
 				8E7D282216E5F1A90070D83D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

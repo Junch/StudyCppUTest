@@ -9,6 +9,12 @@
 #ifndef __Pokerhands__Game__
 #define __Pokerhands__Game__
 
-#include <iostream>
+#include <string>
+
+class Game
+{
+public:
+    void run(std::string filename);
+};
 
 #endif /* defined(__Pokerhands__Game__) */

@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 wolf76. All rights reserved.
 //
 
-#include "Card.h"
 #include <gtest/gtest.h>
+#include "Card.h"
+#include "Hand.h"
+#include "Game.h"
 
 #include <iostream>
 #include <sstream>
@@ -296,8 +298,6 @@ TEST(Hand, longestSameCardsLength_1)
     EXPECT_EQ(1, len);
     EXPECT_EQ(14, cardNum);
 }
-
-
 
 TEST(Game, run)
 {
