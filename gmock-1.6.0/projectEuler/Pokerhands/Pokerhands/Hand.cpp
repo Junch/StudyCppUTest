@@ -7,6 +7,7 @@
 //
 
 #include "Hand.h"
+#include <stdexcept>
 
 ////////////////////////////////////////
 //              Hand
@@ -130,6 +131,25 @@ Hand::computeRank()
             return;
         }
         
-        // TODO
+        int cardNum = 0;
+        int length = longestSameCardsLength(cardNum);
+        if (length == 4)
+            _rank = RankFourOfaKind;
+        else if(length == 3)
+        {
+            //TODO: it maybe is a full house.
+            _rank = RankThreeOfaKind;
+        }
+        else if( length == 2)
+        {
+            //TODO: it maybe is a two pairs.
+            _rank = RankOnePair;
+        }
+        else if ( length == 1)
+            _rank = RankHighCard;
+        else
+            throw std::logic_error("The longest card should be [1, 4]");
+    
+        _num  = cardNum;  
     }
 }
