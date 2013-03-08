@@ -42,4 +42,6 @@ def getNumber(a, b):
                 ret = [number, i, j]
     return ret
 
+print ("Problem 4: Largest palindrome product")
+print ('-'*30)
 print getNumber(101, 1000)
