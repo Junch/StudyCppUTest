@@ -15,7 +15,7 @@
 
 #define UNITTEST 1
 
-#if UNITTEST==1
+#if UNITTEST
 
 int main( int argc , const char * argv [])
 {
