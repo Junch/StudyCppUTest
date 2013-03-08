@@ -8,6 +8,7 @@
 
 #include "Hand.h"
 #include <stdexcept>
+#include <cassert>
 
 ////////////////////////////////////////
 //              Hand
@@ -66,7 +67,7 @@ Hand::isStraight() const
         return false;
     
     for (int i=1; i<len; i++) {
-        if ( _cards[i].number() < _cards[i-1].number() - 1)
+        if ( _cards[i].number() != _cards[i-1].number() - 1)
             return false;
     }
     
@@ -113,6 +114,8 @@ Hand::longestSameCardsLength(const std::vector<Card>& cards, int& cardNum) const
 void
 Hand::computeRank()
 {
+    _points.clear();
+    
     bool bFlush = isFlush();
     bool bStraight = isStraight();
     
@@ -234,12 +237,12 @@ bool Hand:: operator > (Hand& hand)
     
     for (int i=0; i<pts1.size(); ++i){
         if (pts1[i] > pts2[i])
-        {
             return true;
-        }
+        if (pts1[i] < pts2[i])
+            return false;
     }
     
-    return false;
+    return false; // They are just equal
 }
 
 void

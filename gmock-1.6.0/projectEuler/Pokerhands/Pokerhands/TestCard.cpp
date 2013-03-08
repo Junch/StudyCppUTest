@@ -307,6 +307,19 @@ TEST(Hand, isStraight_True)
 
 TEST(Hand, isStraight_False)
 {
+    // 3C 4H 5S 6H 7D
+    Hand hand;
+    hand.add(Card(3, SuitClub));
+    hand.add(Card(3, SuitHeart));
+    hand.add(Card(4, SuitSpade));
+    hand.add(Card(5, SuitHeart));
+    hand.add(Card(6, SuitDiamond));
+    
+    EXPECT_FALSE(hand.isStraight());
+}
+
+TEST(Hand, isStraight_False2)
+{
     // 3C 4H 7S 8H 9D
     Hand hand;
     hand.add(Card(3, SuitClub));
@@ -416,3 +429,21 @@ TEST(Hand, gt_test_fullhouse)
     EXPECT_FALSE(hand2 > hand1);
 }
 
+
+TEST(Hand, gt_test_equal)
+{
+    Hand hand1("2H 2D 4C 4D 4S");
+    Hand hand2("2H 2D 4C 4D 4S");
+    
+    EXPECT_FALSE(hand1 > hand2);
+    EXPECT_FALSE(hand2 > hand1);
+}
+
+TEST(Hand, gt_test_equal_hightestcard)
+{
+    Hand hand1("7S 5S 9S JD KD");
+    Hand hand2("7S 5S 9S JD KD");
+    
+    EXPECT_FALSE(hand2 > hand1);
+    EXPECT_FALSE(hand1 > hand2);
+}

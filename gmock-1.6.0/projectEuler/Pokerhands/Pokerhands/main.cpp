@@ -13,7 +13,7 @@
 #include <gtest/gtest.h>
 #include "Game.h"
 
-#define UNITTEST 1
+#define UNITTEST 0
 
 #if UNITTEST
 
