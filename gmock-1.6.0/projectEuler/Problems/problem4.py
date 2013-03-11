@@ -16,7 +16,10 @@ def isPalindrome(n):
     while True:
         a = n % 10
         digits.append(a)
-        b = n / 10
+        # To support python 3, it is updated
+        # This code could also run in python 2.7
+        # http://blog.csdn.net/fhd001/article/details/6969864
+        b = n // 10
         if (b == 0):
             break
         n = b

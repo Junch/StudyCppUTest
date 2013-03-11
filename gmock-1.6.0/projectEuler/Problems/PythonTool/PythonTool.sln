@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "problem10", "problem10\problem10.pyproj", "{BDDDC150-4DC6-411B-A4BD-7E083528BAC8}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "problem20", "problem20\problem20.pyproj", "{D19BED66-2E99-43ED-86E8-473102EC7E7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDDDC150-4DC6-411B-A4BD-7E083528BAC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDDDC150-4DC6-411B-A4BD-7E083528BAC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D19BED66-2E99-43ED-86E8-473102EC7E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D19BED66-2E99-43ED-86E8-473102EC7E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
