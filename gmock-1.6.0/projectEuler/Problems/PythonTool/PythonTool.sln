@@ -11,8 +11,6 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "problem14", "problem14\prob
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "problem15", "problem15\problem15.pyproj", "{F816BFB2-83B7-4706-9C5C-0E782952D6D0}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Euler", "Euler\Euler.pyproj", "{FA0C7B81-D633-4160-B4DB-E233DEE37DCE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +27,6 @@ Global
 		{0CEE9C6F-1918-44E2-8AF5-3017582A7971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F816BFB2-83B7-4706-9C5C-0E782952D6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F816BFB2-83B7-4706-9C5C-0E782952D6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA0C7B81-D633-4160-B4DB-E233DEE37DCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA0C7B81-D633-4160-B4DB-E233DEE37DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
