@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E00CF7917ACF6D500F281A3 /* main.cpp */; };
 		8E00CF7C17ACF6D500F281A3 /* interview1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E00CF7B17ACF6D500F281A3 /* interview1.1 */; };
+		8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D99CB17AE58220066B634 /* bitree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		8E00CF7617ACF6D500F281A3 /* interview1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = interview1; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E00CF7917ACF6D500F281A3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8E00CF7B17ACF6D500F281A3 /* interview1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = interview1.1; sourceTree = "<group>"; };
+		8E5D99CB17AE58220066B634 /* bitree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bitree.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				8E00CF7917ACF6D500F281A3 /* main.cpp */,
 				8E00CF7B17ACF6D500F281A3 /* interview1.1 */,
+				8E5D99CB17AE58220066B634 /* bitree.cpp */,
 			);
 			path = interview1;
 			sourceTree = "<group>";
@@ -118,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */,
+				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +224,7 @@
 				8E00CF8117ACF6D500F281A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
