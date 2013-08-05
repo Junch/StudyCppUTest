@@ -34,8 +34,8 @@ void inverseCopy(char* src, char* dest)
 
 TEST(TestGroup1, inverseCopy1)
 {
-    char * s1 = "hello world";
-    char * s2 = "world hello";
+    char s1[] = "hello world";
+    char s2[] = "world hello";
        
     char *s = new char[strlen(s1) + 1];
     inverseCopy(s1, s);
@@ -46,8 +46,8 @@ TEST(TestGroup1, inverseCopy1)
 
 TEST(TestGroup1, inverseCopy2)
 {
-    char* s1 ="hello  world ";
-    char* s2 =" world  hello";
+    char s1[] ="hello  world ";
+    char s2[] =" world  hello";
     char* s = new char[strlen(s1) + 1];
     inverseCopy(s1, s);
     
@@ -57,8 +57,8 @@ TEST(TestGroup1, inverseCopy2)
 
 TEST(TestGroup1, inverseCopy3)
 {
-    char* s1 ="  hello  world";
-    char* s2 ="world  hello  ";
+    char s1[] ="  hello  world";
+    char s2[] ="world  hello  ";
     char* s = new char[strlen(s1) + 1];
     inverseCopy(s1, s);
     

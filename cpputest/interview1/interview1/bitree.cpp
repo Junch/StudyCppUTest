@@ -39,6 +39,18 @@ void DestoryBiTree(BiTree T) // PostOrder
     }
 }
 
+int DepthBiTree(BiTree T)
+{
+    if (!T)
+        return 0;
+    
+    int ld = DepthBiTree(T->lchild);
+    int rd = DepthBiTree(T->rchild);
+    
+    int length = (ld > rd)? ld + 1: rd + 1;
+    return length;
+}
+
 static char buffer[1024];
 static int charnum = 0;
 void Print(BiTNode * elem)
@@ -57,6 +69,10 @@ void PreOrderTraverse(BiTree T, void (Visit)(BiTNode *))
         PreOrderTraverse(T->rchild, Visit);
     }
 }
+
+//////////////////////////////////////////
+// TEST
+//////////////////////////////////////////
 
 TEST(BiTree, CreateBiTree)
 {
@@ -84,5 +100,22 @@ TEST(BiTree, CreateBiTree2)
     DestoryBiTree(T);
     
     STRCMP_EQUAL("abcd", buffer);
+}
+
+TEST(BiTree, DepthBiTree)
+{
+    BiTree T = NULL;
+    char p[] = "abd   ce g  f  ";
+    int n = 0;
+    CreateBiTree((T), p, n);
+    
+    charnum = 0;
+    PreOrderTraverse(T, Print);
+    STRCMP_EQUAL("abdcegf", buffer);
+    
+    int depth = DepthBiTree(T);
+    LONGS_EQUAL(4, depth);
+    
+    DestoryBiTree(T);
 }
 
