@@ -1,4 +1,4 @@
-#include <CppUTest/CommandLineTestRunner.h>
+#include <CppUTest/TestHarness.h>
 #include <cassert>
 
 TEST_GROUP(BiTree)
