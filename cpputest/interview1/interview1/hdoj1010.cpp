@@ -14,6 +14,7 @@ using namespace std;
 
 const int MAX = 7;
 char maze[MAX][MAX];
+int dirs[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
 bool flag[MAX][MAX];
 
 struct Position {
@@ -82,39 +83,29 @@ bool survive(int n, int m, int t)
         int y = pos.y;
 
         //Get the next position
-        int newx = x;
-        int newy = y;
         int dir = pos.dir;
-        bool bFoundNextStep = false;
+        bool bFoundNextStep = false; 
         while (dir < 4 && !bFoundNextStep)
         {
-            newx = x;// Initialize it each time
-            newy = y;
-            
-            if (dir == 0)
-                newx += 1;
-            else if (dir==1)
-                newy += 1;
-            else if (dir==2)
-                newx -= 1;
-            else if (dir==3)
-                newy -= 1;
+            int newx = x + dirs[dir][0];// Initialize it each time
+            int newy = y + dirs[dir][1];
             
             PosState state = getPosState(newx, newy, n, m, t, (int)s.size());
             if (state == bSucceed)
                 return true;
-            else if (state == bGreen)
+            else if (state == bGreen){
                 bFoundNextStep = true;
+                
+                pos.dir = dir + 1; // Next direction to step
+                Position nextPos = {newx,newy,0};
+                s.push(nextPos);
+                flag[newy][newx] = true;
+            }
             else
                 dir += 1;
         }
         
-        if (bFoundNextStep) {
-            pos.dir = dir + 1; // Next direction to step
-            Position nextPos = {newx,newy,0};
-            s.push(nextPos);
-            flag[newy][newx] = true;
-        } else {
+        if (!bFoundNextStep) {
             flag[y][x] = false;
             s.pop(); // Cannot found the steps
         }
@@ -140,7 +131,6 @@ int HDOJ1010(int argc, char* argv[])
     
     return 0;
 }
-
 
 void print(int n, int m) // n->row, m->col
 {
