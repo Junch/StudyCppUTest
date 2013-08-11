@@ -15,7 +15,6 @@ using namespace std;
 const int MAX = 7;
 char maze[MAX][MAX];
 int dirs[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
-bool flag[MAX][MAX];
 
 struct Position {
     int x;
@@ -47,22 +46,14 @@ PosState getPosState(int x, int y, int n, int m, int t, int steps)
     if (maze[y][x] == 'S'  ||
         maze[y][x] == 'X')
         return bRed;
-    
-    if(flag[y][x]) // it has been used previously
-        return bRed;
-    
+       
     return bGreen;
 }
 
 bool survive(int n, int m, int t)
 {
     assert(n<MAX && m<MAX && n>1 && m>1);
-    
-    // Set the flags
-    for(int i=0; i<n; ++i)
-        for (int j=0; j<m; ++j)
-            flag[i][j] = false;
-    
+        
     // Get the S position
     int sx,sy;
     for(int i=0; i<n; ++i)
@@ -75,7 +66,6 @@ bool survive(int n, int m, int t)
     Position start = {sx, sy, 0};
     stack<Position> s;
     s.push(start);
-    flag[sy][sx] = true;
     
     while (!s.empty()) {
         Position& pos = s.top();
@@ -99,14 +89,14 @@ bool survive(int n, int m, int t)
                 pos.dir = dir + 1; // Next direction to step
                 Position nextPos = {newx,newy,0};
                 s.push(nextPos);
-                flag[newy][newx] = true;
+                maze[newy][newx] = 'X';
             }
             else
                 dir += 1;
         }
         
         if (!bFoundNextStep) {
-            flag[y][x] = false;
+            maze[y][x] = '.';
             s.pop(); // Cannot found the steps
         }
     }
