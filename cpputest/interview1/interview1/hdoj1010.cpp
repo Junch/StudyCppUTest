@@ -19,8 +19,10 @@ int dirs[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
 struct Position {
     int x;
     int y;
-    int dir; //-1,0,1,2,3,E,S,W,N
+    int dir; //0,1,2,3,E,S,W,N
 };
+
+int sx,sy,dx,dy;
 
 enum PosState {
     bSucceed,
@@ -32,10 +34,11 @@ PosState getPosState(int x, int y, int n, int m, int t, int steps)
 {
     if(x<0 || x>= m || y <0 || y>=n)
         return bRed;
-   
-    if (steps > t)
+    
+    int temp = t - steps - abs(x-dx) - abs(y-dy);
+    if (temp<0 || temp & 1)
         return bRed;
-   
+    
     if(maze[y][x] == 'D'){
         if (steps == t)
             return bSucceed;
@@ -53,15 +56,10 @@ PosState getPosState(int x, int y, int n, int m, int t, int steps)
 bool survive(int n, int m, int t)
 {
     assert(n<MAX && m<MAX && n>1 && m>1);
-        
-    // Get the S position
-    int sx,sy;
-    for(int i=0; i<n; ++i)
-        for (int j=0; j<m; ++j)
-            if (maze[i][j] == 'S'){
-                sx=j,sy=i;
-                break;
-            }
+
+    int temp = t - abs(sx-sy) - abs(dx-dy);
+    if (temp<0 || temp & 1)
+        return false;
 
     Position start = {sx, sy, 0};
     stack<Position> s;
@@ -77,7 +75,7 @@ bool survive(int n, int m, int t)
         bool bFoundNextStep = false; 
         while (dir < 4 && !bFoundNextStep)
         {
-            int newx = x + dirs[dir][0];// Initialize it each time
+            int newx = x + dirs[dir][0];
             int newy = y + dirs[dir][1];
             
             PosState state = getPosState(newx, newy, n, m, t, (int)s.size());
@@ -107,16 +105,22 @@ bool survive(int n, int m, int t)
 int HDOJ1010(int argc, char* argv[])
 {
     int n,m,t;
-    cin >> n >> m >> t;
-    while (n !=0 && m != 0)
+    while (cin>>n>>m>>t)
     {
+        if( n==0 && m==0 && t==0 )
+            break;
+        
         for (int i=0; i<n; ++i)
-            for (int j=0;j<m; ++j)
+            for (int j=0;j<m; ++j) {
                 cin >> maze[i][j];
+                if(maze[i][j]=='S')
+                    sx=j,sy=i;
+                else if (maze[i][j]=='D')
+                    dx=j,dy=i;
+            }
         
         bool ret = survive(n, m, t);
         cout << (ret? "YES" : "NO") << endl;
-        cin >> n >> m >> t;
     }
     
     return 0;
@@ -159,6 +163,8 @@ TEST(HDOJ1010, surviveYES)
             maze[i][j] = '.';
     
     int n = 3, m = 4;
+    sx=sy=0;
+    dx=3,dy=2;
     
     maze[0][0] = 'S';
     maze[2][3] = 'D';
@@ -177,6 +183,8 @@ TEST(HDOJ1010, surviveNO)
             maze[i][j] = '.';
     
     int n = 4, m = 4;
+    sx=sy=0;
+    dx=3,dy=2;
     
     maze[0][0] = 'S';
     maze[2][3] = 'D';
@@ -186,4 +194,24 @@ TEST(HDOJ1010, surviveNO)
     
     bool ret = survive(n, m, 5);
     CHECK_FALSE(ret);
+}
+
+TEST(HDOJ1010, surviveYES2)
+{
+    for(int i=0; i<MAX; ++i)
+        for (int j=0; j<MAX; ++j)
+            maze[i][j] = '.';
+    
+    int n = 4, m = 4;
+    sx=sy=0;
+    dx=3,dy=2;
+    
+    maze[0][0] = 'S';
+    maze[2][3] = 'D';
+    maze[0][2] = maze[1][2] = maze[2][2] = 'X';
+    
+    print(n, m);
+    
+    bool ret = survive(n, m, 7);
+    CHECK_TRUE(ret);
 }
