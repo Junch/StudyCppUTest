@@ -9,7 +9,7 @@ void inverseCopy(char* src, char* dest)
 {
     assert(src != NULL && dest != NULL);
     
-    int len = strlen(src);
+    int len = (int)strlen(src);
     int i = len - 1;
     int k = 0;
     

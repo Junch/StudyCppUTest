@@ -10,9 +10,13 @@
 #include <cassert>
 #include <iostream>
 #include <stack>
+#include <fstream>
+#include <sys/time.h>
 using namespace std;
 
-const int MAX = 7;
+namespace HDOJ1010 {
+
+const int MAX = 10;
 char maze[MAX][MAX];
 int dirs[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
 
@@ -22,6 +26,7 @@ struct Position {
     int dir; //0,1,2,3,E,S,W,N
 };
 
+int n,m,t;
 int sx,sy,dx,dy;
 
 enum PosState {
@@ -30,7 +35,7 @@ enum PosState {
     bRed
 };
 
-PosState getPosState(int x, int y, int n, int m, int t, int steps)
+PosState getPosState(int x, int y, int steps)
 {
     if(x<0 || x>= m || y <0 || y>=n)
         return bRed;
@@ -46,16 +51,15 @@ PosState getPosState(int x, int y, int n, int m, int t, int steps)
             return bRed;
     }
     
-    if (maze[y][x] == 'S'  ||
-        maze[y][x] == 'X')
+    if (maze[y][x] == 'X')
         return bRed;
        
     return bGreen;
 }
 
-bool survive(int n, int m, int t)
+bool survive()
 {
-    assert(n<MAX && m<MAX && n>1 && m>1);
+    assert(n<MAX && m<MAX && n>0 && m>0);
 
     int temp = t - abs(sx-sy) - abs(dx-dy);
     if (temp<0 || temp & 1)
@@ -64,6 +68,7 @@ bool survive(int n, int m, int t)
     Position start = {sx, sy, 0};
     stack<Position> s;
     s.push(start);
+    maze[sy][sx] = 'X';
     
     while (!s.empty()) {
         Position& pos = s.top();
@@ -78,7 +83,7 @@ bool survive(int n, int m, int t)
             int newx = x + dirs[dir][0];
             int newy = y + dirs[dir][1];
             
-            PosState state = getPosState(newx, newy, n, m, t, (int)s.size());
+            PosState state = getPosState(newx, newy, (int)s.size());
             if (state == bSucceed)
                 return true;
             else if (state == bGreen){
@@ -102,9 +107,8 @@ bool survive(int n, int m, int t)
     return false;
 }
 
-int HDOJ1010(int argc, char* argv[])
+int main()
 {
-    int n,m,t;
     while (cin>>n>>m>>t)
     {
         if( n==0 && m==0 && t==0 )
@@ -119,14 +123,14 @@ int HDOJ1010(int argc, char* argv[])
                     dx=j,dy=i;
             }
         
-        bool ret = survive(n, m, t);
+        bool ret = survive();
         cout << (ret? "YES" : "NO") << endl;
     }
     
     return 0;
 }
 
-void print(int n, int m) // n->row, m->col
+void print() // n->row, m->col
 {
     cout << "\n";
     for(int i=0; i<n; ++i) {
@@ -136,7 +140,7 @@ void print(int n, int m) // n->row, m->col
     }
     cout << endl;
 }
-
+    
 /////////////////////////////
 //   TESTS
 /////////////////////////////
@@ -146,14 +150,40 @@ TEST_GROUP(HDOJ1010)
     
 };
 
-
-IGNORE_TEST(HDOJ1010, sss)
+IGNORE_TEST(HDOJ1010, HDOJ1010)
 {
-    int my_array[5] = {1, 2, 3, 4, 5};
+    timeval t1, t2;
+    double elapsedTime;
     
-    for(int x : my_array)
-        cout << x << " ";
-    cout << endl;
+    gettimeofday(&t1, NULL);
+    main();
+    gettimeofday(&t2, NULL);
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0; // sec to ms
+    elapsedTime +=(t2.tv_usec - t1.tv_usec)/ 1000.0;// us to ms
+    cout << elapsedTime << " ms.\n";
+}
+
+IGNORE_TEST(HDOJ1010, readfile)
+{
+    ifstream fs("simple.txt");
+    while (fs>>n>>m>>t)
+    {
+        if( n==0 && m==0 && t==0 )
+            break;
+        
+        for (int i=0; i<n; ++i)
+            for (int j=0;j<m; ++j) {
+                fs >> maze[i][j];
+                if(maze[i][j]=='S')
+                    sx=j,sy=i;
+                else if (maze[i][j]=='D')
+                    dx=j,dy=i;
+            }
+        
+        print();
+        bool ret = survive();
+        cout << (ret? "YES" : "NO") << endl;
+    }
 }
 
 TEST(HDOJ1010, surviveYES)
@@ -162,17 +192,15 @@ TEST(HDOJ1010, surviveYES)
         for (int j=0; j<MAX; ++j)
             maze[i][j] = '.';
     
-    int n = 3, m = 4;
+    n=3, m=4, t=5;
     sx=sy=0;
     dx=3,dy=2;
     
     maze[0][0] = 'S';
     maze[2][3] = 'D';
     maze[0][2] = maze[1][2] = 'X';
-    
-    print(n, m);
-    
-    bool ret = survive(n, m, 5);
+       
+    bool ret = survive();
     CHECK_TRUE(ret);
 }
 
@@ -182,36 +210,16 @@ TEST(HDOJ1010, surviveNO)
         for (int j=0; j<MAX; ++j)
             maze[i][j] = '.';
     
-    int n = 4, m = 4;
+    n=4, m=4, t=5;
     sx=sy=0;
     dx=3,dy=2;
-    
+
     maze[0][0] = 'S';
     maze[2][3] = 'D';
     maze[0][2] = maze[1][2] = maze[2][2] = 'X';
-    
-    print(n, m);
-    
-    bool ret = survive(n, m, 5);
+        
+    bool ret = survive();
     CHECK_FALSE(ret);
 }
 
-TEST(HDOJ1010, surviveYES2)
-{
-    for(int i=0; i<MAX; ++i)
-        for (int j=0; j<MAX; ++j)
-            maze[i][j] = '.';
-    
-    int n = 4, m = 4;
-    sx=sy=0;
-    dx=3,dy=2;
-    
-    maze[0][0] = 'S';
-    maze[2][3] = 'D';
-    maze[0][2] = maze[1][2] = maze[2][2] = 'X';
-    
-    print(n, m);
-    
-    bool ret = survive(n, m, 7);
-    CHECK_TRUE(ret);
-}
+} // namespace

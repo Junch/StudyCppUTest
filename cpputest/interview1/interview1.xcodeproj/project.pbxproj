@@ -11,6 +11,7 @@
 		8E00CF7C17ACF6D500F281A3 /* interview1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E00CF7B17ACF6D500F281A3 /* interview1.1 */; };
 		8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D99CB17AE58220066B634 /* bitree.cpp */; };
 		8EA24E1817B5CEFC00458A01 /* hdoj1010.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EA24E1617B5CEFC00458A01 /* hdoj1010.cpp */; };
+		8EC6355D17B8895600B7CD2A /* hdoj1010recu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6355B17B8895600B7CD2A /* hdoj1010recu.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,8 @@
 		8E00CF7B17ACF6D500F281A3 /* interview1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = interview1.1; sourceTree = "<group>"; };
 		8E5D99CB17AE58220066B634 /* bitree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bitree.cpp; sourceTree = "<group>"; };
 		8EA24E1617B5CEFC00458A01 /* hdoj1010.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1010.cpp; sourceTree = "<group>"; };
+		8EB7D65E17BA06B0001CCD32 /* hdoj1010.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hdoj1010.txt; path = interview1/data/hdoj1010.txt; sourceTree = "<group>"; };
+		8EC6355B17B8895600B7CD2A /* hdoj1010recu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1010recu.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 		8E00CF6D17ACF6D500F281A3 = {
 			isa = PBXGroup;
 			children = (
+				8EB7D65D17BA0491001CCD32 /* data */,
 				8E00CF7817ACF6D500F281A3 /* interview1 */,
 				8E00CF7717ACF6D500F281A3 /* Products */,
 			);
@@ -68,8 +72,17 @@
 				8E00CF7B17ACF6D500F281A3 /* interview1.1 */,
 				8E5D99CB17AE58220066B634 /* bitree.cpp */,
 				8EA24E1617B5CEFC00458A01 /* hdoj1010.cpp */,
+				8EC6355B17B8895600B7CD2A /* hdoj1010recu.cpp */,
 			);
 			path = interview1;
+			sourceTree = "<group>";
+		};
+		8EB7D65D17BA0491001CCD32 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				8EB7D65E17BA06B0001CCD32 /* hdoj1010.txt */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +139,7 @@
 				8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */,
 				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
 				8EA24E1817B5CEFC00458A01 /* hdoj1010.cpp in Sources */,
+				8EC6355D17B8895600B7CD2A /* hdoj1010recu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
