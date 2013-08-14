@@ -10,6 +10,8 @@
 #include <cassert>
 #include <iostream>
 #include <vector>
+#include <sstream> //strstream is deprecated
+#include <string>
 using namespace std;
 
 namespace HDOJ1016 {
@@ -25,17 +27,31 @@ bool prime(int n)
         
     return true;
 }
+    
+void (*ringcallback)(vector<int>& v) = NULL;
+    
+void print(vector<int>& a){
+    cout << a[0];
+    for (vector<int>::iterator iter=a.begin()+1; iter!=a.end(); ++iter)
+        cout << " " << *iter;
+    cout << endl;
+}
+
+string buffer;
+void print2(vector<int>& a){
+    stringstream ss;
+    ss << a[0];
+    for (vector<int>::iterator iter=a.begin()+1; iter!=a.end(); ++iter)
+        ss << " " << *iter;
+    ss << endl;
+    buffer += ss.str();
+}
 
 void ring(vector<int>& r, vector<int>& s)
 {
     if (s.empty()) {
-        //for (int i : r)
-        //    cout << i << " ";
-        cout << 1;
-        for (vector<int>::iterator iter=r.begin()+1; iter!=r.end(); ++iter)
-            cout << " " << *iter;
-        
-        cout << endl;
+        if (ringcallback)
+            ringcallback(r);
         return;
     }
     else if(s.size() == 1) {
@@ -63,6 +79,7 @@ int main()
 {
     int n = 0;
     int cases = 0;
+    ringcallback = print;
     while(cin >> n)
     {
         vector<int> r;
@@ -85,7 +102,13 @@ int main()
 ////////////////////
 TEST_GROUP(HDOJ1016)
 {
+    void setup() {
+        MemoryLeakWarningPlugin::turnOffNewDeleteOverloads();
+    }
     
+    void teardown(){
+        MemoryLeakWarningPlugin::turnOnNewDeleteOverloads();
+    }
 };
     
 IGNORE_TEST(HDOJ1016, HDOJ1016)
@@ -98,15 +121,18 @@ TEST(HDOJ1016, ring)
     vector<int> r;
     r.push_back(1);
     
-    int n = 8;
+    int n = 6;
     
     vector<int> s;
     for (int i=2; i<=n; i++)
         s.push_back(i);
-    
-    ring(r,s);
-}
 
+    ringcallback = print2;
+    ring(r,s);
+    char expected[] = "1 4 3 2 5 6\n1 6 5 2 3 4\n";
+    STRCMP_EQUAL(expected, buffer.c_str());
+}
+    
 TEST(HDOJ1016, test1)
 {
     CHECK_FALSE(prime(1));
@@ -116,6 +142,5 @@ TEST(HDOJ1016, test1)
     CHECK_FALSE(prime(15));
     CHECK_TRUE(prime(23));
 }
-    
     
 }//namespace HDOJ1016
