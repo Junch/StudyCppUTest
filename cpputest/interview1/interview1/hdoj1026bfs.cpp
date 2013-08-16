@@ -27,7 +27,12 @@ int dir[][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
 typedef struct Node{
     int x,y,px,py,ti;
+    friend bool operator < (const Node& a,const Node& b)
+    {
+        return a.ti > b.ti;
+    }
 }Node;
+
    
 Node flags[MAX][MAX];
 
@@ -40,14 +45,14 @@ void reset(){
 
 bool bfs()
 {
-    queue<Node> q;
+    priority_queue<Node> q;
     Node a;
     a.x = a.y = a.ti = a.px = a.py = 0;
     q.push(a);
     flags[0][0]=a;
     
     while (!q.empty()) {
-        Node node = q.front();
+        Node node = q.top();
         q.pop();
         
         for (int i=0; i<4; ++i) {
@@ -60,20 +65,23 @@ bool bfs()
             if (maze[y][x] == 'X')
                 continue;
             
+            if (flags[y][x].ti != -1)
+                continue;
+            
             if(maze[y][x]>='1' && maze[y][x]<='9')
                 ti += maze[y][x] - '0';
            
-            if (flags[y][x].ti == -1 || flags[y][x].ti > ti)
-            {
-                Node b;
-                b.x = x;
-                b.y = y;
-                b.ti = ti;
-                b.px = node.x;
-                b.py = node.y;
-                q.push(b);
-                flags[y][x]=b;
-            }
+            Node b;
+            b.x = x;
+            b.y = y;
+            b.ti = ti;
+            b.px = node.x;
+            b.py = node.y;
+            q.push(b);
+            flags[y][x]=b;
+            
+            if (x==M-1 && y==N-1)
+                return true;
         }//for
     }//while
     
