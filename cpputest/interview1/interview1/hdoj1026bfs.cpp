@@ -100,20 +100,17 @@ void output()
     }
     else
     {
-        int j=N-1;
-        int i=M-1;
-        int ti = flags[j][i].ti;
+        int ti = flags[N-1][M-1].ti;
         printf("It takes %d seconds to reach the target position, let me show you the way.\n", ti);
         
+        Node a = flags[N-1][M-1];
         stack<Node> path;
-        while (i != 0 || j != 0) {
-            path.push(flags[j][i]);
-            int ii = flags[j][i].px;
-            int jj = flags[j][i].py;
-            i = ii, j=jj;
+        while (a.x != 0 || a.y != 0) {
+            path.push(a);
+            a = flags[a.py][a.px];
         }
         
-        Node a = flags[0][0];
+        a = flags[0][0];
         Node b;
         
         while (!path.empty()) {
@@ -165,7 +162,7 @@ IGNORE_TEST(HDOJ1026, main){
     main();
 }
 
-TEST(HDOJ1026, bfs1){
+IGNORE_TEST(HDOJ1026, bfs1){
     N=5,M=6;
     char p[] = ".XX.1." \
                "..X.2." \
@@ -185,7 +182,7 @@ TEST(HDOJ1026, bfs1){
     output();
  }
 
-TEST(HDOJ1026, bfs2){
+IGNORE_TEST(HDOJ1026, bfs2){
     N=5,M=6;
     char p[] = ".XX.1." \
                "..X.2." \
@@ -205,7 +202,7 @@ TEST(HDOJ1026, bfs2){
     output();
 }
 
-TEST(HDOJ1026, bfsNoAnswer){
+IGNORE_TEST(HDOJ1026, bfsNoAnswer){
     N=5,M=6;
     char p[] = ".XX..." \
     "..XX1." \

@@ -1,10 +1,6 @@
 #include <CppUTest/TestHarness.h>
 #include <cassert>
 
-TEST_GROUP(BiTree)
-{
-};
-
 typedef struct BiTNode {
     char data;
     struct BiTNode *lchild, *rchild;
@@ -74,37 +70,41 @@ void PreOrderTraverse(BiTree T, void (Visit)(BiTNode *))
 // TEST
 //////////////////////////////////////////
 
-TEST(BiTree, CreateBiTree)
+TEST_GROUP(BiTree)
 {
     BiTree T = NULL;
+    
+    void teardown(){
+        DestoryBiTree(T);
+    }
+};
+
+TEST(BiTree, CreateBiTree)
+{
     char p[] = "ab  cd   ";
     int n = 0;
     CreateBiTree((T), p, n);
     
     charnum = 0;
     PreOrderTraverse(T, Print);
-    DestoryBiTree(T);
     
     STRCMP_EQUAL("abcd", buffer);
 }
 
 TEST(BiTree, CreateBiTree2)
 {
-    BiTree T = NULL;
     char p[] = "ab  c d  ";
     int n = 0;
     CreateBiTree((T), p, n);
     
     charnum = 0;
     PreOrderTraverse(T, Print);
-    DestoryBiTree(T);
     
     STRCMP_EQUAL("abcd", buffer);
 }
 
 TEST(BiTree, DepthBiTree)
 {
-    BiTree T = NULL;
     char p[] = "abd   ce g  f  ";
     int n = 0;
     CreateBiTree((T), p, n);
@@ -115,7 +115,5 @@ TEST(BiTree, DepthBiTree)
     
     int depth = DepthBiTree(T);
     LONGS_EQUAL(4, depth);
-    
-    DestoryBiTree(T);
 }
 
