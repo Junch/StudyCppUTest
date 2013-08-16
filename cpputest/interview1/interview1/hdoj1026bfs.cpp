@@ -27,10 +27,15 @@ int dir[][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
 typedef struct Node{
     int x,y,px,py,ti;
-    friend bool operator < (const Node& a,const Node& b)
-    {
-        return a.ti > b.ti;
+// The following two versions are OK
+//    friend bool operator < (const Node& a,const Node& b)
+//    {
+//        return a.ti > b.ti;
+//    }
+    bool operator < (const Node& a) const{
+        return ti > a.ti;
     }
+    
 }Node;
 
    
@@ -52,13 +57,13 @@ bool bfs()
     flags[0][0]=a;
     
     while (!q.empty()) {
-        Node node = q.top();
+        a = q.top();
         q.pop();
         
         for (int i=0; i<4; ++i) {
-            int x = node.x + dir[i][0];
-            int y = node.y + dir[i][1];
-            int ti = node.ti + 1;
+            int x = a.x + dir[i][0];
+            int y = a.y + dir[i][1];
+            int ti = a.ti + 1;
             if (x<0 || x>=M || y<0 || y>=N)
                 continue;
             
@@ -75,8 +80,8 @@ bool bfs()
             b.x = x;
             b.y = y;
             b.ti = ti;
-            b.px = node.x;
-            b.py = node.y;
+            b.px = a.x;
+            b.py = a.y;
             q.push(b);
             flags[y][x]=b;
             
@@ -100,28 +105,26 @@ void output()
         int ti = flags[j][i].ti;
         printf("It takes %d seconds to reach the target position, let me show you the way.\n", ti);
         
-        vector<Node> path;
+        stack<Node> path;
         while (i != 0 || j != 0) {
-            path.insert(path.begin(),flags[j][i]);
+            path.push(flags[j][i]);
             int ii = flags[j][i].px;
             int jj = flags[j][i].py;
             i = ii, j=jj;
         }
-        path.insert(path.begin(),flags[0][0]);
         
-        for (size_t i=1, len=path.size(); i<len; ++i) {
-            ti = path[i-1].ti + 1;
+        Node a = flags[0][0];
+        Node b;
+        
+        while (!path.empty()) {
+            b = path.top();
+            path.pop();
+                        
+            printf("%ds:(%d,%d)->(%d,%d)\n",a.ti+1, a.y, a.x, b.y, b.x);
             
-            printf("%ds:(%d,%d)->(%d,%d)\n",ti,
-                   path[i-1].y,
-                   path[i-1].x,
-                   path[i].y,
-                   path[i].x);
-            
-            for (int j=ti+1; j<=path[i].ti; ++j)
-                printf("%ds:FIGHT AT (%d,%d)\n",j,
-                       path[i].y,
-                       path[i].x);
+            for (int j=a.ti+2; j<=b.ti; ++j)
+                printf("%ds:FIGHT AT (%d,%d)\n",j, b.y, b.x);
+            a = b;
         }
     }
     cout << "FINISH" << endl;
@@ -162,7 +165,7 @@ IGNORE_TEST(HDOJ1026, main){
     main();
 }
 
-IGNORE_TEST(HDOJ1026, bfs1){
+TEST(HDOJ1026, bfs1){
     N=5,M=6;
     char p[] = ".XX.1." \
                "..X.2." \
@@ -182,7 +185,7 @@ IGNORE_TEST(HDOJ1026, bfs1){
     output();
  }
 
-IGNORE_TEST(HDOJ1026, bfs2){
+TEST(HDOJ1026, bfs2){
     N=5,M=6;
     char p[] = ".XX.1." \
                "..X.2." \
@@ -202,7 +205,7 @@ IGNORE_TEST(HDOJ1026, bfs2){
     output();
 }
 
-IGNORE_TEST(HDOJ1026, bfsNoAnswer){
+TEST(HDOJ1026, bfsNoAnswer){
     N=5,M=6;
     char p[] = ".XX..." \
     "..XX1." \
