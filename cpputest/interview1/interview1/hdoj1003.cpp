@@ -47,6 +47,38 @@ Node maxsum(const vector<int>& a)
     const Node& m = *max_element(b.begin(), b.end());
     return m;
 }
+    
+Node maxsum2(const vector<int>& a) //Optimized
+{
+    int start = 0;
+    int sum = a[0];
+    
+    int max_sum = a[0];
+    int max_start = 0;
+    int max_end = 0;
+    
+    for (int i=1, len=(int)a.size(); i<len; ++i) {
+        if (sum < 0){
+            sum = a[i];
+            start = i;
+        }
+        else {
+            sum += a[i];
+        }
+        
+        if (sum > max_sum) {
+            max_sum = sum;
+            max_start = start;
+            max_end = i;
+        }
+    }
+    
+    Node m;
+    m.sum = max_sum;
+    m.start = max_start;
+    m.end= max_end;
+    return m;
+}
 
 int main()
 {
@@ -85,6 +117,24 @@ TEST(HDOJ1003, case2){
     int a[] = {0, 6, -1, 1, -6, 7, -5};
     vector<int> v(a, a+7);
     Node n = maxsum(v);
+    LONGS_EQUAL(7, n.sum);
+    LONGS_EQUAL(0, n.start);
+    LONGS_EQUAL(5, n.end);
+}
+    
+TEST(HDOJ1003, case3){
+    int a[] = {6, -1, 5, 4, -7};
+    vector<int> v(a, a+5);
+    Node n = maxsum2(v);
+    LONGS_EQUAL(14, n.sum);
+    LONGS_EQUAL(0, n.start);
+    LONGS_EQUAL(3, n.end);
+}
+
+TEST(HDOJ1003, case4){
+    int a[] = {0, 6, -1, 1, -6, 7, -5};
+    vector<int> v(a, a+7);
+    Node n = maxsum2(v);
     LONGS_EQUAL(7, n.sum);
     LONGS_EQUAL(0, n.start);
     LONGS_EQUAL(5, n.end);
