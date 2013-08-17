@@ -28,6 +28,7 @@ Node maxsum(const vector<int>& a)
     vector<Node> b;
     b.resize(a.size());
     
+    // b[i]表示以a[i]元素结尾的最大子段和
     b[0].sum = a[0];
     b[0].start = 0;
     int start = 0;
