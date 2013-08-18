@@ -15,7 +15,7 @@ namespace HDOJ1024 {
     
     int dp[2][1000001];
     
-    int maxsum(int e[], int n /* n element */, int m /* m segments */)
+    int maxsum(int e[], int n, int m)
     {
         int t=1;
         
@@ -43,13 +43,15 @@ namespace HDOJ1024 {
     int main()
     {
         int m, n;
-        int e[1000001];
+        // int e[1000001] causes STACK_OVERFLOW on HDOJ
+        int* e = new int[1000001];
         while (scanf("%d%d", &m, &n) != EOF) {
             for (int i=1; i<=n; ++i)
                 scanf("%d", &e[i]);
             int ret = maxsum(e, n, m);
             printf("%d\n", ret);
         }
+        delete[] e;
         
         return 0;
     }
@@ -59,19 +61,19 @@ namespace HDOJ1024 {
         
     };
     
-    TEST(HDOJ1024, case3){
+    TEST(HDOJ1024, case1){
         int a[] = {0, 6, -1, 5, 4, -7};
         int n = maxsum(a, 5, 1);
         LONGS_EQUAL(14, n);
     }
     
-    TEST(HDOJ1024, case4){
+    TEST(HDOJ1024, case2){
         int a[] = {0, 0, 6, -1, 1, -6, 7, -5};
         int n = maxsum(a, 7, 1);
         LONGS_EQUAL(7, n);
     }
     
-    TEST(HDOJ1024, case5){
+    TEST(HDOJ1024, case3){
         int a[] = {0, -1, 4, -2, 3, -2, 3};
         int n = maxsum(a, 6, 2);
         LONGS_EQUAL(8, n);
