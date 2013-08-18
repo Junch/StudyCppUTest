@@ -9,6 +9,7 @@
 
 #include <CppUTest/TestHarness.h>
 #include <algorithm>
+#include <fstream>
 using namespace std;
 
 namespace HDOJ1024 {
@@ -52,7 +53,7 @@ namespace HDOJ1024 {
             printf("%d\n", ret);
         }
         delete[] e;
-        
+    
         return 0;
     }
     
@@ -60,6 +61,44 @@ namespace HDOJ1024 {
         
         
     };
+    
+    TEST(HDOJ1024, main){
+        FILE *fin = freopen("./data/hdoj1024.txt", "r", stdin);
+        if (fin == NULL) {
+            FAIL("Filed to open the test file hdoj1024.txt");
+            return;
+        }
+        
+        // Use the dup and dup2 instead of the freopen below, because
+        // I want to get the output in the Output window of xcode.
+        char templ[] = "/tmp/cjXXXXXX";
+        int fd = mkstemp(templ);
+        int oldstdout = dup(STDOUT_FILENO);
+        dup2(fd, STDOUT_FILENO);
+        
+        main();
+        fclose(fin); // Close the file stdin
+        
+        dup2(oldstdout, STDOUT_FILENO); // Restore the previous STDOUT
+        close(oldstdout);
+        close(fd);
+        
+        ifstream fs(templ);
+        unlink(templ); // Erase the temp file when the file is closed
+        int num;
+        fs >> num;
+        LONGS_EQUAL(6, num);
+        fs >> num;
+        LONGS_EQUAL(8, num);
+        
+        //int oldstdin = dup(STDIN_FILENO);
+        //int fd = open("./data/hdoj1024.txt", O_RDONLY);
+        //dup2(fd, STDIN_FILENO);
+        //main();
+        //dup2(oldstdin, STDIN_FILENO);
+        //close(oldstdin);
+        //close(fd);
+    }
     
     TEST(HDOJ1024, case1){
         int a[] = {0, 6, -1, 5, 4, -7};
