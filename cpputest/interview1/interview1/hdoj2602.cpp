@@ -13,6 +13,7 @@ using namespace std;
 
 namespace HDOJ2602 {
    
+    // f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}
     int bone(int c[], int w[], int n, int v){
         int f[11][11];
         memset(f, 0, sizeof(f));
@@ -31,6 +32,7 @@ namespace HDOJ2602 {
         return f[n][v];
     }
     
+    // f[v]=max{f[v],f[v-c[i]]+w[i]}
     int bone2(int c[], int w[], int n, int v){
         int f[1001] = {0};
         
