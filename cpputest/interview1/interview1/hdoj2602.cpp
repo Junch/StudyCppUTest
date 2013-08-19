@@ -63,9 +63,7 @@ namespace HDOJ2602 {
                 cin >> c[j];
             
             int ret = bone2(c, w, n, v);
-            if (i != 0)
-                cout<<endl;
-            cout << ret;
+            cout << ret <<endl;
         }
         
         return 0;
@@ -75,13 +73,14 @@ namespace HDOJ2602 {
         
     };
     
-    TEST(HDOJ2602, main){
+    IGNORE_TEST(HDOJ2602, main){
         FILE *fin = freopen("./data/hdoj2602.txt", "r", stdin);
         if (fin == NULL) {
-            FAIL("Filed to open the test file hdoj1024.txt");
+            FAIL("Filed to open the test file hdoj2602.txt");
             return;
         }
         main();
+        fclose(fin);
     }
     
     TEST(HDOJ2602, case1){
