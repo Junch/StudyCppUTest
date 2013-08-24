@@ -104,6 +104,7 @@ namespace JDOJ1058 {
             return;
         }
         main();
+        fclose(fin);
     }
     
     TEST(JDOJ1058, case1){
