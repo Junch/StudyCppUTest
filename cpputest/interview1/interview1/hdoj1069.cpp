@@ -9,6 +9,7 @@
 #include <CppUTest/TestHarness.h>
 #include <vector>
 #include <iostream>
+#include <algorithm>
 #include <cassert>
 using namespace std;
 
@@ -29,21 +30,21 @@ namespace HDOJ1069 {
     typedef vector<Block> BLOCKS;
     
     struct Section {
-        Section(int w, int l, int h):width(w),length(l),height(h),flag(false){
+        Section(int w, int l, int h):width(w),length(l),height(h){
             assert(w>=l);
         }
         
         bool operator < (const Section& s) const {
             if (width != s.width) return width < s.width;
-            if (length != s.length) return  length < s.length;
+            if (length != s.length) return length < s.length;   
             return height > s.height;
         }
         
         int width, length, height; // Width >= length
-        bool flag;
     };
     typedef vector<Section> SECTIONS;
     
+    // S(i) = max(S0,S1,...,S(i-1)) + height(i)
     int maxHeight(const BLOCKS& blocks){
         SECTIONS ss;
         
@@ -58,26 +59,23 @@ namespace HDOJ1069 {
         
         sort(ss.begin(), ss.end());
         
+        vector<int> s(ss.size());
         
-        int maxh = 0;
-        for (size_t i=0; i<ss.size(); i++) {
-            if (ss[i].flag) // Cannot be used as a top
-                continue;
+        for (int i=0; i<ss.size(); ++i) {
+            s[i]= ss[i].height;
             
-            ss[i].flag = true;
-            int mh = ss[i].height;
-            for (size_t j=i+1, k=i; j<ss.size(); j++) {
-                if (ss[j].length > ss[k].length && ss[j].width > ss[k].width) {
-                    ss[j].flag = true;
-                    mh += ss[j].height;
-                    k=j;
+            int max = 0;
+            for (int j=0; j<i; ++j) {
+                if(ss[i].width > ss[j].width && ss[i].length > ss[j].length){
+                    if (s[j] > max)
+                        max= s[j];
                 }
             }
             
-            if (mh > maxh)
-                maxh = mh;
+            s[i] += max;
         }
         
+        int maxh = *max_element(s.begin(), s.end());
         return maxh;
     }
     
@@ -140,42 +138,12 @@ namespace HDOJ1069 {
     
     TEST(HDOJ1069, case3){
         BLOCKS bs;
-        bs.push_back(Block(1, 1, 1));
-        bs.push_back(Block(2, 2, 2));
-        bs.push_back(Block(3, 3, 3));
-        bs.push_back(Block(4, 4, 4));
-        bs.push_back(Block(5, 5, 5));
-        bs.push_back(Block(6, 6, 6));
-        bs.push_back(Block(7, 7, 7));
-        LONGS_EQUAL(28, maxHeight(bs));
-    }
-    
-    TEST(HDOJ1069, case4){
-        BLOCKS bs;
-        bs.push_back(Block(31, 41, 59));
-        bs.push_back(Block(26, 53, 58));
-        bs.push_back(Block(97, 93, 23));
-        bs.push_back(Block(84, 62, 64));
-        bs.push_back(Block(33, 83, 27));
-        LONGS_EQUAL(342, maxHeight(bs));
-    }
-    
-    TEST(HDOJ1069, case5){
-        BLOCKS bs;
         bs.push_back(Block(4, 3, 2));
         bs.push_back(Block(4, 3, 5));
         LONGS_EQUAL(12, maxHeight(bs));
     }
-
-    TEST(HDOJ1069, case6){
-        BLOCKS bs;
-        bs.push_back(Block(2, 2, 2));
-        bs.push_back(Block(4, 4, 2));
-        bs.push_back(Block(4, 4, 5));
-        LONGS_EQUAL(8, maxHeight(bs));
-    }
     
-    TEST(HDOJ1069, case7){
+    TEST(HDOJ1069, case4){
         BLOCKS bs;
         bs.push_back(Block(2, 2, 2));
         bs.push_back(Block(4, 4, 5));
@@ -183,7 +151,7 @@ namespace HDOJ1069 {
         LONGS_EQUAL(8, maxHeight(bs));
     }
     
-    TEST(HDOJ1069, case8){
+    TEST(HDOJ1069, case5){
         BLOCKS bs;
         bs.push_back(Block(2, 2, 2));
         bs.push_back(Block(4, 4, 5));
