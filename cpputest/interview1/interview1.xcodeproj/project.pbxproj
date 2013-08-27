@@ -20,6 +20,7 @@
 		8EB4763317C65DD600D46863 /* hdoj1058.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB4763117C65DD600D46863 /* hdoj1058.cpp */; };
 		8EB6134117BC4D9500946E24 /* hdoj1026bfs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6133F17BC4D9500946E24 /* hdoj1026bfs.cpp */; };
 		8EB7117417C50FA200ABBD9E /* jdoj_chessboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7117217C50FA200ABBD9E /* jdoj_chessboard.cpp */; };
+		8EB7497917CCFCF100122341 /* hdoj1045.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7497717CCFCF100122341 /* hdoj1045.cpp */; };
 		8EB7D66217BA08B4001CCD32 /* hdoj1016.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D66017BA08B4001CCD32 /* hdoj1016.cpp */; };
 		8EB7E72017C8A44600BF1869 /* template.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7E71E17C8A44600BF1869 /* template.cpp */; };
 		8EB7E72317C8A52100BF1869 /* hdoj1059.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7E72117C8A52100BF1869 /* hdoj1059.cpp */; };
@@ -63,6 +64,7 @@
 		8EB6133F17BC4D9500946E24 /* hdoj1026bfs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1026bfs.cpp; sourceTree = "<group>"; };
 		8EB7117117C5092100ABBD9E /* hdoj1051.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hdoj1051.txt; path = interview1/data/hdoj1051.txt; sourceTree = "<group>"; };
 		8EB7117217C50FA200ABBD9E /* jdoj_chessboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jdoj_chessboard.cpp; sourceTree = "<group>"; };
+		8EB7497717CCFCF100122341 /* hdoj1045.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1045.cpp; sourceTree = "<group>"; };
 		8EB7D65E17BA06B0001CCD32 /* hdoj1010.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hdoj1010.txt; path = interview1/data/hdoj1010.txt; sourceTree = "<group>"; };
 		8EB7D66017BA08B4001CCD32 /* hdoj1016.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1016.cpp; sourceTree = "<group>"; };
 		8EB7E71A17C882C800BF1869 /* hdoj1058.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hdoj1058.txt; path = interview1/data/hdoj1058.txt; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				8EB4763117C65DD600D46863 /* hdoj1058.cpp */,
 				8EB7E72117C8A52100BF1869 /* hdoj1059.cpp */,
 				8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */,
+				8EB7497717CCFCF100122341 /* hdoj1045.cpp */,
 				8EB7E72417C8A80D00BF1869 /* hdoj1506wa.cpp */,
 				8EB0FF2D17C8F367007A4F5A /* hdoj1506dp.cpp */,
 				8EB1BEBD17C0B9CC00484915 /* hdoj2602.cpp */,
@@ -214,6 +217,7 @@
 				8EB7E72617C8A80D00BF1869 /* hdoj1506wa.cpp in Sources */,
 				8EB0FF2F17C8F367007A4F5A /* hdoj1506dp.cpp in Sources */,
 				8ED7397817CB5AA6006DCF50 /* hdoj1069.cpp in Sources */,
+				8EB7497917CCFCF100122341 /* hdoj1045.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
