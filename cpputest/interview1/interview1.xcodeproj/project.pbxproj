@@ -28,6 +28,7 @@
 		8EC6355D17B8895600B7CD2A /* hdoj1010recu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6355B17B8895600B7CD2A /* hdoj1010recu.cpp */; };
 		8ED7397517C1C0C8006DCF50 /* hdoj1028.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7397317C1C0C8006DCF50 /* hdoj1028.cpp */; };
 		8ED7397817CB5AA6006DCF50 /* hdoj1069.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */; };
+		8ED7397B17CDF341006DCF50 /* hdoj2553.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7397917CDF340006DCF50 /* hdoj2553.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +75,7 @@
 		8EC6355B17B8895600B7CD2A /* hdoj1010recu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1010recu.cpp; sourceTree = "<group>"; };
 		8ED7397317C1C0C8006DCF50 /* hdoj1028.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1028.cpp; sourceTree = "<group>"; };
 		8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1069.cpp; sourceTree = "<group>"; };
+		8ED7397917CDF340006DCF50 /* hdoj2553.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj2553.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,13 +120,14 @@
 				8EB0BEB117BB4D7200EBF94D /* hdoj1026dfs.cpp */,
 				8EB6133F17BC4D9500946E24 /* hdoj1026bfs.cpp */,
 				8ED7397317C1C0C8006DCF50 /* hdoj1028.cpp */,
+				8EB7497717CCFCF100122341 /* hdoj1045.cpp */,
 				8EB1C6C817C26EA400B5A81C /* hdoj1051.cpp */,
 				8EB4763117C65DD600D46863 /* hdoj1058.cpp */,
 				8EB7E72117C8A52100BF1869 /* hdoj1059.cpp */,
 				8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */,
-				8EB7497717CCFCF100122341 /* hdoj1045.cpp */,
 				8EB7E72417C8A80D00BF1869 /* hdoj1506wa.cpp */,
 				8EB0FF2D17C8F367007A4F5A /* hdoj1506dp.cpp */,
+				8ED7397917CDF340006DCF50 /* hdoj2553.cpp */,
 				8EB1BEBD17C0B9CC00484915 /* hdoj2602.cpp */,
 				8EB7117217C50FA200ABBD9E /* jdoj_chessboard.cpp */,
 				8EB7E71E17C8A44600BF1869 /* template.cpp */,
@@ -218,6 +221,7 @@
 				8EB0FF2F17C8F367007A4F5A /* hdoj1506dp.cpp in Sources */,
 				8ED7397817CB5AA6006DCF50 /* hdoj1069.cpp in Sources */,
 				8EB7497917CCFCF100122341 /* hdoj1045.cpp in Sources */,
+				8ED7397B17CDF341006DCF50 /* hdoj2553.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
