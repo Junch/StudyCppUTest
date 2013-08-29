@@ -47,12 +47,19 @@ namespace HDOJ2553 {
     
     int main()
     {
-        int n;
-        while (cin >> n && n) {
-            N = n;
+        int result[11];
+        
+        for (int i=1; i<=10; i++) {
+            N = i;
             total = 0;
             dfs(0);
-            cout << total << endl;
+            result[i] = total;
+        }
+        
+        int n;
+        while (cin >> n && n) {
+            assert(n<=10);
+            cout << result[n] << endl;
         }
         
         return 0;
