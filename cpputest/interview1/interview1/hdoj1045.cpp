@@ -46,19 +46,27 @@ namespace HDOJ1045 {
             board[row][col]='X';
             ++count;
             
+//            int i=row+1;
+//            for (;i<citySize;++i)
+//                if (board[i][col]=='.')
+//                    board[i][col]='X';
+//                else if(board[i][col]=='X')
+//                    break;
+//
+//            int j=col+1;
+//            for (;j<citySize;++j)
+//                if (board[row][j]=='.')
+//                    board[row][j]='X';
+//                else if(board[row][j]=='X')
+//                    break;
+            
             int i=row+1;
-            for (;i<citySize;++i)
-                if (board[i][col]=='.')
-                    board[i][col]='X';
-                else if(board[i][col]=='X')
-                    break;
+            while (i<citySize && board[i][col]=='.')
+                board[i++][col]='X';
             
             int j=col+1;
-            for (;j<citySize;++j)
-                if (board[row][j]=='.')
-                    board[row][j]='X';
-                else if(board[row][j]=='X')
-                    break;
+            while (j<citySize && board[row][j]=='.')
+                board[row][j++]='X';
             
             dfs(index+1);
             
@@ -74,17 +82,27 @@ namespace HDOJ1045 {
     
     int main()
     {
-        int n;        
-        while (cin>>n && n) {
+        int n;
+        while (scanf("%d", &n) && n) {            
             for (int i=0;i<n;++i)
-                for (int j=0; j<n;++j)
-                    cin >> board[i][j];
-
+                scanf("%s",board[i]);
+    
             citySize = n;
             maximum = 0;
             dfs(0);
             printf("%d\n",maximum);
         }
+        
+//        while (cin>>n && n) {
+//            for (int i=0;i<n;++i)
+//                for (int j=0; j<n;++j)
+//                    cin >> board[i][j];
+//
+//            citySize = n;
+//            maximum = 0;
+//            dfs(0);
+//            printf("%d\n",maximum);
+//        }
         
         return 0;
     }
