@@ -110,30 +110,54 @@
 		8E00CF7817ACF6D500F281A3 /* interview1 */ = {
 			isa = PBXGroup;
 			children = (
+				8E8CB08917D47C3100583945 /* dfs */,
+				8E8CB08817D47C2A00583945 /* bfs */,
+				8E8CB08717D47C1500583945 /* dp */,
 				8E00CF7B17ACF6D500F281A3 /* interview1.1 */,
 				8E00CF7917ACF6D500F281A3 /* main.cpp */,
 				8E5D99CB17AE58220066B634 /* bitree.cpp */,
-				8EB089F217BE1E070048E8C2 /* hdoj1003.cpp */,
-				8EA24E1617B5CEFC00458A01 /* hdoj1010.cpp */,
-				8EC6355B17B8895600B7CD2A /* hdoj1010recu.cpp */,
-				8EB7D66017BA08B4001CCD32 /* hdoj1016.cpp */,
-				8EB089F517BE743F0048E8C2 /* hdoj1024.cpp */,
-				8EB0BEB117BB4D7200EBF94D /* hdoj1026dfs.cpp */,
-				8EB6133F17BC4D9500946E24 /* hdoj1026bfs.cpp */,
-				8ED7397317C1C0C8006DCF50 /* hdoj1028.cpp */,
-				8EB7497717CCFCF100122341 /* hdoj1045.cpp */,
-				8EB1C6C817C26EA400B5A81C /* hdoj1051.cpp */,
-				8EB4763117C65DD600D46863 /* hdoj1058.cpp */,
-				8EB7E72117C8A52100BF1869 /* hdoj1059.cpp */,
-				8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */,
-				8EB7E72417C8A80D00BF1869 /* hdoj1506wa.cpp */,
-				8EB0FF2D17C8F367007A4F5A /* hdoj1506dp.cpp */,
-				8ED7397917CDF340006DCF50 /* hdoj2553.cpp */,
-				8EB1BEBD17C0B9CC00484915 /* hdoj2602.cpp */,
-				8EB7117217C50FA200ABBD9E /* jdoj_chessboard.cpp */,
 				8EB7E71E17C8A44600BF1869 /* template.cpp */,
 			);
 			path = interview1;
+			sourceTree = "<group>";
+		};
+		8E8CB08717D47C1500583945 /* dp */ = {
+			isa = PBXGroup;
+			children = (
+				8EB7E72117C8A52100BF1869 /* hdoj1059.cpp */,
+				8EB7E72417C8A80D00BF1869 /* hdoj1506wa.cpp */,
+				8EB4763117C65DD600D46863 /* hdoj1058.cpp */,
+				8EB0FF2D17C8F367007A4F5A /* hdoj1506dp.cpp */,
+				8EB1BEBD17C0B9CC00484915 /* hdoj2602.cpp */,
+				8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */,
+				8EB1C6C817C26EA400B5A81C /* hdoj1051.cpp */,
+				8ED7397317C1C0C8006DCF50 /* hdoj1028.cpp */,
+				8EB089F517BE743F0048E8C2 /* hdoj1024.cpp */,
+				8EB089F217BE1E070048E8C2 /* hdoj1003.cpp */,
+				8EB7117217C50FA200ABBD9E /* jdoj_chessboard.cpp */,
+			);
+			name = dp;
+			sourceTree = "<group>";
+		};
+		8E8CB08817D47C2A00583945 /* bfs */ = {
+			isa = PBXGroup;
+			children = (
+				8EB0BEB117BB4D7200EBF94D /* hdoj1026dfs.cpp */,
+				8EB6133F17BC4D9500946E24 /* hdoj1026bfs.cpp */,
+			);
+			name = bfs;
+			sourceTree = "<group>";
+		};
+		8E8CB08917D47C3100583945 /* dfs */ = {
+			isa = PBXGroup;
+			children = (
+				8EA24E1617B5CEFC00458A01 /* hdoj1010.cpp */,
+				8EC6355B17B8895600B7CD2A /* hdoj1010recu.cpp */,
+				8EB7D66017BA08B4001CCD32 /* hdoj1016.cpp */,
+				8EB7497717CCFCF100122341 /* hdoj1045.cpp */,
+				8ED7397917CDF340006DCF50 /* hdoj2553.cpp */,
+			);
+			name = dfs;
 			sourceTree = "<group>";
 		};
 		8EB7D65D17BA0491001CCD32 /* data */ = {

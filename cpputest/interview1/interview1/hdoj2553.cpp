@@ -1,6 +1,6 @@
 //
 //  hdoj2553.cpp
-//  interview1
+//  N皇后问题
 //  http://acm.hdu.edu.cn/showproblem.php?pid=2553
 //  Created by wolf76 on 8/28/13.
 //  Copyright (c) 2013 com.wolf76. All rights reserved.

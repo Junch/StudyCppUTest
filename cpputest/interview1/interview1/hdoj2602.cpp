@@ -1,6 +1,6 @@
 //
 //  hdoj2602.cpp
-//  interview1
+//  0/1背包
 //  http://acm.hdu.edu.cn/showproblem.php?pid=2602
 //  http://www.wutianqi.com/?p=533
 //  Created by wolf76 on 13-8-18.
