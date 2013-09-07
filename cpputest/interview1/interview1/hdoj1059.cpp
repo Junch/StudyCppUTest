@@ -8,55 +8,9 @@
 
 #include <CppUTest/TestHarness.h>
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 namespace HDOJ1059 {
-    int marbles[7];
-    int m[7];
-    int total;
-    bool bFound = false;
-    // sum(i*m[i]) == total
-    
-    void dfs(int i, int v){
-        if (v==0) {
-            bFound = true;
-            return;
-        }
-        
-        for (int j=1; j<=marbles[i]; ++j) {
-            int w = v-j*i;
-            if (w < 0)
-                break;
-            
-            dfs(i+1, w);
-            if (bFound)
-                return;
-        }
-    }
-    
-    bool split(){
-        total = 0 ;
-        for (int i=1; i<7;++i){
-            if (marbles[i] == 0)
-                continue;
-            
-            total += i*marbles[i];
-        }
-
-        if (total % 2)
-            return false;
-        
-        total /= 2;
-        
-        
-        
-        
-    }
-    
-    
-    
     
     int main()
     {
@@ -80,6 +34,5 @@ namespace HDOJ1059 {
     
     TEST(HDOJ1059, case1){
         FAIL("HDOJ1059 unsolved.");
-    }
-    
+    }    
 }//namespace

@@ -13,6 +13,7 @@ using namespace std;
 
 namespace HDOJ2602 {
    
+    // f[i][v]表示前i件物品放入一个容量为v的背包可以获得的最大价值
     // f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}
     int bone(int c[], int w[], int n, int v){
         int f[11][11];
