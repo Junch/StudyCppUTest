@@ -7,7 +7,9 @@
 //
 
 #include <CppUTest/TestHarness.h>
-#include <stdlib.h>
+#include <stdio.h>
+#include <cstring>
+#include <string>
 #include <iostream>
 #include <cassert>
 #include <algorithm>
@@ -17,11 +19,16 @@ using namespace std;
 namespace JDOJ1369 {
     char t[10];
     bool used[10];
+    set<string> ss;
     
     void permutation(char s[], char t[], bool used[], int len, int index)
     {
         if (len == index) {
-            printf("%s\n", t);
+            if (ss.find(t) == ss.end())  {
+                ss.insert(t);
+                printf("%s\n", t);
+            }
+
             return;
         }
         
@@ -56,6 +63,7 @@ namespace JDOJ1369 {
             permutation(s, t, used, len, index);
             
             memset(s,0,sizeof(s));
+            ss.clear();
         }
         
         return 0;
@@ -75,13 +83,14 @@ namespace JDOJ1369 {
         fclose(fin);
     }
     
-    IGNORE_TEST(JDOJ1369, case1){
+    TEST(JDOJ1369, case1){
         char s[]  = "ABC";
         memset(t, 0, sizeof(t));
         memset(used, false, sizeof(used));
         int len = (int)strlen(s);
         int index = 0;
         permutation(s, t, used, len, index);
+        ss.clear();
     }
     
     IGNORE_TEST(JDOJ1369, case2){
@@ -104,6 +113,7 @@ namespace JDOJ1369 {
         int len = (int)strlen(s);
         int index = 0;
         permutation(s, t, used, len, index);
+        ss.clear();
     }
     
 }//namespace
