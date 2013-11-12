@@ -13,35 +13,33 @@
 #include <iostream>
 #include <cassert>
 #include <algorithm>
-#include <set>
 using namespace std;
 
 namespace JDOJ1369 {
     char t[10];
     bool used[10];
-    set<string> ss;
     
     void permutation(char s[], char t[], bool used[], int len, int index)
     {
         if (len == index) {
-            if (ss.find(t) == ss.end())  {
-                ss.insert(t);
-                printf("%s\n", t);
-            }
+            printf("%s\n", t);
 
             return;
         }
         
         for (int i=0; i<len; i++) {
-            if (!used[i])
-            {
-                t[index] = s[i];
-                ++index;
-                used[i] = true;
-                permutation(s, t, used, len, index);
-                used[i] = false;
-                --index;
-            }
+            if (used[i])
+                continue;
+            
+            if (i>0 && s[i]==s[i-1] && !used[i-1]) //If the previous euqal one is not used, it should not be used
+                continue;
+            
+            t[index] = s[i];
+            ++index;
+            used[i] = true;
+            permutation(s, t, used, len, index);
+            used[i] = false;
+            --index;
         }
     }
     
@@ -63,7 +61,6 @@ namespace JDOJ1369 {
             permutation(s, t, used, len, index);
             
             memset(s,0,sizeof(s));
-            ss.clear();
         }
         
         return 0;
@@ -83,14 +80,13 @@ namespace JDOJ1369 {
         fclose(fin);
     }
     
-    TEST(JDOJ1369, case1){
+    IGNORE_TEST(JDOJ1369, case1){
         char s[]  = "ABC";
         memset(t, 0, sizeof(t));
         memset(used, false, sizeof(used));
         int len = (int)strlen(s);
         int index = 0;
         permutation(s, t, used, len, index);
-        ss.clear();
     }
     
     IGNORE_TEST(JDOJ1369, case2){
@@ -104,7 +100,7 @@ namespace JDOJ1369 {
         permutation(s, t, used, len, index);
     }
     
-    TEST(JDOJ1369, case3){
+    IGNORE_TEST(JDOJ1369, case3){
         char s[]  = "ABA";
         std::sort(&s[0], &s[3]);
         
@@ -113,7 +109,6 @@ namespace JDOJ1369 {
         int len = (int)strlen(s);
         int index = 0;
         permutation(s, t, used, len, index);
-        ss.clear();
     }
     
 }//namespace
