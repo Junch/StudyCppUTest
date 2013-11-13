@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+</head>
+<body>
+<h2 id="题目1369字符串的排列"><a href="http://ac.jobdu.com/problem.php?pid=1369">题目1369：字符串的排列</a></h2>
+<hr />
+<h3 id="题目描述">题目描述：</h3>
+<p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串a bc,acb,bac,bca,cab和cba。</p>
+<h4 id="输入">输入：</h4>
+<p>每个测试案例包括1行。 输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。</p>
+<h4 id="输出">输出：</h4>
+<p>对应每组数据,按字典序输出所有排列。</p>
+<h4 id="样例输入">样例输入：</h4>
+<pre><code>abc
+BCA</code></pre>
+<h4 id="样例输出">样例输出：</h4>
+<pre><code>abc
+acb
+bac
+bca
+cab
+cba
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA</code></pre>
+<h4 id="解决方案">解决方案：</h4>
+<table class="sourceCode cpp numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="sourceCode"><pre><code class="sourceCode cpp">    <span class="dt">void</span> permutation(<span class="dt">char</span> s[], <span class="dt">char</span> t[], <span class="dt">bool</span> used[], <span class="dt">int</span> len, <span class="dt">int</span> index)
+    {
+        <span class="kw">if</span> (len == index) {
+            printf(<span class="st">&quot;%s</span><span class="ch">\n</span><span class="st">&quot;</span>, t);
+
+            <span class="kw">return</span>;
+        }
+        
+        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;len; i++) {
+            <span class="kw">if</span> (used[i])
+                <span class="kw">continue</span>;
+            
+            <span class="kw">if</span> (i&gt;<span class="dv">0</span> &amp;&amp; s[i]==s[i<span class="dv">-1</span>] &amp;&amp; !used[i<span class="dv">-1</span>])
+                <span class="kw">continue</span>;
+            
+            t[index] = s[i];
+            ++index;
+            used[i] = <span class="kw">true</span>;
+            permutation(s, t, used, len, index);
+            used[i] = <span class="kw">false</span>;
+            --index;
+        }
+    }</code></pre></td></tr></table>
+<p>很棘手的是处理重复的字符。基本思路是<strong>保持重复字符的原有顺序</strong>。比如AAB，将重复的字符A不妨分别标记为<span class="math"><em>A</em><sub>0</sub></span>, <span class="math"><em>A</em><sub>1</sub></span>，这个字符串标记为<span class="math"><em>A</em><sub>0</sub><em>A</em><sub>1</sub></span>B。排列中可以出现<span class="math"><em>A</em><sub>0</sub></span>B<span class="math"><em>A</em><sub>1</sub></span>，但不可以出现<span class="math"><em>A</em><sub>1</sub></span>B<span class="math"><em>A</em><sub>0</sub></span>。如果<span class="math"><em>A</em><sub>0</sub></span>没有出现，那么<span class="math"><em>A</em><sub>1</sub></span>也不应该出现，这样避免输出重复的排列。</p>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">    <span class="kw">if</span> (i&gt;<span class="dv">0</span> &amp;&amp; s[i]==s[i<span class="dv">-1</span>] &amp;&amp; !used[i<span class="dv">-1</span>])
+        <span class="kw">continue</span>;</code></pre>
+</body>
+</html>
