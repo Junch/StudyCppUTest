@@ -1,5 +1,5 @@
 //
-//  jdoj_chessboard.cpp
+//  JDOJ1048.cpp
 //  interview1 棋盘寻宝
 //  http://ac.jobdu.com/problem.php?cid=1048&pid=0
 //  Created by wolf76 on 13-8-21.
@@ -11,7 +11,7 @@
 #include <cassert>
 using namespace std;
 
-namespace JDOJ_CHESSBOARD {
+namespace JDOJ1048 {
     // a(x,y)=max(a(x-1,y),a(x,y-1)) + v(x,y)
     // a(x,0)=a(x-1,0)+v(x,0)=v(0,0)+...v(x,0)
     // a(0,y)=a(0,y-1)+v(0,y)=v(0,0)+...v(0,y)
@@ -45,20 +45,20 @@ namespace JDOJ_CHESSBOARD {
         return 0;
     }
     
-    TEST_GROUP(JDOJ_CHESSBOARD){
+    TEST_GROUP(JDOJ1048){
         
     };
     
-    IGNORE_TEST(JDOJ_CHESSBOARD, main){
-        FILE *fin = freopen("./data/jdojchess.txt", "r", stdin);
+    IGNORE_TEST(JDOJ1048, main){
+        FILE *fin = freopen("./data/jdoj1048.txt", "r", stdin);
         if (fin == NULL) {
-            FAIL("Filed to open the test file jdojchess.txt");
+            FAIL("Filed to open the test file jdoj1048.txt");
             return;
         }
         main();
     }
     
-    TEST(JDOJ_CHESSBOARD, case1){
+    IGNORE_TEST(JDOJ1048, case1){
         v[0][0] = 1;
         v[0][1] = 2;
         v[1][0] = 3;
