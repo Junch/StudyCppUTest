@@ -35,7 +35,7 @@ namespace HDOJXXXX {
     }
     
     TEST(HDOJXXXX, case1){
-
+        //FAIL("Filed the test HDOJXXXX");
     }
     
 }//namespace

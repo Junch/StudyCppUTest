@@ -46,6 +46,8 @@
 		8ED7397517C1C0C8006DCF50 /* hdoj1028.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7397317C1C0C8006DCF50 /* hdoj1028.cpp */; };
 		8ED7397817CB5AA6006DCF50 /* hdoj1069.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */; };
 		8ED7397B17CDF341006DCF50 /* hdoj2553.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7397917CDF340006DCF50 /* hdoj2553.cpp */; };
+		8ED9BC28183CB48D00F5DF9F /* jdoj1348.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9BC26183CB48D00F5DF9F /* jdoj1348.cpp */; };
+		8ED9BC2A183F0CAB00F5DF9F /* jdoj1348.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +57,7 @@
 			dstPath = data;
 			dstSubfolderSpec = 7;
 			files = (
+				8ED9BC2A183F0CAB00F5DF9F /* jdoj1348.txt in CopyFiles */,
 				8E0E027E1835FD34008EEB25 /* jdoj1351.txt in CopyFiles */,
 				8E0E026D1834C2B8008EEB25 /* hdoj1010.txt in CopyFiles */,
 				8E0E026E1834C2B8008EEB25 /* hdoj1024.txt in CopyFiles */,
@@ -116,6 +119,8 @@
 		8ED7397317C1C0C8006DCF50 /* hdoj1028.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1028.cpp; sourceTree = "<group>"; };
 		8ED7397617CB5AA6006DCF50 /* hdoj1069.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1069.cpp; sourceTree = "<group>"; };
 		8ED7397917CDF340006DCF50 /* hdoj2553.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj2553.cpp; sourceTree = "<group>"; };
+		8ED9BC26183CB48D00F5DF9F /* jdoj1348.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jdoj1348.cpp; sourceTree = "<group>"; };
+		8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jdoj1348.txt; path = interview1/data/jdoj1348.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				8EB7117217C50FA200ABBD9E /* jdoj1048.cpp */,
+				8ED9BC26183CB48D00F5DF9F /* jdoj1348.cpp */,
 				8E0E027A1835C6F4008EEB25 /* jdoj1351.cpp */,
 				8E0E02691834AB75008EEB25 /* jdoj1352.cpp */,
 				8E0261B01830800400C319C4 /* jdoj1369.cpp */,
@@ -217,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				8E0E02781834C4E3008EEB25 /* jdoj1048.txt */,
+				8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */,
 				8E0E027D1835FCBC008EEB25 /* jdoj1351.txt */,
 				8E0E02761834C3A3008EEB25 /* jdoj1352.txt */,
 				8E0261B318308E4D00C319C4 /* jdoj1369.txt */,
@@ -287,6 +294,7 @@
 				8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */,
 				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
 				8EA24E1817B5CEFC00458A01 /* hdoj1010.cpp in Sources */,
+				8ED9BC28183CB48D00F5DF9F /* jdoj1348.cpp in Sources */,
 				8EC6355D17B8895600B7CD2A /* hdoj1010recu.cpp in Sources */,
 				8EB7D66217BA08B4001CCD32 /* hdoj1016.cpp in Sources */,
 				8EB0BEB317BB4D7200EBF94D /* hdoj1026dfs.cpp in Sources */,

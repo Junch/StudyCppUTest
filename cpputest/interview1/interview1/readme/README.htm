@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#算法">算法</a><ul>
+<li><a href="#jdoj1348-数组中的逆序对">JDOJ1348: 数组中的逆序对</a></li>
+<li><a href="#jdoj1369-字符串的排列">JDOJ1369: 字符串的排列</a></li>
+<li><a href="#hdoj1003-max-sum">HDOJ1003: Max Sum</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="算法"><a href="#算法">算法</a></h1>
+<h3 id="jdoj1348-数组中的逆序对"><a href="#jdoj1348-数组中的逆序对">JDOJ1348: 数组中的逆序对</a></h3>
+<p>问题的要点是将时间复杂度控制在<span class="math"><em>n</em><em>l</em><em>o</em><em>g</em><em>n</em></span>，而不是<span class="math"><em>n</em><sup>2</sup></span>。解题思路参考归并排序。<br />另外两组排好序的数组如何来计算逆序对？<br /><span class="math"><em>a</em><sub>0</sub>, <em>a</em><sub>1</sub>, …, <em>a</em><sub><em>n</em></sub></span><br /><span class="math"><em>b</em><sub>0</sub>, <em>b</em><sub>1</sub>, …, <em>b</em><sub><em>m</em></sub></span><br />假设<span class="math"><em>a</em><sub><em>i</em></sub> &gt; <em>b</em><sub><em>j</em></sub></span>，那么<span class="math"><em>a</em><sub><em>i</em></sub></span>及<span class="math"><em>a</em><sub><em>i</em></sub></span>以后的元素都与<span class="math"><em>b</em><sub><em>j</em></sub></span>形成逆序对，逆序对的个数为<span class="math"><em>n</em> − <em>i</em> + 1</span>。</p>
+<table class="sourceCode cpp numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="sourceCode"><pre><code class="sourceCode cpp">    <span class="dt">void</span> merge(<span class="dt">int</span> a[], <span class="dt">int</span> low, <span class="dt">int</span> high, <span class="dt">int</span> t[])
+    {
+        <span class="dt">int</span> mid = (low + high)/<span class="dv">2</span>;
+        <span class="dt">int</span> i=low;
+        <span class="dt">int</span> j=mid;
+        <span class="dt">int</span> k=low;
+        <span class="kw">while</span> (i &lt; mid &amp;&amp; j&lt; high) {
+            <span class="kw">if</span> (a[i] &lt;= a[j])
+                t[k++] = a[i++];
+            <span class="kw">else</span> {
+                t[k++] = a[j++];
+                <span class="co">//a[j]与{a[i],...,a[mid-1]}的所有元素都构成逆序数</span>
+                reverseOrder += mid-i;
+            }
+        }
+        
+        <span class="kw">while</span> (i&lt;mid)
+            t[k++] = a[i++];
+        
+        <span class="kw">while</span> (j&lt;high)
+            t[k++] = a[j++];
+        
+        <span class="kw">for</span> (i=low; i&lt;high; i++)
+            a[i] = t[i];
+    }
+    
+    <span class="dt">void</span> mergesort(<span class="dt">int</span> a[], <span class="dt">int</span> low, <span class="dt">int</span> high, <span class="dt">int</span> t[])
+    {
+        <span class="kw">if</span> (high - low &gt; <span class="dv">1</span>) <span class="co">// If the array contains two more elements</span>
+        {
+            <span class="dt">int</span> mid = (low + high)/<span class="dv">2</span>;
+            mergesort(a, low, mid, t);
+            mergesort(a, mid, high, t);
+            merge(a, low, high, t);
+        }
+    }</code></pre></td></tr></table>
+<h3 id="jdoj1369-字符串的排列"><a href="#jdoj1369-字符串的排列">JDOJ1369: 字符串的排列</a></h3>
+<p>棘手的是处理重复的字符。基本思路是<strong>保持重复字符的原有顺序</strong>。比如AAB，将重复的字符A不妨分别标记为<span class="math"><em>A</em><sub>0</sub></span>, <span class="math"><em>A</em><sub>1</sub></span>，这个字符串标记为<span class="math"><em>A</em><sub>0</sub><em>A</em><sub>1</sub></span>B。排列中可以出现<span class="math"><em>A</em><sub>0</sub></span>B<span class="math"><em>A</em><sub>1</sub></span>，但不可以出现<span class="math"><em>A</em><sub>1</sub></span>B<span class="math"><em>A</em><sub>0</sub></span>。如果<span class="math"><em>A</em><sub>0</sub></span>没有出现，那么<span class="math"><em>A</em><sub>1</sub></span>也不应该出现，这样避免输出重复的排列。</p>
+<table class="sourceCode cpp numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="sourceCode"><pre><code class="sourceCode cpp">    <span class="dt">void</span> permutation(<span class="dt">char</span> s[], <span class="dt">char</span> t[], <span class="dt">bool</span> used[], <span class="dt">int</span> len, <span class="dt">int</span> index)
+    {
+        <span class="kw">if</span> (len == index) {
+            printf(<span class="st">&quot;%s</span><span class="ch">\n</span><span class="st">&quot;</span>, t);
+
+            <span class="kw">return</span>;
+        }
+        
+        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;len; i++) {
+            <span class="kw">if</span> (used[i])
+                <span class="kw">continue</span>;
+            
+            <span class="kw">if</span> (i&gt;<span class="dv">0</span> &amp;&amp; s[i]==s[i<span class="dv">-1</span>] &amp;&amp; !used[i<span class="dv">-1</span>])
+                <span class="kw">continue</span>;
+            
+            t[index] = s[i];
+            ++index;
+            used[i] = <span class="kw">true</span>;
+            permutation(s, t, used, len, index);
+            used[i] = <span class="kw">false</span>;
+            --index;
+        }
+    }</code></pre></td></tr></table>
+<h3 id="hdoj1003-max-sum"><a href="#hdoj1003-max-sum">HDOJ1003: Max Sum</a></h3>
+<p><span class="math"><em>b</em><sub><em>i</em></sub></span>表示以<span class="math"><em>a</em><sub><em>i</em></sub></span>元素结尾的最大子段和，则所求的最大子段为<span class="math"><em>m</em><em>a</em><em>x</em>{<em>b</em><sub><em>i</em></sub>}, 0 ≤ <em>i</em> &lt; <em>n</em></span>。</p>
+<table class="sourceCode cpp numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode cpp">b[<span class="dv">0</span>]=a[<span class="dv">0</span>];
+<span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">1</span>; i&lt;len; i++)
+    <span class="kw">if</span> (b[i<span class="dv">-1</span>] &lt; <span class="dv">0</span>)
+        b[i] = a[i];
+    <span class="kw">else</span>
+        b[i] = b[i<span class="dv">-1</span>] + a[i];</code></pre></td></tr></table>
+</body>
+</html>
