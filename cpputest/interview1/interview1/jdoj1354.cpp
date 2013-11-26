@@ -52,7 +52,7 @@ namespace JDOJ1354 {
         
     };
     
-    TEST(JDOJ1354, main){
+    IGNORE_TEST(JDOJ1354, main){
         FILE *fin = freopen("./data/jdoj1354.txt", "r", stdin);
         if (fin == NULL) {
             FAIL("Filed to open the test file jdoj1354.txt");

@@ -47,6 +47,38 @@ $b_0,b_1,…,b_m$
     }
 ```
 
+###JDOJ1354: 和为S的连续正数序列
+此题和题目 **JDOJ1352: 和为S的两个数字** 有点类似，使用头尾两个指针遍历一遍数组，属于脑筋急转弯一类的题目。
+
+```{.cpp .numberLines}
+    void calc(int s)
+    {
+        bool bExist=false;
+        int i = 1; //low index
+        int j = 2; //high index
+        int sum = 3;
+       
+        while (i < j) {
+            if (sum < s)
+                sum += ++j;
+            else if(sum > s)
+                sum -= i++;
+            else{
+                bExist = true;
+                for (int k=i; k<j; k++)
+                    printf("%d ", k);
+                printf("%d\n", j);
+                sum -= i++;
+            }
+        }
+        
+        if (!bExist)
+            printf("Pity!\n");
+        
+        printf("#\n");
+    }
+```
+
 ###JDOJ1369: 字符串的排列
 棘手的是处理重复的字符。基本思路是**保持重复字符的原有顺序**。比如AAB，将重复的字符A不妨分别标记为$A_0$, $A_1$，这个字符串标记为$A_0A_1$B。排列中可以出现$A_0$B$A_1$，但不可以出现$A_1$B$A_0$。如果$A_0$没有出现，那么$A_1$也不应该出现，这样避免输出重复的排列。
 
@@ -74,7 +106,6 @@ $b_0,b_1,…,b_m$
             --index;
         }
     }
-
 ```
 
 ###HDOJ1003: Max Sum
@@ -88,5 +119,4 @@ for (int i=1; i<len; i++)
         b[i] = a[i];
     else
         b[i] = b[i-1] + a[i];
-
 ```
