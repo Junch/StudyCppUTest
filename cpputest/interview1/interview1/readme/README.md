@@ -108,6 +108,51 @@ $b_0,b_1,…,b_m$
     }
 ```
 
+###JDOJ1371: 最小的K个数
+以小顶堆来示意堆排序的过程如下，原始数组为{4, 1, 3, 2}，最终的排序结果为{4, 3, 2, 1}
+![Image](HeapSort.png)
+
+####堆排序思想：
+先建一个“小顶堆”，得到一个关键字最小的记录，然后与序列中最后一个记录交换，之后继续对序列中前 n-1 记录进行“筛选”，重新将它调整为一个“小顶堆”。再将堆顶记录和第 n-1 个记录交换，如此反复直至排序结束。所谓“筛选”指的是对一棵左/右子树均为堆的完全二叉树，“调整”根结点使整个二叉树为堆。
+``` {.cpp .numberLines}
+    void adjustSmallHeap(int a[], int heapLength, int i)
+    {
+        int l = 2*i+1;
+        int r = l+1;
+        
+        int smallest = i;
+        if (l<heapLength && a[l]<a[i])
+            smallest = l;
+        
+        if (r<heapLength && a[r]<a[smallest])
+            smallest = r;
+        
+        if (smallest != i) {
+            int temp = a[i];
+            a[i] = a[smallest];
+            a[smallest] = temp;
+            
+            adjustSmallHeap(a, heapLength, smallest);
+        }
+    }
+    
+    // Get the least k numbers
+    void heapSort(int a[], int length, int k)
+    {
+        // Setup a heap
+        for (int i=length/2-1; i>=0; --i)
+            adjustSmallHeap(a, length, i);
+        
+        for (int i=length-1; i>0 && i>=length-k; --i) {
+            int temp = a[i];
+            a[i] = a[0];
+            a[0] = temp;
+            
+            adjustSmallHeap(a, i, 0);
+        }
+    }
+```
+
 ###HDOJ1003: Max Sum
 
 $b_i$表示以$a_i$元素结尾的最大子段和，则所求的最大子段为$max\{b_i\}, 0 \leq i < n$。
