@@ -1,6 +1,6 @@
 //
 //  jdoj1369.cpp
-//  interview1
+//  字符串的排列
 //  http://ac.jobdu.com/problem.php?pid=1369
 //  Created by wolf76 on 11/11/13.
 //  Copyright (c) 2013 com.wolf76. All rights reserved.

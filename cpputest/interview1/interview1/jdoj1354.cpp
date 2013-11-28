@@ -1,10 +1,11 @@
 //
 //  jdoj1354.cpp
-//  interview1
+//  和为S的连续正数序列
 //  http://ac.jobdu.com/problem.php?pid=1354
 //  Created by wolf76 on 11/26/13.
 //  Copyright (c) 2013 com.wolf76. All rights reserved.
 //
+
 #include <CppUTest/TestHarness.h>
 #include <stdio.h>
 using namespace std;

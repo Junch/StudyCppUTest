@@ -1,6 +1,6 @@
 //
 //  jdoj1352.cpp
-//  interview1
+//  和为S的两个数字
 //  http://ac.jobdu.com/problem.php?pid=1352
 //  Created by wolf76 on 13-8-24.
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.

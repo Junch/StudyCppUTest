@@ -1,6 +1,6 @@
 //
-//  template.cpp
-//  interview1
+//  jdoj1348.cpp
+//  数组中的逆序对
 //  http://ac.jobdu.com/problem.php?pid=1348
 //  Created by wolf76 on 13-8-24.
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.

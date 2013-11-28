@@ -1,6 +1,6 @@
 //
 //  jdoj1371.cpp
-//  interview1
+//  最小的K个数
 //  http://ac.jobdu.com/problem.php?pid=1371
 //  Created by wolf76 on 11/28/13.
 //  Copyright (c) 2013 com.wolf76. All rights reserved.

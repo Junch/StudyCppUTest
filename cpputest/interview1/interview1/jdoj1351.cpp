@@ -1,6 +1,6 @@
 //
 //  jdoj1351.cpp
-//  interview1
+//  数组中只出现一次的数字
 //  http://ac.jobdu.com/problem.php?pid=1351
 //  Created by wolf76 on 13-8-24.
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.
