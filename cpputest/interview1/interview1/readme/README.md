@@ -165,3 +165,91 @@ for (int i=1; i<len; i++)
     else
         b[i] = b[i-1] + a[i];
 ```
+
+###POJ1568: Find the Winning Move
+
+- [井字棋](http://en.wikipedia.org/wiki/Tic-tac-toe)
+- [吴昊品游戏核心算法](http://www.cnblogs.com/tuanzang/archive/2013/02/28/2936714.html)
+- [对弈程序基本技术](http://www.xqbase.com/computer/outline.htm)
+
+**[Alpha–beta pruning](http://en.wikipedia.org/wiki/Alpha-beta_pruning)** is a search algorithm that seeks to decrease the number of nodes that are evaluated by the **minimax algorithm** in its search tree. It is an adversarial search algorithm used commonly for machine playing of two-player games (**Tic-tac-toe**, Chess, Go, etc.). It stops completely evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move. Such moves need not be evaluated further. When applied to a standard minimax tree, it returns the same move as minimax would, but prunes away branches that cannot possibly influence the final decision.
+
+![](alphabeta.png)
+
+基本算法如下：
+```{.c .numberLines}
+function alphabeta(node, depth, α, β, Player)         
+    if  depth = 0 or node is a terminal node
+        return the heuristic value of node
+    if  Player = MaxPlayer // 极大节点
+        for each child of node
+            α := max(α, alphabeta(child, depth-1, α, β, not(Player) ))
+            // 该极大节点的值>=α>=β，该极大节点后面的搜索到的值肯定会大于β，
+            // 因此不会被其上层的极小节点所选用了。对于根节点，β为正无穷  
+            if β ≤ α // Beta cut-off
+                break  
+        return α
+    else // 极小节点
+        for each child of node
+            β := min(β, alphabeta(child, depth-1, α, β, not(Player) ))
+            // 该极大节点的值<=β<=α，该极小节点后面的搜索到的值肯定会小于α，
+            // 因此不会被其上层的极大节点所选用了。对于根节点，α为负无穷
+            if β ≤ α // Alpha cut-off
+                break  
+        return β 
+// Initial call
+alphabeta(origin, depth, -infinity, +infinity, MaxPlayer)
+```
+代码如下所示：
+``` {.cpp .numberLines}
+    int Game::minimax(int type, int x, int y, int alpha, int beta)
+    {
+        //Check whether the game is over
+        if (over(x, y)) // Game is over
+            return type==1? -INF:INF;
+        
+        if (chess == 16) // No winner
+            return 0;
+        
+        if (type) { // MAX Node
+            for (int i=0; i<4; i++) {
+                for (int j=0; j<4; j++) {
+                    if (board[i][j] == '.') {
+                        board[i][j] = 'x';
+                        ++chess;
+                        int score = minimax(0, i, j, alpha, beta);
+                        board[i][j] = '.';
+                        --chess;
+                        
+                        if (score > alpha)
+                            alpha = score;
+                        if (alpha >= beta)
+                            return alpha;
+                    }
+                }
+            }
+            
+            return alpha;
+        }
+        else{ // MIN Node
+            for (int i=0; i<4; i++) {
+                for (int j=0; j<4; j++) {
+                    if (board[i][j] == '.') {
+                        board[i][j] = 'o';
+                        ++chess;
+                        int score = minimax(1, i, j, alpha, beta);
+                        board[i][j] = '.';
+                        --chess;
+                        
+                        if (score < beta)
+                            beta = score;
+                        if (alpha >= beta)
+                            return beta;
+                    }
+                }
+            }
+            return beta;
+        }
+    }
+```
+

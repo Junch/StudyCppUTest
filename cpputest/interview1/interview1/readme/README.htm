@@ -35,6 +35,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#jdoj1369-字符串的排列">JDOJ1369: 字符串的排列</a></li>
 <li><a href="#jdoj1371-最小的k个数">JDOJ1371: 最小的K个数</a></li>
 <li><a href="#hdoj1003-max-sum">HDOJ1003: Max Sum</a></li>
+<li><a href="#poj1568-find-the-winning-move">POJ1568: Find the Winning Move</a></li>
 </ul></li>
 </ul>
 </div>
@@ -305,5 +306,157 @@ code > span.er { color: #ff0000; font-weight: bold; }
         b[i] = a[i];
     <span class="kw">else</span>
         b[i] = b[i<span class="dv">-1</span>] + a[i];</code></pre></td></tr></table>
+<h3 id="poj1568-find-the-winning-move"><a href="#poj1568-find-the-winning-move">POJ1568: Find the Winning Move</a></h3>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Tic-tac-toe">井字棋</a></li>
+<li><a href="http://www.cnblogs.com/tuanzang/archive/2013/02/28/2936714.html">吴昊品游戏核心算法</a></li>
+<li><a href="http://www.xqbase.com/computer/outline.htm">对弈程序基本技术</a></li>
+</ul>
+<p><strong><a href="http://en.wikipedia.org/wiki/Alpha-beta_pruning">Alpha–beta pruning</a></strong> is a search algorithm that seeks to decrease the number of nodes that are evaluated by the <strong>minimax algorithm</strong> in its search tree. It is an adversarial search algorithm used commonly for machine playing of two-player games (<strong>Tic-tac-toe</strong>, Chess, Go, etc.). It stops completely evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move. Such moves need not be evaluated further. When applied to a standard minimax tree, it returns the same move as minimax would, but prunes away branches that cannot possibly influence the final decision.</p>
+<div class="figure">
+<img src="alphabeta.png" />
+</div>
+<p>基本算法如下：</p>
+<table class="sourceCode c numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="sourceCode"><pre><code class="sourceCode c">function alphabeta(node, depth, α, β, Player)         
+    <span class="kw">if</span>  depth = <span class="dv">0</span> or node is a terminal node
+        <span class="kw">return</span> the heuristic value of node
+    <span class="kw">if</span>  Player = MaxPlayer <span class="co">// 极大节点</span>
+        <span class="kw">for</span> each child of node
+            α := max(α, alphabeta(child, depth<span class="dv">-1</span>, α, β, not(Player) ))
+            <span class="co">// 该极大节点的值&gt;=α&gt;=β，该极大节点后面的搜索到的值肯定会大于β，</span>
+            <span class="co">// 因此不会被其上层的极小节点所选用了。对于根节点，β为正无穷  </span>
+            <span class="kw">if</span> β ≤ α <span class="co">// Beta cut-off</span>
+                <span class="kw">break</span>  
+        <span class="kw">return</span> α
+    <span class="kw">else</span> <span class="co">// 极小节点</span>
+        <span class="kw">for</span> each child of node
+            β := min(β, alphabeta(child, depth<span class="dv">-1</span>, α, β, not(Player) ))
+            <span class="co">// 该极大节点的值&lt;=β&lt;=α，该极小节点后面的搜索到的值肯定会小于α，</span>
+            <span class="co">// 因此不会被其上层的极大节点所选用了。对于根节点，α为负无穷</span>
+            <span class="kw">if</span> β ≤ α <span class="co">// Alpha cut-off</span>
+                <span class="kw">break</span>  
+        <span class="kw">return</span> β 
+<span class="co">// Initial call</span>
+alphabeta(origin, depth, -infinity, +infinity, MaxPlayer)</code></pre></td></tr></table>
+<p>代码如下所示：</p>
+<table class="sourceCode cpp numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="sourceCode"><pre><code class="sourceCode cpp">    <span class="dt">int</span> Game::minimax(<span class="dt">int</span> type, <span class="dt">int</span> x, <span class="dt">int</span> y, <span class="dt">int</span> alpha, <span class="dt">int</span> beta)
+    {
+        <span class="co">//Check whether the game is over</span>
+        <span class="kw">if</span> (over(x, y)) <span class="co">// Game is over</span>
+            <span class="kw">return</span> type==<span class="dv">1</span>? -INF:INF;
+        
+        <span class="kw">if</span> (chess == <span class="dv">16</span>) <span class="co">// No winner</span>
+            <span class="kw">return</span> <span class="dv">0</span>;
+        
+        <span class="kw">if</span> (type) { <span class="co">// MAX Node</span>
+            <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">4</span>; i++) {
+                <span class="kw">for</span> (<span class="dt">int</span> j=<span class="dv">0</span>; j&lt;<span class="dv">4</span>; j++) {
+                    <span class="kw">if</span> (board[i][j] == &#39;.&#39;) {
+                        board[i][j] = &#39;x&#39;;
+                        ++chess;
+                        <span class="dt">int</span> score = minimax(<span class="dv">0</span>, i, j, alpha, beta);
+                        board[i][j] = &#39;.&#39;;
+                        --chess;
+                        
+                        <span class="kw">if</span> (score &gt; alpha)
+                            alpha = score;
+                        <span class="kw">if</span> (alpha &gt;= beta)
+                            <span class="kw">return</span> alpha;
+                    }
+                }
+            }
+            
+            <span class="kw">return</span> alpha;
+        }
+        <span class="kw">else</span>{ <span class="co">// MIN Node</span>
+            <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">4</span>; i++) {
+                <span class="kw">for</span> (<span class="dt">int</span> j=<span class="dv">0</span>; j&lt;<span class="dv">4</span>; j++) {
+                    <span class="kw">if</span> (board[i][j] == &#39;.&#39;) {
+                        board[i][j] = &#39;o&#39;;
+                        ++chess;
+                        <span class="dt">int</span> score = minimax(<span class="dv">1</span>, i, j, alpha, beta);
+                        board[i][j] = &#39;.&#39;;
+                        --chess;
+                        
+                        <span class="kw">if</span> (score &lt; beta)
+                            beta = score;
+                        <span class="kw">if</span> (alpha &gt;= beta)
+                            <span class="kw">return</span> beta;
+                    }
+                }
+            }
+            <span class="kw">return</span> beta;
+        }
+    }</code></pre></td></tr></table>
 </body>
 </html>

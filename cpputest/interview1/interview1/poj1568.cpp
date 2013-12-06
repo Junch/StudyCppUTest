@@ -130,11 +130,11 @@ namespace POJ1568 {
                         board[i][j] = 'x';
                         ++chess;
                         int score = minimax(0, i, j, alpha, beta);
-                        if (score > alpha)
-                            alpha = score;
-                        
                         board[i][j] = '.';
                         --chess;
+                        
+                        if (score > alpha)
+                            alpha = score;
                         if (alpha >= beta)
                             return alpha;
                     }
@@ -150,11 +150,11 @@ namespace POJ1568 {
                         board[i][j] = 'o';
                         ++chess;
                         int score = minimax(1, i, j, alpha, beta);
-                        if (score < beta)
-                            beta = score;
-                        
                         board[i][j] = '.';
                         --chess;
+                        
+                        if (score < beta)
+                            beta = score;
                         if (alpha >= beta)
                             return beta;
                     }
@@ -172,19 +172,17 @@ namespace POJ1568 {
                 if (board[i][j] == '.') {
                     board[i][j] = 'x';
                     chess++;
+                    int score = minimax(0, i, j, alpha, INF);
+                    board[i][j] = '.';
+                    chess--;
                     
-                    int ret = minimax(0, i, j, alpha, INF);
-                    if (ret > alpha)
-                        alpha = ret;
-                    
+                    if (score > alpha)
+                        alpha = score;
                     if (alpha == INF){
                         x = i;
                         y = j;
                         return true;
                     }
-                    
-                    board[i][j] = '.';
-                    chess--;
                 }
             }
         }
@@ -206,7 +204,6 @@ namespace POJ1568 {
             
             Game g;
             g.init(buffer);
-            //g.print();
             
             int x, y;
             if (g.solve(x, y))
