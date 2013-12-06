@@ -124,15 +124,14 @@ namespace POJ1568 {
             return 0;
         
         if (type) { // MAX Node
-            alpha = -INF;
             for (int i=0; i<4; i++) {
                 for (int j=0; j<4; j++) {
                     if (board[i][j] == '.') {
                         board[i][j] = 'x';
                         ++chess;
-                        int ret = minimax(0, i, j, alpha, beta);
-                        if (ret > alpha)
-                            alpha = ret;
+                        int score = minimax(0, i, j, alpha, beta);
+                        if (score > alpha)
+                            alpha = score;
                         
                         board[i][j] = '.';
                         --chess;
@@ -145,15 +144,14 @@ namespace POJ1568 {
             return alpha;
         }
         else{ // MIN Node
-            beta = INF;
             for (int i=0; i<4; i++) {
                 for (int j=0; j<4; j++) {
                     if (board[i][j] == '.') {
                         board[i][j] = 'o';
                         ++chess;
-                        int ret = minimax(1, i, j, alpha, beta);
-                        if (ret < beta)
-                            beta = ret;
+                        int score = minimax(1, i, j, alpha, beta);
+                        if (score < beta)
+                            beta = score;
                         
                         board[i][j] = '.';
                         --chess;
@@ -214,7 +212,7 @@ namespace POJ1568 {
             if (g.solve(x, y))
                 printf("(%d,%d)\n", x, y);
             else
-                printf("####\n");
+                printf("#####\n");
         }
         
         return 0;
@@ -290,6 +288,9 @@ namespace POJ1568 {
         g.init(buffer);
         int alpha = g.minimax(1, 0, 1, -INF, INF);
         LONGS_EQUAL(INF, alpha);
+        int x, y;
+        CHECK_TRUE(g.solve(x, y));
+        LONGS_EQUAL(0, x);
+        LONGS_EQUAL(1, y);
     }
-    
 }//namespace
