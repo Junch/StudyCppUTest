@@ -1,7 +1,3 @@
-#ifdef __APPLE__
-#define GTEST_USE_OWN_TR1_TUPLE 1 //See issue tracker #5
-#endif
-
 #include <gtest/gtest.h>
 
 int Foo( int a , int b)
@@ -26,12 +22,4 @@ TEST (FooTest, HandleNoneZeroInput)
 TEST (FooTest, testfail)
 {
     EXPECT_EQ(2 , 4);
-}
-
-int main( int argc , const char * argv [])
-{
-    testing::InitGoogleTest (&argc, (char **)argv);
-    RUN_ALL_TESTS();
-    std::getchar ();
-    return 0 ;
 }
