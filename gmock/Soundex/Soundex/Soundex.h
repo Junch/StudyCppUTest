@@ -35,9 +35,15 @@ private:
         for (auto letter: word) {
             if (isComplete(encoding))
                 break;
-            encoding += encodedDigit(letter);
+            if (encodedDigit(letter) != lastDigit(encoding))
+                encoding += encodedDigit(letter);
         }
         return encoding;
+    }
+    
+    std::string lastDigit(const std::string& encoding) const{
+        if (encoding.empty())   return "";
+        return std::string(1, encoding.back());
     }
     
     bool isComplete(const std::string& encoding) const{
