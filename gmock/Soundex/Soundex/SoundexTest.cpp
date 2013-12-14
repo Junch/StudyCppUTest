@@ -55,3 +55,7 @@ TEST_F(SoundexEncoding, CombinesDuplicateEncodings)
     ASSERT_THAT(soundex.encode("Abfcgdt"), Eq("A123"));
 }
 
+TEST_F(SoundexEncoding, UppercaesFirstLetter)
+{
+    ASSERT_THAT(soundex.encode("abcd"), StartsWith("A"));
+}
