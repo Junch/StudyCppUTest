@@ -53,6 +53,10 @@ private:
         return std::string(1, std::toupper(static_cast<unsigned char>(word.front())));
     }
     
+    char lower(char c) const{
+        return std::tolower(static_cast<unsigned char>(c));
+    }
+    
     bool isComplete(const std::string& encoding) const{
         return encoding.length() == MaxCodeLength - 1;
     }
@@ -67,7 +71,7 @@ private:
             {'r', "6"}
         };
     
-        auto it = encodings.find(letter);
+        auto it = encodings.find(lower(letter));
         return it == encodings.end() ? NotADigit : it->second;
     }
     
