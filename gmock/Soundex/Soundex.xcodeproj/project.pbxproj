@@ -28,6 +28,7 @@
 		BF8458DD185C20D200FC615A /* Soundex */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Soundex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8458E0185C20D200FC615A /* SoundexTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SoundexTest.cpp; sourceTree = "<group>"; };
 		BF8458E2185C20D200FC615A /* Soundex.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Soundex.1; sourceTree = "<group>"; };
+		BF8458E9185C53EB00FC615A /* Soundex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Soundex.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			children = (
 				BF8458E0185C20D200FC615A /* SoundexTest.cpp */,
 				BF8458E2185C20D200FC615A /* Soundex.1 */,
+				BF8458E9185C53EB00FC615A /* Soundex.h */,
 			);
 			path = Soundex;
 			sourceTree = "<group>";
