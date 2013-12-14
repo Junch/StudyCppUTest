@@ -21,6 +21,7 @@ public:
     
 private:
     static const size_t MaxCodeLength{4};
+    const std::string NotADigit{"*"};
     
     std::string head(const std::string& word) const {
         return word.substr(0, 1);
@@ -35,14 +36,16 @@ private:
         for (auto letter: word) {
             if (isComplete(encoding))
                 break;
-            if (encodedDigit(letter) != lastDigit(encoding))
-                encoding += encodedDigit(letter);
+            
+            auto digit = encodedDigit(letter);
+            if (digit != NotADigit && digit != lastDigit(encoding))
+                encoding += digit;
         }
         return encoding;
     }
     
     std::string lastDigit(const std::string& encoding) const{
-        if (encoding.empty())   return "";
+        if (encoding.empty())   return NotADigit;
         return std::string(1, encoding.back());
     }
     
@@ -65,7 +68,7 @@ private:
         };
     
         auto it = encodings.find(letter);
-        return it == encodings.end() ? "": it->second;
+        return it == encodings.end() ? NotADigit : it->second;
     }
     
     std::string zeroPad(const std::string &word) const{
