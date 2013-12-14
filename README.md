@@ -38,3 +38,8 @@ CXXFLAGS += -g -Wall -Wextra -stdlib=libc++ -std=c++11
 make sample1_unittest
 ./sample1_unittest
 ```
+
+**One tip**: If you want to use the Other Linker Flags to link to gmock as below, you need to make sure the library's name is libgmock.a.
+
+![](flags.png)  
+  
