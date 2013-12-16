@@ -42,4 +42,14 @@ make sample1_unittest
 **One tip**: If you want to use the Other Linker Flags to link to gmock as below, you need to make sure the library's name is libgmock.a.
 
 ![](flags.png)  
+
+###Build the gtest with CMake
+Make a directory under gtest-1.7.0. The last variable ".." points to the gtest directory.
+
+```
+mkdir build
+cd build
+cmake -Dgtest_build_samples=ON -DCMAKE_CXX_COMPILER="clang++" -DCMAKE_CXX_FLAGS="-std=c++11 -stdlib=libc++" ..
+```
+
   
