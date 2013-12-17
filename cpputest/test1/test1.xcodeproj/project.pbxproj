@@ -186,6 +186,8 @@
 		8ED8303616D4ADAF0020D40A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				OTHER_LDFLAGS = "-lCppUTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -194,6 +196,8 @@
 		8ED8303716D4ADAF0020D40A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				OTHER_LDFLAGS = "-lCppUTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -218,6 +222,7 @@
 				8ED8303716D4ADAF0020D40A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

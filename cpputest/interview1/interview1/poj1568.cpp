@@ -9,7 +9,6 @@
 #include <CppUTest/TestHarness.h>
 #include <stdio.h>
 #include <string.h>
-
 namespace POJ1568 {
     
 #define INF 100000

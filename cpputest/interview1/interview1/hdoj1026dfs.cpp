@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.
 //
 
-#include <CppUTest/TestHarness.h>
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include <sstream> //strstream is deprecated
+#include <CppUTest/TestHarness.h>
 using namespace std;
 
 namespace HDOJ1026DFS {

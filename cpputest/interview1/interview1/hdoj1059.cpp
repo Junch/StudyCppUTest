@@ -7,8 +7,8 @@
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.
 //
 
-#include <CppUTest/TestHarness.h>
 #include <iostream>
+#include <CppUTest/TestHarness.h>
 #define INF 100000000
 using namespace std;
 

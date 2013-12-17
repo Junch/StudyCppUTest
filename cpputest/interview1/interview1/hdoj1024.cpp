@@ -7,9 +7,10 @@
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.
 //
 
-#include <CppUTest/TestHarness.h>
 #include <algorithm>
 #include <fstream>
+#include <CppUTest/TestHarness.h>
+#include <unistd.h>
 using namespace std;
 
 namespace HDOJ1024 {

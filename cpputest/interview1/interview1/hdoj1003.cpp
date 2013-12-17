@@ -6,12 +6,9 @@
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.
 //
 
-#include <CppUTest/TestHarness.h>
-#include <cassert>
 #include <vector>
 #include <iostream>
-#include <algorithm>
-
+#include <CppUTest/TestHarness.h>
 using namespace std;
 
 namespace HDOJ1003 {
