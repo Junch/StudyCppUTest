@@ -31,7 +31,9 @@ TEST_F(APlaceDescriptionService, MakeHttpRequestToObtainAddress) {
       "lat=" + APlaceDescriptionService::ValidLatitude + "&" +
       "lon=" + APlaceDescriptionService::ValidLongitude;
 
-   // Verify the input to Mock object is correct !!!
+   // Predict the input to Mock object !!!
+   // According to TDD, this test should be written first before the 
+   // implementation of the method summaryDescription.
    EXPECT_CALL(httpStub, get(expectedURL));
 
    PlaceDescriptionService service{&httpStub};
@@ -39,3 +41,21 @@ TEST_F(APlaceDescriptionService, MakeHttpRequestToObtainAddress) {
    auto description = service.summaryDescription(ValidLatitude, ValidLongitude);
 }
 
+TEST_F(APlaceDescriptionService, FormatsRetrievedAddressIntoSummaryDescription) {
+   HttpStub httpStub;
+
+   // Set the output of the Mock object !!!
+   // This test also should be written before the implementation
+   // of the method summaryDescription.
+   EXPECT_CALL(httpStub, get(_))
+      .WillOnce(Return(
+         R"({ "address": {
+              "road":"Drury Ln",
+              "city":"Fountain",
+              "state":"CO",
+              "country":"US" }})"));
+   PlaceDescriptionService service(&httpStub);
+
+   auto description = service.summaryDescription(ValidLatitude, ValidLongitude);
+   ASSERT_THAT(description, Eq("Drury Ln, Fountain, CO, US"));
+}
