@@ -17,6 +17,7 @@ string PlaceDescriptionService::summaryDescription(const string& latitude, const
 }
 
 string PlaceDescriptionService::get(const string& requestUrl) const {
+	http_->initialize();
 	return http_->get(requestUrl);
 }
 
