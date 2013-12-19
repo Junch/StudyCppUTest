@@ -34,6 +34,7 @@ TEST_F(APlaceDescriptionService, MakeHttpRequestToObtainAddress) {
    // Predict the input to Mock object !!!
    // According to TDD, this test should be written first before the 
    // implementation of the method summaryDescription.
+   EXPECT_CALL(httpStub, initialize());
    EXPECT_CALL(httpStub, get(expectedURL));
 
    PlaceDescriptionService service{&httpStub};
