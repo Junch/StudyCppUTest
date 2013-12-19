@@ -43,7 +43,9 @@ TEST_F(APlaceDescriptionService, MakeHttpRequestToObtainAddress) {
 }
 
 TEST_F(APlaceDescriptionService, FormatsRetrievedAddressIntoSummaryDescription) {
-   HttpStub httpStub;
+   // The NiceMock template effectively tells Google Mock to track interactions
+   // only for methods on which expectations exist.
+   NiceMock<HttpStub> httpStub;
 
    // Set the output of the Mock object !!!
    // This test also should be written before the implementation
