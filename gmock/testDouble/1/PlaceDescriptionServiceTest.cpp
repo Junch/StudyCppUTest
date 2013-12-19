@@ -22,6 +22,8 @@ public:
 };
 
 TEST_F(APlaceDescriptionService, MakeHttpRequestToObtainAddress) {
+   InSequence forceExpectationOrder;
+   
    HttpStub httpStub;
 
    string urlStart{
