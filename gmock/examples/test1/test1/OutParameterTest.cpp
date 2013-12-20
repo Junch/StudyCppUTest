@@ -10,6 +10,9 @@
 
 using namespace ::testing;
 
+namespace OutParameterTest {
+    
+
 class DifficultCollaborator {
 public:
     virtual bool calculate(int* result)
@@ -33,7 +36,7 @@ public:
     MOCK_METHOD1(calculate, bool(int*));
 };
 
-TEST(ATarget, ReturnsAnAmountWhenCalculatePasses) {
+TEST(OutParameterTest, ReturnsAnAmountWhenCalculatePasses) {
     DifficultCollaboratorMock difficult;
     Target calc;
     EXPECT_CALL(difficult, calculate(_))
@@ -44,4 +47,6 @@ TEST(ATarget, ReturnsAnAmountWhenCalculatePasses) {
     auto result = calc.execute(&difficult);
     
     ASSERT_THAT(result, Eq(3));
+}
+    
 }

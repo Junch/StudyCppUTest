@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E77C1011863E845005503D1 /* OverloadedFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C0FF1863E845005503D1 /* OverloadedFunctions.cpp */; };
+		8E77C10418640E21005503D1 /* PointerArgument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C10218640E21005503D1 /* PointerArgument.cpp */; };
+		8E77C107186415E6005503D1 /* MatchingContainers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C105186415E6005503D1 /* MatchingContainers.cpp */; };
+		8E77C10D186429FF005503D1 /* PredicatesAsMatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C10B186429FF005503D1 /* PredicatesAsMatcher.cpp */; };
+		8E77C1101864306A005503D1 /* DefinesMatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C10E1864306A005503D1 /* DefinesMatcher.cpp */; };
+		8E77C113186433D7005503D1 /* UseON_CALL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C111186433D7005503D1 /* UseON_CALL.cpp */; };
+		8E77C11918643DEE005503D1 /* ReferenceArgument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C11718643DEE005503D1 /* ReferenceArgument.cpp */; };
 		8EB6928616D5B5BE005BC387 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6928516D5B5BE005BC387 /* main.cpp */; };
 		BFF397801862DC0E0045B7FA /* OutParameterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFF3977E1862DC0E0045B7FA /* OutParameterTest.cpp */; };
 /* End PBXBuildFile section */
@@ -24,6 +31,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E77C0FF1863E845005503D1 /* OverloadedFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverloadedFunctions.cpp; sourceTree = "<group>"; };
+		8E77C10218640E21005503D1 /* PointerArgument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointerArgument.cpp; sourceTree = "<group>"; };
+		8E77C105186415E6005503D1 /* MatchingContainers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatchingContainers.cpp; sourceTree = "<group>"; };
+		8E77C10B186429FF005503D1 /* PredicatesAsMatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PredicatesAsMatcher.cpp; sourceTree = "<group>"; };
+		8E77C10E1864306A005503D1 /* DefinesMatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefinesMatcher.cpp; sourceTree = "<group>"; };
+		8E77C111186433D7005503D1 /* UseON_CALL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UseON_CALL.cpp; sourceTree = "<group>"; };
+		8E77C11718643DEE005503D1 /* ReferenceArgument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReferenceArgument.cpp; sourceTree = "<group>"; };
 		8EB6928216D5B5BE005BC387 /* test1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test1; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB6928516D5B5BE005BC387 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BFF3977E1862DC0E0045B7FA /* OutParameterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutParameterTest.cpp; sourceTree = "<group>"; };
@@ -61,6 +75,13 @@
 			children = (
 				8EB6928516D5B5BE005BC387 /* main.cpp */,
 				BFF3977E1862DC0E0045B7FA /* OutParameterTest.cpp */,
+				8E77C0FF1863E845005503D1 /* OverloadedFunctions.cpp */,
+				8E77C10218640E21005503D1 /* PointerArgument.cpp */,
+				8E77C11718643DEE005503D1 /* ReferenceArgument.cpp */,
+				8E77C105186415E6005503D1 /* MatchingContainers.cpp */,
+				8E77C10B186429FF005503D1 /* PredicatesAsMatcher.cpp */,
+				8E77C10E1864306A005503D1 /* DefinesMatcher.cpp */,
+				8E77C111186433D7005503D1 /* UseON_CALL.cpp */,
 			);
 			path = test1;
 			sourceTree = "<group>";
@@ -116,8 +137,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E77C10418640E21005503D1 /* PointerArgument.cpp in Sources */,
+				8E77C1101864306A005503D1 /* DefinesMatcher.cpp in Sources */,
 				BFF397801862DC0E0045B7FA /* OutParameterTest.cpp in Sources */,
+				8E77C11918643DEE005503D1 /* ReferenceArgument.cpp in Sources */,
+				8E77C10D186429FF005503D1 /* PredicatesAsMatcher.cpp in Sources */,
+				8E77C113186433D7005503D1 /* UseON_CALL.cpp in Sources */,
+				8E77C107186415E6005503D1 /* MatchingContainers.cpp in Sources */,
 				8EB6928616D5B5BE005BC387 /* main.cpp in Sources */,
+				8E77C1011863E845005503D1 /* OverloadedFunctions.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
