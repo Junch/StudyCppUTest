@@ -54,6 +54,7 @@
 		8ED9BC28183CB48D00F5DF9F /* jdoj1348.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9BC26183CB48D00F5DF9F /* jdoj1348.cpp */; };
 		8ED9BC2A183F0CAB00F5DF9F /* jdoj1348.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */; };
 		8EEAE8CC18447C1D001D1780 /* jdoj1354.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EEAE8CA18447C1D001D1780 /* jdoj1354.cpp */; };
+		BFC6A2DC186BCBD500AEC46E /* ltoj_implement_strstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -136,6 +137,7 @@
 		8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jdoj1348.txt; path = interview1/data/jdoj1348.txt; sourceTree = "<group>"; };
 		8EEAE8CA18447C1D001D1780 /* jdoj1354.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jdoj1354.cpp; sourceTree = "<group>"; };
 		8EEAE8CD184497C0001D1780 /* jdoj1354.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jdoj1354.txt; path = interview1/data/jdoj1354.txt; sourceTree = "<group>"; };
+		BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_implement_strstr.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		8E00CF7817ACF6D500F281A3 /* interview1 */ = {
 			isa = PBXGroup;
 			children = (
+				BFC6A2D9186BCB7000AEC46E /* str */,
 				8E0E02681834AB4D008EEB25 /* jdoj */,
 				8E8CB08917D47C3100583945 /* dfs */,
 				8E8CB08817D47C2A00583945 /* bfs */,
@@ -261,6 +264,14 @@
 			name = data;
 			sourceTree = "<group>";
 		};
+		BFC6A2D9186BCB7000AEC46E /* str */ = {
+			isa = PBXGroup;
+			children = (
+				BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */,
+			);
+			name = str;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,7 +298,7 @@
 		8E00CF6E17ACF6D500F281A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = com.wolf76;
 			};
 			buildConfigurationList = 8E00CF7117ACF6D500F281A3 /* Build configuration list for PBXProject "interview1" */;
@@ -327,6 +338,7 @@
 				8EB1BEBF17C0B9CC00484915 /* hdoj2602.cpp in Sources */,
 				8ED7397517C1C0C8006DCF50 /* hdoj1028.cpp in Sources */,
 				8EB1C6CA17C26EA400B5A81C /* hdoj1051.cpp in Sources */,
+				BFC6A2DC186BCBD500AEC46E /* ltoj_implement_strstr.cpp in Sources */,
 				8EB7117417C50FA200ABBD9E /* jdoj1048.cpp in Sources */,
 				8EB4763317C65DD600D46863 /* hdoj1058.cpp in Sources */,
 				8E54FB591846F40A0047C373 /* jdoj1371.cpp in Sources */,
@@ -352,7 +364,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -386,7 +397,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
