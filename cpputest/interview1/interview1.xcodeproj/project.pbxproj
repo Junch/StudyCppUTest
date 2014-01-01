@@ -54,6 +54,8 @@
 		8ED9BC28183CB48D00F5DF9F /* jdoj1348.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9BC26183CB48D00F5DF9F /* jdoj1348.cpp */; };
 		8ED9BC2A183F0CAB00F5DF9F /* jdoj1348.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */; };
 		8EEAE8CC18447C1D001D1780 /* jdoj1354.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EEAE8CA18447C1D001D1780 /* jdoj1354.cpp */; };
+		BF0AAD3A1873A58100436771 /* ltoj_LongestCommonPrefix .cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0AAD381873A58100436771 /* ltoj_LongestCommonPrefix .cpp */; };
+		BF7BEE051873BA93000789DD /* ltoj_3Sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */; };
 		BFC6A2DC186BCBD500AEC46E /* ltoj_implement_strstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +139,8 @@
 		8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jdoj1348.txt; path = interview1/data/jdoj1348.txt; sourceTree = "<group>"; };
 		8EEAE8CA18447C1D001D1780 /* jdoj1354.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jdoj1354.cpp; sourceTree = "<group>"; };
 		8EEAE8CD184497C0001D1780 /* jdoj1354.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jdoj1354.txt; path = interview1/data/jdoj1354.txt; sourceTree = "<group>"; };
+		BF0AAD381873A58100436771 /* ltoj_LongestCommonPrefix .cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "ltoj_LongestCommonPrefix .cpp"; sourceTree = "<group>"; };
+		BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_3Sum.cpp; sourceTree = "<group>"; };
 		BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_implement_strstr.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */,
+				BF0AAD381873A58100436771 /* ltoj_LongestCommonPrefix .cpp */,
+				BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */,
 			);
 			name = str;
 			sourceTree = "<group>";
@@ -343,11 +349,13 @@
 				8EB4763317C65DD600D46863 /* hdoj1058.cpp in Sources */,
 				8E54FB591846F40A0047C373 /* jdoj1371.cpp in Sources */,
 				8EB7E72017C8A44600BF1869 /* template.cpp in Sources */,
+				BF7BEE051873BA93000789DD /* ltoj_3Sum.cpp in Sources */,
 				8E0261B21830800400C319C4 /* jdoj1369.cpp in Sources */,
 				8EB7E72317C8A52100BF1869 /* hdoj1059.cpp in Sources */,
 				8EB7E72617C8A80D00BF1869 /* hdoj1506wa.cpp in Sources */,
 				8EB0FF2F17C8F367007A4F5A /* hdoj1506dp.cpp in Sources */,
 				8E0E026B1834AB75008EEB25 /* jdoj1352.cpp in Sources */,
+				BF0AAD3A1873A58100436771 /* ltoj_LongestCommonPrefix .cpp in Sources */,
 				8ED7397817CB5AA6006DCF50 /* hdoj1069.cpp in Sources */,
 				8EB7497917CCFCF100122341 /* hdoj1045.cpp in Sources */,
 				8ED7397B17CDF341006DCF50 /* hdoj2553.cpp in Sources */,
