@@ -4,12 +4,35 @@
 //
 //  Created by Jun on 14-1-2.
 //  Copyright (c) 2014年 Jun. All rights reserved.
-//
+//  http://en.cppreference.com/w/cpp/memory/shared_ptr
+//  http://www.gps.caltech.edu/~walter/arx/ArX-2.2.4/src/boost/libs/smart_ptr/sp_techniques.html
 
 #include <gtest/gtest.h>
 #include <memory>
 using namespace testing;
 using namespace std;
+
+class Foo {
+public:
+    Foo() {
+        printf("Foo::Foo()\n");
+    }
+    
+    virtual ~Foo() {
+        printf("Foo::~Foo()\n");
+    }
+};
+
+class Goo: public Foo {
+public:
+    Goo() {
+        printf("Goo::Goo()\n");
+    }
+    
+    ~Goo() {
+        printf("Goo::~Goo()\n");
+    }
+};
 
 TEST(shared_ptr, use_count)
 {
@@ -30,17 +53,6 @@ TEST(shared_ptr, use_count)
 
 TEST(shared_ptr, use_count2)
 {
-    class Foo {
-    public:
-        Foo() {
-            printf("Foo::Foo() %d\n", __LINE__);
-        }
-        
-        ~Foo() {
-            printf("Foo::~Foo() %d\n", __LINE__);
-        }
-    };
-    
     class A{
     public:
         A()=default;
@@ -61,15 +73,29 @@ TEST(shared_ptr, use_count2)
     ASSERT_EQ(4, a._f.use_count());
 }
 
+TEST(shared_ptr, reset)
+{
+    shared_ptr<int> p=make_shared<int>(5);
+    shared_ptr<int> q=p;
+    shared_ptr<int> r=p;
+    ASSERT_EQ(3, p.use_count());
+    ASSERT_EQ(3, q.use_count());
+    ASSERT_EQ(3, r.use_count());
+    
+    p.reset();
+    ASSERT_EQ(0, p.use_count());
+    ASSERT_EQ(2, q.use_count());
+    ASSERT_EQ(2, r.use_count());
+    
+    q.reset();
+    ASSERT_EQ(0, q.use_count());
+    ASSERT_EQ(1, r.use_count());
+}
+
 TEST(shared_ptr, allocAndDeleter)
 {
-    class Foo{
-        
-    };
-    
-    class FooHandler
+    struct FooHandler
     {
-    public:
         static Foo* alloc()
         {
             Foo* f = new Foo;
@@ -83,9 +109,8 @@ TEST(shared_ptr, allocAndDeleter)
         }
     };
     
-    class Functor
+    struct Functor
     {
-    public:
         void operator()(Foo* f){
             delete f;
             std::cout << " foo destroyed in Functor" <<std::endl;
@@ -96,7 +121,6 @@ TEST(shared_ptr, allocAndDeleter)
     shared_ptr<Foo> goo(new Foo, &FooHandler::free);
     shared_ptr<Foo> hoo(new Foo, Functor());
 }
-
 
 TEST(shared_ptr, makeUseOfDelecter)
 {
@@ -123,7 +147,18 @@ TEST(shared_ptr, pointsToContainer)
         ASSERT_EQ(2, i);
 }
 
-TEST(shared_ptr, itemInContainer)
+TEST(shared_ptr, pointsToArray)
+{
+    shared_ptr<Foo> foo(new Foo[2], std::default_delete<Foo[]>());
+    {
+        printf("******\n");
+        shared_ptr<Foo> goo(new Goo);
+        foo = goo;
+        printf("******\n");
+    }
+}
+
+TEST(shared_ptr, isItemInContainer)
 {
     typedef vector<shared_ptr<int> > vs;
     vs v(5);
@@ -136,16 +171,38 @@ TEST(shared_ptr, itemInContainer)
         ASSERT_EQ(++i, *item);
 }
 
-TEST(shared_ptr, itemInContainer2)
+TEST(shared_ptr, isItemInContainer2)
 {
-    class Foo {
-    public:
-        ~Foo() {
-            printf("Foo::~Foo() %d\n", __LINE__);
-        }
-    };
-    
     vector<shared_ptr<Foo> > v;
     v.push_back(make_shared<Foo>());
     v.push_back(make_shared<Foo>());
+}
+
+TEST(shared_ptr, preventDeleteRawPointer)
+{
+    class X
+    {
+    private:
+        ~X() = default;
+        
+        class deleter;
+        friend class deleter;
+        
+        class deleter
+        {
+        public:
+            
+            void operator()(X * p) { delete p; }
+        };
+        
+    public:
+        
+        static shared_ptr<X> create()
+        {
+            shared_ptr<X> px(new X, X::deleter());
+            return px;
+        }
+    };
+    
+    shared_ptr<X> x= X::create();
 }
