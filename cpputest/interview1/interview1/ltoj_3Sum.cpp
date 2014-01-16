@@ -64,7 +64,7 @@ namespace ThreeSum {
         Solution sln;
     };
     
-    TEST(ThreeSum, testGeneral){
+    IGNORE_TEST(ThreeSum, testGeneral){
         vector<int> s{-1, 0, 1, 2, -1 ,-4};
         auto r=sln.threeSum(s);
         for (const auto& v: r)  {

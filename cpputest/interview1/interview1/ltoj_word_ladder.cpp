@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <unordered_set>
+#include <vector>
 #include <CppUTest/TestHarness.h>
 #include <cassert>
 using namespace std;
@@ -19,29 +20,33 @@ namespace LTOJ_WORDLADDER {
         
         int ladderLength(string start, string end, unordered_set<string> &dict){
             dictlen = static_cast<int>(dict.size());
+            stringlen = static_cast<int>(start.length());
             
-            unordered_set<string> used;
-            int len = dfs(start, end, dict, used);
+            vector<string> vdict;
+            for (const auto& e: dict)
+                vdict.push_back(e);
+            
+            int len = dfs(start, end, vdict, dictlen+1);
             if (len > dictlen)
                 return 0;
             
             return len + 2;
         }
         
-        int dfs(string start, string end, const unordered_set<string> &dict, unordered_set<string>& used){
-            int shortest = dictlen + 1;
-            
-            for (const auto& e: dict) {
-                if (used.find(e) != used.end())
-                    continue;
-                
+        int dfs(string start, string end, vector<string>& dict, int shortest){
+    
+            for (auto& e: dict) {
                 if (connectedString(start, e)) {
                     if (connectedString(end, e))
                         return 1;
                     
-                    used.insert(e);
-                    int len = dfs(e, end, dict, used);
-                    used.erase(e);
+                    if (shortest <= 0)
+                        return dictlen + 1;
+                    
+                    string temp = e;
+                    e = "";
+                    int len = dfs(temp, end, dict, shortest-1);
+                    e = temp;
                     
                     if (len < shortest)
                         shortest = len;
@@ -52,9 +57,8 @@ namespace LTOJ_WORDLADDER {
         }
 
         bool connectedString(string a, string b){
-            size_t len = a.length();
             int diff = 0;
-            for (size_t i=0; i<len; ++i){
+            for (size_t i=0; i<stringlen; ++i){
                 if (a[i] != b[i]) {
                     ++diff;
                     if (diff>1)
@@ -67,6 +71,7 @@ namespace LTOJ_WORDLADDER {
         
     private:
         int dictlen=0;
+        int stringlen=0;
     };
     
     TEST_GROUP(LTOJ_WORDLADDER){
@@ -97,6 +102,5 @@ namespace LTOJ_WORDLADDER {
         unordered_set<string> dict {"a","b","c"};
         LONGS_EQUAL(3, sln.ladderLength("a", "c", dict));
     }
-    
 }//namespace
 
