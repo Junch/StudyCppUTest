@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <unordered_set>
-#include <vector>
 #include <queue>
 #include <CppUTest/TestHarness.h>
 #include <cassert>
@@ -24,11 +23,10 @@ namespace LTOJ_WORDLADDER_BFS {
         
         int ladderLength(string start, string end, unordered_set<string> &dict){
             
-            vector<string> v;
-            for (const auto& s: dict)
-                v.push_back(s);
+            unordered_set<string> visited;
+            dict.insert(end);
             
-            stringlen = static_cast<int>(start.length());
+            int stringlen = static_cast<int>(start.length());
             
             queue<Node> q;
             q.push(Node{start, 0});
@@ -37,37 +35,33 @@ namespace LTOJ_WORDLADDER_BFS {
                 Node top = q.front();
                 q.pop();
                 
-                if (connectedString(top.val, end) && top.depth != 0)
-                    return top.depth + 2;
-                
-                for (auto& s: v) {
-                    if (connectedString(top.val, s)) {
-                        q.push(Node{s, top.depth+1});
-                        s = "";
+                string s = top.val;
+                for (int i=0; i<stringlen; i++) {
+                    char c = s[i];
+                    for (char j='a'; j<='z'; ++j) {
+                        if (c == j)
+                            continue;
+                        
+                        s[i] = j;
+                        const auto iter = dict.find(s);
+                        if (iter != dict.end() &&
+                            visited.find(s) == visited.end()) {
+
+                            if (s == end)
+                                return top.depth+2;
+                            
+                            q.push(Node{s, top.depth+1});
+                            visited.insert(s);
+                            dict.erase(iter);
+                        }
                     }
+                    
+                    s[i] = c;
                 }
             }
             
             return 0;
         }
-        
-        bool connectedString(const string& a, const string& b){
-            if (a.empty() || b.empty())
-                return false;
-            
-            int diff = 0;
-            for (size_t i=0; i<stringlen; ++i){
-                if (a[i] != b[i]) {
-                    ++diff;
-                    if (diff>1)
-                        return false;
-                }
-            }
-            
-            return diff==1;
-        }
-    private:
-        int stringlen=0;
     };
     
     TEST_GROUP(LTOJ_WORDLADDER){
@@ -96,7 +90,7 @@ namespace LTOJ_WORDLADDER_BFS {
     
     TEST(LTOJ_WORDLADDER, Duplicated){
         unordered_set<string> dict {"a","b","c"};
-        LONGS_EQUAL(3, sln.ladderLength("a", "c", dict));
+        LONGS_EQUAL(2, sln.ladderLength("a", "c", dict));
     }
 }//namespace
 
