@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <map>
 #include <CppUTest/TestHarness.h>
 using namespace std;
 
@@ -16,41 +17,32 @@ namespace LTOJ_EVAL_REVERSE_POLISH {
     class Solution {
     public:
         int evalRPN(vector<string> &tokens) {
-            int a(0), b(0);
+           
+            map<string, std::function<int(int, int)>> maps {
+                {"+", [](int a, int b){return a + b;}},
+                {"-", [](int a, int b){return a - b;}},
+                {"*", [](int a, int b){return a * b;}},
+                {"/", [](int a, int b){return a / b;}},
+            };
             
             for (auto e: tokens) {
-                if (e.length() == 1) {
-                    if (e == "+") {
-                        getTwoNumbers(a, b);
-                        s.push(a+b);
-                    }
-                    else if (e == "-") {
-                        getTwoNumbers(a, b);
-                        s.push(b-a);
-                    }
-                    else if (e == "*") {
-                        getTwoNumbers(a, b);
-                        s.push(a*b);
-                    }
-                    else if (e == "/") {
-                        getTwoNumbers(a, b);
-                        s.push(b/a);
-                    }
-                    else
-                        s.push(atoi(e.c_str()));
+                auto iter = maps.find(e);
+                if (iter != maps.end()) {
+                    int a, b;
+                    getTwoNumbers(a, b);
+                    s.push(iter->second(a, b));
                 }
-                else{
+                else
                     s.push(atoi(e.c_str()));
-                }
             }
 
             return s.top();
         }
         
         void getTwoNumbers(int& a, int& b){
-            a = s.top();
-            s.pop();
             b = s.top();
+            s.pop();
+            a = s.top();
             s.pop();
         }
         
