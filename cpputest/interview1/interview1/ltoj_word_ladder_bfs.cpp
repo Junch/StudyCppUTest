@@ -15,15 +15,12 @@ using namespace std;
 
 namespace LTOJ_WORDLADDER_BFS {
     class Solution {
+        typedef pair<string, int> Node;
     public:
         int ladderLength(string start, string end, unordered_set<string> &dict){
             
             unordered_set<string> visited;
             dict.insert(end);
-            
-            int stringlen = static_cast<int>(start.length());
-            
-            typedef pair<string, int> Node;
             
             queue<Node> q;
             q.push(Node{start, 0});
@@ -32,32 +29,41 @@ namespace LTOJ_WORDLADDER_BFS {
                 Node top = q.front();
                 q.pop();
                 
-                string s = top.first;
-                for (int i=0; i<stringlen; i++) {
-                    char c = s[i];
-                    for (char j='a'; j<='z'; ++j) {
-                        if (c == j)
-                            continue;
-                        
-                        s[i] = j;
-                        const auto iter = dict.find(s);
-                        if (iter != dict.end() &&
-                            visited.find(s) == visited.end()) {
-
-                            if (s == end)
-                                return top.second + 2;
-                            
-                            q.push(Node{s, top.second + 1});
-                            visited.insert(s);
-                            dict.erase(iter);
-                        }
-                    }
-                    
-                    s[i] = c;
-                }
+                if (addConnectedStringToQueue(top, end, q, dict, visited))
+                    return top.second + 2;
             }
             
             return 0;
+        }
+
+        bool addConnectedStringToQueue(Node& top, string end, queue<Node>& q,
+                                       unordered_set<string> &dict,
+                                       unordered_set<string>& visited){
+            string s = top.first;
+            for (size_t i=0, len=s.length(); i<len; i++) {
+                char c = s[i];
+                for (char j='a'; j<='z'; ++j) {
+                    if (c == j)
+                        continue;
+                    
+                    s[i] = j;
+                    const auto iter = dict.find(s);
+                    if (iter != dict.end() &&
+                        visited.find(s) == visited.end()) {
+                        
+                        if (s == end)
+                            return true;
+                        
+                        q.push(Node{s, top.second + 1});
+                        visited.insert(s);
+                        dict.erase(iter);
+                    }
+                }
+                
+                s[i] = c;
+            }
+         
+            return false;
         }
     };
     
