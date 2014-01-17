@@ -19,26 +19,21 @@ namespace LTOJ_WORDLADDER_BFS {
     public:
         int ladderLength(string start, string end, unordered_set<string> &dict){
             
-            unordered_set<string> visited;
             dict.insert(end);
-            
-            queue<Node> q;
             q.push(Node{start, 0});
             
             while (!q.empty()) {
                 Node top = q.front();
                 q.pop();
                 
-                if (addConnectedStringToQueue(top, end, q, dict, visited))
+                if (addConnectedStringToQueue(top, end, dict))
                     return top.second + 2;
             }
             
             return 0;
         }
 
-        bool addConnectedStringToQueue(Node& top, string end, queue<Node>& q,
-                                       unordered_set<string> &dict,
-                                       unordered_set<string>& visited){
+        bool addConnectedStringToQueue(Node& top, string end, unordered_set<string> &dict){
             string s = top.first;
             for (size_t i=0, len=s.length(); i<len; i++) {
                 char c = s[i];
@@ -65,6 +60,10 @@ namespace LTOJ_WORDLADDER_BFS {
          
             return false;
         }
+        
+    private:
+        unordered_set<string> visited;
+        queue<Node> q;
     };
     
     TEST_GROUP(LTOJ_WORDLADDER){
