@@ -16,17 +16,14 @@ using namespace std;
 namespace LTOJ_WORDLADDER_BFS {
     class Solution {
     public:
-        typedef struct NodeTag {
-            string  val;
-            int     depth;
-        }Node;
-        
         int ladderLength(string start, string end, unordered_set<string> &dict){
             
             unordered_set<string> visited;
             dict.insert(end);
             
             int stringlen = static_cast<int>(start.length());
+            
+            typedef pair<string, int> Node;
             
             queue<Node> q;
             q.push(Node{start, 0});
@@ -35,7 +32,7 @@ namespace LTOJ_WORDLADDER_BFS {
                 Node top = q.front();
                 q.pop();
                 
-                string s = top.val;
+                string s = top.first;
                 for (int i=0; i<stringlen; i++) {
                     char c = s[i];
                     for (char j='a'; j<='z'; ++j) {
@@ -48,9 +45,9 @@ namespace LTOJ_WORDLADDER_BFS {
                             visited.find(s) == visited.end()) {
 
                             if (s == end)
-                                return top.depth+2;
+                                return top.second + 2;
                             
-                            q.push(Node{s, top.depth+1});
+                            q.push(Node{s, top.second + 1});
                             visited.insert(s);
                             dict.erase(iter);
                         }
