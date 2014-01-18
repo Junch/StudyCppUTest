@@ -31,17 +31,29 @@ namespace LTOJ_WORDLADDER_II_2 {
             nodes.push_back(pNode);
             q.push(pNode);
             
-            int depth = -1;
+            int shortestDepth = -1;
             
+            preDepth = 0;
             while (!q.empty()) {
                 Node* top = q.front();
                 q.pop();
                 
-                if (depth != -1 && top->depth > depth)
+                if (top->depth == preDepth + 1) {
+                    // Remove the nodes of preDepth in the dictionary
+                    // for they will not appear in deeper depth
+                    for (string &e: usedStrings)
+                        dict.erase(e);
+                    
+                    usedStrings.clear();
+                    
+                    ++preDepth;
+                }
+                
+                if (shortestDepth != -1  && top->depth > shortestDepth)
                     break;
                 
                 if (addConnectedStringToQueue(top, end, dict)){
-                    depth = top->depth;
+                    shortestDepth = top->depth;
                     
                     vector<string> v{end};
                     pNode = top;
@@ -78,17 +90,14 @@ namespace LTOJ_WORDLADDER_II_2 {
                     s[i] = j;
                     const auto iter = dict.find(s);
                     if (iter != dict.end()) {
-                            
-                        if (findStringInParent(s, top))
-                            continue;
-                        
                         if (s == end)
                             return true;
                         
                         Node* pNode = new Node{s, top->depth + 1, top};
                         nodes.push_back(pNode);
                         q.push(pNode);
-                      }
+                        usedStrings.push_back(s);
+                    }
                 }
                 
                 s[i] = c;
@@ -97,18 +106,11 @@ namespace LTOJ_WORDLADDER_II_2 {
             return false;
         }
         
-        bool findStringInParent(string s, Node* top)
-        {
-            Node* pNode = top;
-            for (; pNode != nullptr && pNode->val != s; pNode = pNode->parent) {
-            }
-
-            return pNode != nullptr;
-        }
-        
     private:
         queue<Node*> q;
         vector<Node*> nodes;
+        vector<string> usedStrings;
+        int preDepth;
     };
     
     TEST_GROUP(LTOJ_WORDLADDER){
