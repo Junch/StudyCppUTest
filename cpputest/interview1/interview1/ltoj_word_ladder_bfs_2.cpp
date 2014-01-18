@@ -11,35 +11,55 @@
 #include <queue>
 #include <CppUTest/TestHarness.h>
 #include <cassert>
+#include <memory>
 using namespace std;
 
 namespace LTOJ_WORDLADDER_II {
     class Solution {
         typedef struct NodeTag{
+            NodeTag(string val_, int depth_, const shared_ptr<NodeTag>& parent_):
+            val(val_), depth(depth_), parent(parent_){}
+            
             string val;
             int    depth;
-            struct NodeTag* parent;
+            shared_ptr<NodeTag> parent;
         }Node;
         
     public:
-        int ladderLength(string start, string end, unordered_set<string> &dict){
-            Node* pNode = new Node{start, 0, nullptr};
+        vector<vector<string>> ladderLength(string start, string end, unordered_set<string> &dict){
+            vector<vector<string>> vv;
             
             dict.insert(end);
-            q.push(pNode);
+            q.push(make_shared<Node>(start, 0, nullptr));
+            
+            int depth = -1;
             
             while (!q.empty()) {
-                Node* top = q.front();
+                shared_ptr<Node> top = q.front();
                 q.pop();
                 
-                if (addConnectedStringToQueue(top, end, dict))
-                    return top->depth + 2;
+                if (depth != -1 && top->depth > depth)
+                    break;
+                
+                if (addConnectedStringToQueue(top, end, dict)){
+                    depth = top->depth;
+                    
+                    vector<string> v{end};
+                    shared_ptr<Node> pNode = top;
+                    while (pNode) {
+                        v.push_back(pNode->val);
+                        pNode = pNode->parent;
+                    }
+                    
+                    std::reverse(v.begin(), v.end());
+                    vv.push_back(v);
+                 }
             }
             
-            return 0;
+            return vv;
         }
         
-        bool addConnectedStringToQueue(Node* top, string end, unordered_set<string> &dict){
+        bool addConnectedStringToQueue(shared_ptr<Node> top, string end, unordered_set<string> &dict){
             string s = top->val;
             for (size_t i=0, len=s.length(); i<len; i++) {
                 char c = s[i];
@@ -54,8 +74,8 @@ namespace LTOJ_WORDLADDER_II {
                         
                         if (s == end)
                             return true;
-                        Node* pNode = new Node{s, top->depth + 1, 0};
-                        q.push(pNode);
+                        
+                        q.push(make_shared<Node>(s, top->depth + 1, top));
                         visited.insert(s);
                         dict.erase(iter);
                     }
@@ -69,7 +89,7 @@ namespace LTOJ_WORDLADDER_II {
         
     private:
         unordered_set<string> visited;
-        queue<Node *> q;
+        queue<shared_ptr<Node>> q;
     };
     
     TEST_GROUP(LTOJ_WORDLADDER){
@@ -78,27 +98,32 @@ namespace LTOJ_WORDLADDER_II {
     
     TEST(LTOJ_WORDLADDER, AnSimpleOne){
         unordered_set<string> dict {"hot","log"};
-        LONGS_EQUAL(3, sln.ladderLength("hit", "dot", dict));
+        auto ret = sln.ladderLength("hit", "dot", dict);
+        LONGS_EQUAL(3, ret[0].size());
     }
     
     TEST(LTOJ_WORDLADDER, NotFound){
         unordered_set<string> dict {"hat","log"};
-        LONGS_EQUAL(0, sln.ladderLength("hit", "dot", dict));
+        auto ret = sln.ladderLength("hit", "dot", dict);
+        LONGS_EQUAL(0, ret.size());
     }
     
     TEST(LTOJ_WORDLADDER, AnComplexOne){
         unordered_set<string> dict {"hot","dot","dog", "lot", "log"};
-        LONGS_EQUAL(5, sln.ladderLength("hit", "cog", dict));
+        auto ret =sln.ladderLength("hit", "cog", dict);
+        LONGS_EQUAL(5, ret[0].size());
     }
-    
+
     TEST(LTOJ_WORDLADDER, FullSize){
         unordered_set<string> dict {"hot","dot","dog"};
-        LONGS_EQUAL(5, sln.ladderLength("hit", "cog", dict));
+        auto ret = sln.ladderLength("hit", "cog", dict);
+        LONGS_EQUAL(5, ret[0].size());
     }
     
     TEST(LTOJ_WORDLADDER, Duplicated){
         unordered_set<string> dict {"a","b","c"};
-        LONGS_EQUAL(2, sln.ladderLength("a", "c", dict));
+        auto ret = sln.ladderLength("a", "c", dict);
+        LONGS_EQUAL(2, ret[0].size());
     }
 }//namespace
 
