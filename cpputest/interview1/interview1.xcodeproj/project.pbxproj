@@ -29,6 +29,7 @@
 		8E54FB61184DC58F0047C373 /* poj1568.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E54FB5F184DC58F0047C373 /* poj1568.cpp */; };
 		8E54FB63185063BC0047C373 /* poj1568.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E54FB62185063B10047C373 /* poj1568.txt */; };
 		8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D99CB17AE58220066B634 /* bitree.cpp */; };
+		8E7CFC56188A2F6A0003632F /* ltoj_word_ladder_bfs_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CFC54188A2F6A0003632F /* ltoj_word_ladder_bfs_2.cpp */; };
 		8E8395FB17D58DEF002AF58D /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8395F917D58DEF002AF58D /* Timer.cpp */; };
 		8EA24E1817B5CEFC00458A01 /* hdoj1010.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EA24E1617B5CEFC00458A01 /* hdoj1010.cpp */; };
 		8EB089F417BE1E070048E8C2 /* hdoj1003.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB089F217BE1E070048E8C2 /* hdoj1003.cpp */; };
@@ -107,6 +108,7 @@
 		8E54FB5F184DC58F0047C373 /* poj1568.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = poj1568.cpp; sourceTree = "<group>"; };
 		8E54FB62185063B10047C373 /* poj1568.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = poj1568.txt; path = interview1/data/poj1568.txt; sourceTree = "<group>"; };
 		8E5D99CB17AE58220066B634 /* bitree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bitree.cpp; sourceTree = "<group>"; };
+		8E7CFC54188A2F6A0003632F /* ltoj_word_ladder_bfs_2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_word_ladder_bfs_2.cpp; sourceTree = "<group>"; };
 		8E8395F917D58DEF002AF58D /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
 		8E8395FA17D58DEF002AF58D /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		8EA24E1617B5CEFC00458A01 /* hdoj1010.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hdoj1010.cpp; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */,
 				BF67A23518851F1400E9F248 /* ltoj_word_ladder.cpp */,
 				BF3AC1DA1887C573004FC432 /* ltoj_word_ladder_bfs.cpp */,
+				8E7CFC54188A2F6A0003632F /* ltoj_word_ladder_bfs_2.cpp */,
 				BF3AC1DD1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp */,
 			);
 			name = str;
@@ -341,6 +344,7 @@
 				8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */,
 				BF3AC1DF1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp in Sources */,
 				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
+				8E7CFC56188A2F6A0003632F /* ltoj_word_ladder_bfs_2.cpp in Sources */,
 				8EA24E1817B5CEFC00458A01 /* hdoj1010.cpp in Sources */,
 				8ED9BC28183CB48D00F5DF9F /* jdoj1348.cpp in Sources */,
 				8EC6355D17B8895600B7CD2A /* hdoj1010recu.cpp in Sources */,
