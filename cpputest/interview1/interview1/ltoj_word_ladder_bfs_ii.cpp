@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <unordered_set>
+#include <unordered_map>
 #include <queue>
 #include <CppUTest/TestHarness.h>
 #include <cassert>
@@ -26,36 +27,38 @@ namespace LTOJ_WORDLADDER_II_2 {
         vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict){
             vector<vector<string>> vv;
             
+            dict.insert(start);
             dict.insert(end);
+            
             Node* pNode = new Node{start, 0, nullptr};
             nodes.push_back(pNode);
             q.push(pNode);
             
-            int shortestDepth = -1;
+            setupMap(dict);
             
-            preDepth = 0;
+            int preDepth = 0;
+            int shortestDepth = -1; //magic number
+            
             while (!q.empty()) {
-                Node* top = q.front();
+                auto top = q.front();
                 q.pop();
-                
-                if (top->depth == preDepth + 1) {
-                    // Remove the nodes of preDepth in the dictionary
-                    // for they will not appear in deeper depth
-                    for (string &e: usedStrings)
-                        dict.erase(e);
-                    
-                    usedStrings.clear();
-                    
-                    ++preDepth;
-                }
                 
                 if (shortestDepth != -1  && top->depth > shortestDepth)
                     break;
                 
-                if (addConnectedStringToQueue(top, end, dict)){
+                // Begin a new depth
+                if (top->depth == preDepth + 1) {
+                    cleanMap();
+                    ++preDepth;
+                }else{ // The same depth
+                    oldNodes.push_back(top);
+                }
+                
+                // Get the end node
+                if (top->val == end) {
                     shortestDepth = top->depth;
                     
-                    vector<string> v{end};
+                    vector<string> v;
                     pNode = top;
                     while (pNode) {
                         v.push_back(pNode->val);
@@ -64,12 +67,15 @@ namespace LTOJ_WORDLADDER_II_2 {
                     
                     std::reverse(v.begin(), v.end());
                     vv.push_back(v);
-                    
-//                    for (auto e: v) {
-//                        std::cout << e << "\n";
-//                    }
-                    
                 }
+                
+                const auto& nexts = graph[top->val];
+                for (const auto& s: nexts) {
+                    pNode = new Node{s, top->depth+1, top};
+                    nodes.push_back(pNode);
+                    q.push(pNode);
+                }
+                
             }
             
             for (auto e: nodes)
@@ -78,39 +84,50 @@ namespace LTOJ_WORDLADDER_II_2 {
             return vv;
         }
         
-        bool addConnectedStringToQueue(Node* top, string end, unordered_set<string> &dict){
-            string s = top->val;
+        void setupMap(unordered_set<string>& dict) {
+            size_t len= (*dict.begin()).length();
             
-            for (size_t i=0, len=s.length(); i<len; i++) {
-                char c = s[i];
-                for (char j='a'; j<='z'; ++j) {
-                    if (c == j)
-                        continue;
+            for (auto it=dict.begin(); it != dict.end();) {
+                string key = *it;
+                string s = key;
+                
+                for (size_t i=0; i<len; i++) {
+                    char c = s[i];
                     
-                    s[i] = j;
-                    const auto iter = dict.find(s);
-                    if (iter != dict.end()) {
-                        if (s == end)
-                            return true;
-                        
-                        Node* pNode = new Node{s, top->depth + 1, top};
-                        nodes.push_back(pNode);
-                        q.push(pNode);
-                        usedStrings.push_back(s);
+                    for (char j='a'; j<='z'; ++j) {
+                        if (c == j)
+                            continue;
+
+                        s[i] = j;
+                        const auto iter = dict.find(s);
+                        if (iter != dict.end()) {
+                            graph[key].insert(s);
+                            graph[s].insert(key);
+                        }
                     }
+                    
+                    s[i] = c;
                 }
                 
-                s[i] = c;
+                dict.erase(it++);
             }
-            
-            return false;
         }
         
-    private:
+        void cleanMap() {
+            for (auto pOldNode: oldNodes) {
+                string& s = pOldNode->val;
+                
+                auto& nextNodes = graph[s];
+                for (auto& node: nextNodes)
+                    graph[node].erase(s);
+            }
+        }
+        
+    public:
         queue<Node*> q;
+        vector<Node*> oldNodes;
         vector<Node*> nodes;
-        vector<string> usedStrings;
-        int preDepth;
+        unordered_map<string, unordered_set<string>> graph;
     };
     
     TEST_GROUP(LTOJ_WORDLADDER){
@@ -122,22 +139,16 @@ namespace LTOJ_WORDLADDER_II_2 {
         auto ret = sln.findLadders("hit", "dot", dict);
         LONGS_EQUAL(3, ret[0].size());
     }
-    
+
     TEST(LTOJ_WORDLADDER, NotFound){
         unordered_set<string> dict {"hat","log"};
         auto ret = sln.findLadders("hit", "dot", dict);
         LONGS_EQUAL(0, ret.size());
     }
-    
+
     TEST(LTOJ_WORDLADDER, AnComplexOne){
         unordered_set<string> dict {"hot","dot","dog", "lot", "log"};
         auto ret =sln.findLadders("hit", "cog", dict);
-        LONGS_EQUAL(5, ret[0].size());
-    }
-    
-    TEST(LTOJ_WORDLADDER, FullSize){
-        unordered_set<string> dict {"hot","dot","dog"};
-        auto ret = sln.findLadders("hit", "cog", dict);
         LONGS_EQUAL(5, ret[0].size());
     }
     
@@ -147,5 +158,18 @@ namespace LTOJ_WORDLADDER_II_2 {
         LONGS_EQUAL(3, ret.size());
         LONGS_EQUAL(4, ret[0].size());
     }
+    
+//    TEST(LTOJ_WORDLADDER, setupMap){
+//        unordered_set<string> dict {"hit","hot","dot","dog"};
+//        sln.setupMap(dict);
+//        for (auto& v: sln.graph) {
+//            printf("%s: ", v.first.c_str());
+//            
+//            for (auto& s: v.second)
+//                printf("%s -> ", s.c_str());
+//            
+//            printf("\n");
+//        }
+//    }
 }//namespace
 
