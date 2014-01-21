@@ -4,6 +4,7 @@
 //  http://oj.leetcode.com/problems/binary-tree-preorder-traversal/
 //  http://fengchj.diandian.com/?p=1164
 //  http://biaobiaoqi.me/blog/2013/04/27/travsal-binary-tree/
+//  http://blog.sina.com.cn/s/blog_5168a9e40100af36.html
 //  Created by Jun on 14-1-20.
 //  Copyright (c) 2014年 com.wolf76. All rights reserved.
 //
@@ -126,24 +127,50 @@ namespace LTOJ_BINARY_TREE_PREORDER_TRAVERSAL{
             return v;
         }
         
+//        vector<int> postorderTraversal(TreeNode *root) {
+//            vector<int> v;
+//            stack<pair<TreeNode *, bool>> s;
+//            
+//            while (root || !s.empty()) {
+//                while (root) {
+//                    s.push({root, false});
+//                    root = root->left;
+//                }
+//
+//                auto& node = s.top();
+//                if (node.second == false) {
+//                    node.second = true;
+//                    root = node.first->right;
+//                }else{
+//                    v.push_back(node.first->val);
+//                    s.pop();
+//                    root = nullptr;
+//                }
+//            }
+//            
+//            return v;
+//        }
+        
         vector<int> postorderTraversal(TreeNode *root) {
             vector<int> v;
-            stack<pair<TreeNode *, bool>> s;
+            stack<TreeNode *> s;
+            TreeNode* pre=nullptr;
             
             while (root || !s.empty()) {
                 while (root) {
-                    s.push({root, false});
+                    s.push(root);
                     root = root->left;
                 }
-
-                auto& node = s.top();
-                if (node.second == false) {
-                    node.second = true;
-                    root = node.first->right;
-                }else{
-                    v.push_back(node.first->val);
+                
+                root = s.top();
+                // 如果root没有右孩子或者右孩子刚刚被访问过
+                if (root->right == nullptr || root->right == pre) {
+                    v.push_back(root->val);
                     s.pop();
+                    pre = root;
                     root = nullptr;
+                }else{
+                    root = root->right;
                 }
             }
             
