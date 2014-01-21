@@ -62,6 +62,7 @@
 		BF3AC1E2188CB9EB004FC432 /* ltoj_binary_tree_preorder_traversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1E0188CB9EB004FC432 /* ltoj_binary_tree_preorder_traversal.cpp */; };
 		BF3AC1E5188E0E90004FC432 /* ltoj_pascal_triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1E3188E0E90004FC432 /* ltoj_pascal_triangle.cpp */; };
 		BF3AC1E8188E2006004FC432 /* ltoj_pascal_triangle_ii.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1E6188E2006004FC432 /* ltoj_pascal_triangle_ii.cpp */; };
+		BF3AC1EB188E46CA004FC432 /* ltoj_triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1E9188E46CA004FC432 /* ltoj_triangle.cpp */; };
 		BF67A23718851F1400E9F248 /* ltoj_word_ladder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF67A23518851F1400E9F248 /* ltoj_word_ladder.cpp */; };
 		BF7BEE051873BA93000789DD /* ltoj_3Sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */; };
 		BFC6A2DC186BCBD500AEC46E /* ltoj_implement_strstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */; };
@@ -155,6 +156,7 @@
 		BF3AC1E0188CB9EB004FC432 /* ltoj_binary_tree_preorder_traversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_binary_tree_preorder_traversal.cpp; sourceTree = "<group>"; };
 		BF3AC1E3188E0E90004FC432 /* ltoj_pascal_triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_pascal_triangle.cpp; sourceTree = "<group>"; };
 		BF3AC1E6188E2006004FC432 /* ltoj_pascal_triangle_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_pascal_triangle_ii.cpp; sourceTree = "<group>"; };
+		BF3AC1E9188E46CA004FC432 /* ltoj_triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_triangle.cpp; sourceTree = "<group>"; };
 		BF67A23518851F1400E9F248 /* ltoj_word_ladder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_word_ladder.cpp; sourceTree = "<group>"; };
 		BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_3Sum.cpp; sourceTree = "<group>"; };
 		BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_implement_strstr.cpp; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				BF3AC1E0188CB9EB004FC432 /* ltoj_binary_tree_preorder_traversal.cpp */,
 				BF3AC1E3188E0E90004FC432 /* ltoj_pascal_triangle.cpp */,
 				BF3AC1E6188E2006004FC432 /* ltoj_pascal_triangle_ii.cpp */,
+				BF3AC1E9188E46CA004FC432 /* ltoj_triangle.cpp */,
 			);
 			name = str;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF3AC1EB188E46CA004FC432 /* ltoj_triangle.cpp in Sources */,
 				8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */,
 				BF3AC1DF1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp in Sources */,
 				BF3AC1E5188E0E90004FC432 /* ltoj_pascal_triangle.cpp in Sources */,
