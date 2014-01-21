@@ -8,9 +8,8 @@
 
 #include <iostream>
 #include <vector>
-#include <stack>
-#include <map>
 #include <CppUTest/TestHarness.h>
+#include "Timer.h"
 using namespace std;
 
 namespace LTOJ_PASCAL_TRIANGLE {
@@ -55,6 +54,7 @@ namespace LTOJ_PASCAL_TRIANGLE {
     
     TEST_GROUP(LTOJ_PASCAL_TRIANGLE){
         Solution sln;
+        Timer timer;
     };
     
     
@@ -76,6 +76,20 @@ namespace LTOJ_PASCAL_TRIANGLE {
         LONGS_EQUAL(1, vv[2][0]);
         LONGS_EQUAL(2, vv[2][1]);
         LONGS_EQUAL(1, vv[2][2]);
+    }
+    
+    IGNORE_TEST(LTOJ_PASCAL_TRIANGLE, 10000rows){
+        timer.start();
+        sln.generate(10000);
+        timer.stop();
+        cout << "\nElapsed Time: " << timer.getElapsedTimeInMilliSec() << endl;
+    }
+    
+    IGNORE_TEST(LTOJ_PASCAL_TRIANGLE, 10000rowsSlow){
+        timer.start();
+        sln.generateSlow(10000);
+        timer.stop();
+        cout << "\nElapsed Time Slow: " << timer.getElapsedTimeInMilliSec() << endl;
     }
 
 }//namespace
