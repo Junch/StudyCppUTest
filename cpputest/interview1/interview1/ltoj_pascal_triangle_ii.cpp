@@ -1,7 +1,7 @@
 //
 //  ltoj_pascal_triangle_ii.cpp
 //  interview1
-//  http://oj.leetcode.com/problems/pascals-triangle/
+//  http://oj.leetcode.com/problems/pascals-triangle-ii/
 //  Created by wolf76 on 13-8-24.
 //  Copyright (c) 2013年 com.wolf76. All rights reserved.
 //
@@ -19,14 +19,12 @@ namespace LTOJ_PASCAL_TRIANGLE_II {
             ++rowIndex; // The index is a little different from pascal triangle problem
             vector<int> v(rowIndex);
             
+            // i可以理解为每行最后一个元素的编号
             for (int i=0; i<rowIndex; ++i) {
-                for (int j=0; j<i-1; ++j)
-                    v[j] += v[j+1];
+                v[i] = 1;
                 
-                for (int j=i; j>0; j--)
-                    v[j] = v[j-1];
-                
-                v[0] = 1;
+                for (int j=i-1; j>0; --j)
+                    v[j] += v[j-1];
             }
             
             return v;
