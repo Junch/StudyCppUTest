@@ -206,3 +206,32 @@ TEST(shared_ptr, preventDeleteRawPointer)
     
     shared_ptr<X> x= X::create();
 }
+
+TEST(shared_ptr, test_weak_ptr)
+{
+    // std::weak_ptr 用来表达临时所有权的概念：当某个对象只有存在时才需要被访问，
+    // 而且随时可能被他人删除时，可以使用 std::weak_ptr 来跟踪该对象。需要获得
+    // 临时所有权时，则将其转换为 std::shared_ptr，此时如果原来的 std::shared_ptr
+    // 被销毁，则该对象的生命期将被延长至这个临时的 std::shared_ptr 同样被销毁为止。
+    // 此外，std::weak_ptr 还可以用来避免 std::shared_ptr 的循环引用。
+    
+    std::weak_ptr<int> w;
+    
+    auto func = [&](){
+        if (auto spt = w.lock()) { // Has to be copied into a shared_ptr before usage
+            std::cout << *spt << "\n";
+        }
+        else {
+            std::cout << "w is expired\n";
+        }
+    };
+    
+    {
+        auto sp = make_shared<int>(49);
+        w = sp;
+        func();
+    }
+    
+    func();
+}
+
