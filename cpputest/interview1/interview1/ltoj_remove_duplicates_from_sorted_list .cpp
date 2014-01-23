@@ -39,6 +39,41 @@ namespace LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST {
             
             return head;
         }
+        
+        ListNode *deleteDuplicatesII(ListNode *head) {
+            ListNode* p = head;
+            ListNode* q = nullptr;
+            ListNode* r = nullptr;
+            
+            ListNode* t = new ListNode(0);
+            t->next = head;
+            head = t;
+            
+            while (p != nullptr) {
+                
+                for (q = p->next; q != nullptr && p->val == q->val; ) {
+                    r = q;
+                    q = q->next;
+                    delete r;
+                }
+                
+                if (p->next != q) { // Has duplication
+                    delete p;
+                    
+                    t->next = q;
+                }
+                else                // No duplication
+                    t = p;
+            
+                p = q;
+            }
+            
+            t = head->next;
+            delete head;
+            return t;
+        }
+
+        
     };
     
     TEST_GROUP(LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST){
@@ -70,6 +105,39 @@ namespace LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST {
         LONGS_EQUAL(1, p->val)
         POINTERS_EQUAL(nullptr, t1->next);
         delete p;
+    }
+    
+    
+    TEST_GROUP(LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST_II){
+        Solution sln;
+    };
+    
+    TEST(LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST_II, 0elem){
+        POINTERS_EQUAL(nullptr, sln.deleteDuplicatesII(nullptr));
+    }
+    
+    TEST(LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST_II, 1elem){
+        ListNode t(2);
+        POINTERS_EQUAL(&t, sln.deleteDuplicatesII(&t));
+    }
+    
+    TEST(LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST_II, 2SameElem){
+        ListNode* t1 = new ListNode(1);
+        ListNode* t2 = new ListNode(1);
+        t1->next = t2;
+        ListNode* p = sln.deleteDuplicatesII(t1);
+        POINTERS_EQUAL(nullptr, p);
+    }
+    
+    TEST(LTOJ_REMOVE_DUPLICATES_FROM_SORTED_LIST_II, 2differentElem){
+        ListNode* t1 = new ListNode(1);
+        ListNode* t2 = new ListNode(2);
+        t1->next = t2;
+        ListNode* p = sln.deleteDuplicatesII(t1);
+        POINTERS_EQUAL(t1, p)
+        POINTERS_EQUAL(t2, p->next);
+        delete t1;
+        delete t2;
     }
     
 }//namespace
