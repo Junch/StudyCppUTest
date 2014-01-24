@@ -57,6 +57,7 @@
 		8ED9BC2A183F0CAB00F5DF9F /* jdoj1348.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8ED9BC29183F0C8E00F5DF9F /* jdoj1348.txt */; };
 		8EEAE8CC18447C1D001D1780 /* jdoj1354.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EEAE8CA18447C1D001D1780 /* jdoj1354.cpp */; };
 		BF0AAD3A1873A58100436771 /* ltoj_LongestCommonPrefix .cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0AAD381873A58100436771 /* ltoj_LongestCommonPrefix .cpp */; };
+		BF0AF3A418929F6A00613645 /* ltoj_trapping_rain_water.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF0AF3A218929F6A00613645 /* ltoj_trapping_rain_water.cpp */; };
 		BF3AC1DC1887C573004FC432 /* ltoj_word_ladder_bfs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1DA1887C573004FC432 /* ltoj_word_ladder_bfs.cpp */; };
 		BF3AC1DF1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1DD1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp */; };
 		BF3AC1E2188CB9EB004FC432 /* ltoj_binary_tree_preorder_traversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1E0188CB9EB004FC432 /* ltoj_binary_tree_preorder_traversal.cpp */; };
@@ -155,6 +156,7 @@
 		8EEAE8CA18447C1D001D1780 /* jdoj1354.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jdoj1354.cpp; sourceTree = "<group>"; };
 		8EEAE8CD184497C0001D1780 /* jdoj1354.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jdoj1354.txt; path = interview1/data/jdoj1354.txt; sourceTree = "<group>"; };
 		BF0AAD381873A58100436771 /* ltoj_LongestCommonPrefix .cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "ltoj_LongestCommonPrefix .cpp"; sourceTree = "<group>"; };
+		BF0AF3A218929F6A00613645 /* ltoj_trapping_rain_water.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_trapping_rain_water.cpp; sourceTree = "<group>"; };
 		BF3AC1DA1887C573004FC432 /* ltoj_word_ladder_bfs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_word_ladder_bfs.cpp; sourceTree = "<group>"; };
 		BF3AC1DD1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_evaluate_reverse_polish_notation.cpp; sourceTree = "<group>"; };
 		BF3AC1E0188CB9EB004FC432 /* ltoj_binary_tree_preorder_traversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_binary_tree_preorder_traversal.cpp; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				BF881B18189154F7002D26C3 /* ltoj_partition_list .cpp */,
 				BFB21B6718910746000D2EBC /* ltoj_remove_duplicates_from_sorted_list .cpp */,
 				BFB21B6D18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp */,
+				BF0AF3A218929F6A00613645 /* ltoj_trapping_rain_water.cpp */,
 			);
 			name = ltoj;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				8EB0BEB317BB4D7200EBF94D /* hdoj1026dfs.cpp in Sources */,
 				8EB6134117BC4D9500946E24 /* hdoj1026bfs.cpp in Sources */,
 				8EB089F417BE1E070048E8C2 /* hdoj1003.cpp in Sources */,
+				BF0AF3A418929F6A00613645 /* ltoj_trapping_rain_water.cpp in Sources */,
 				BF3AC1DC1887C573004FC432 /* ltoj_word_ladder_bfs.cpp in Sources */,
 				8E54FB61184DC58F0047C373 /* poj1568.cpp in Sources */,
 				8EEAE8CC18447C1D001D1780 /* jdoj1354.cpp in Sources */,
