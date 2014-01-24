@@ -67,6 +67,7 @@
 		BF7BEE051873BA93000789DD /* ltoj_3Sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */; };
 		BF881B1A189154F7002D26C3 /* ltoj_partition_list .cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF881B18189154F7002D26C3 /* ltoj_partition_list .cpp */; };
 		BFB21B6918910746000D2EBC /* ltoj_remove_duplicates_from_sorted_list .cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB21B6718910746000D2EBC /* ltoj_remove_duplicates_from_sorted_list .cpp */; };
+		BFB21B6F18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB21B6D18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp */; };
 		BFB404E0188FF94100C104A1 /* ltoj_convert_sorted_array_to_bst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB404DF188FF94100C104A1 /* ltoj_convert_sorted_array_to_bst.cpp */; };
 		BFC6A2DC186BCBD500AEC46E /* ltoj_implement_strstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */; };
 /* End PBXBuildFile section */
@@ -164,6 +165,7 @@
 		BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_3Sum.cpp; sourceTree = "<group>"; };
 		BF881B18189154F7002D26C3 /* ltoj_partition_list .cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "ltoj_partition_list .cpp"; sourceTree = "<group>"; };
 		BFB21B6718910746000D2EBC /* ltoj_remove_duplicates_from_sorted_list .cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "ltoj_remove_duplicates_from_sorted_list .cpp"; sourceTree = "<group>"; };
+		BFB21B6D18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_restore_ip_addresses.cpp; sourceTree = "<group>"; };
 		BFB404DF188FF94100C104A1 /* ltoj_convert_sorted_array_to_bst.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_convert_sorted_array_to_bst.cpp; sourceTree = "<group>"; };
 		BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_implement_strstr.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,7 +201,7 @@
 		8E00CF7817ACF6D500F281A3 /* interview1 */ = {
 			isa = PBXGroup;
 			children = (
-				BFC6A2D9186BCB7000AEC46E /* str */,
+				BFC6A2D9186BCB7000AEC46E /* ltoj */,
 				8E0E02681834AB4D008EEB25 /* jdoj */,
 				8E8CB08917D47C3100583945 /* dfs */,
 				8E8CB08817D47C2A00583945 /* bfs */,
@@ -292,7 +294,7 @@
 			name = data;
 			sourceTree = "<group>";
 		};
-		BFC6A2D9186BCB7000AEC46E /* str */ = {
+		BFC6A2D9186BCB7000AEC46E /* ltoj */ = {
 			isa = PBXGroup;
 			children = (
 				BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */,
@@ -310,8 +312,9 @@
 				BFB404DF188FF94100C104A1 /* ltoj_convert_sorted_array_to_bst.cpp */,
 				BF881B18189154F7002D26C3 /* ltoj_partition_list .cpp */,
 				BFB21B6718910746000D2EBC /* ltoj_remove_duplicates_from_sorted_list .cpp */,
+				BFB21B6D18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp */,
 			);
-			name = str;
+			name = ltoj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +371,7 @@
 				BF3AC1EB188E46CA004FC432 /* ltoj_triangle.cpp in Sources */,
 				8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */,
 				BF3AC1DF1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp in Sources */,
+				BFB21B6F18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp in Sources */,
 				BF3AC1E5188E0E90004FC432 /* ltoj_pascal_triangle.cpp in Sources */,
 				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
 				BF3AC1E8188E2006004FC432 /* ltoj_pascal_triangle_ii.cpp in Sources */,
