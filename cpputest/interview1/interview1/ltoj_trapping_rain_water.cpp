@@ -18,9 +18,11 @@ namespace LTOJ_TRAPPING_RAIN_WATER {
         
         int trap(int A[], int n) {
             int w = 0;
+            int step = 1;
             
             while (true) {
                 int positiveNum = 0;
+                int mini = INT_MAX;
 
                 for (int i=0; i<n;) {
                     if (A[i] == 0){
@@ -28,18 +30,30 @@ namespace LTOJ_TRAPPING_RAIN_WATER {
                         continue;
                     }
                     
-                    if(--A[i] > 0)
+                    A[i] -= step;
+                    if(A[i] > 0) {
                         ++positiveNum;
+                    
+                        if (A[i] < mini)
+                            mini = A[i];
+                    }
                     
                     int j = i+1;
                     for (; j < n && A[j] == 0; ++j)
                     ;
                     
                     if (j < n)
-                        w += j - i - 1;
+                        w += (j - i - 1)*step;
                     
                     i = j;
                 }
+                
+                step = mini;
+                
+//                for (int i=0; i<n; i++)
+//                    printf("%d -> ", A[i]);
+//                
+//                printf("\n");
                 
                 if (positiveNum < 2)
                     break;
@@ -77,9 +91,9 @@ namespace LTOJ_TRAPPING_RAIN_WATER {
         LONGS_EQUAL(3, w);
     }
     
-    TEST(LTOJ_TRAPPING_RAIN_WATER, 402024){
-        int A[] = {4,0,2,0,2,4};
-        int w = sln.trap(A, 6);
-        LONGS_EQUAL(12, w);
+    TEST(LTOJ_TRAPPING_RAIN_WATER, 404){
+        int A[] = {4,0,4};
+        int w = sln.trap(A, 3);
+        LONGS_EQUAL(4, w);
     }
 }
