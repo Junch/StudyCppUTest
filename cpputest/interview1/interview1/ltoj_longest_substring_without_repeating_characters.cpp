@@ -18,20 +18,21 @@ namespace LTOJ_LONGEST_SUBSTRING_WITHOUT_REPEATING_CHARACTERS {
             size_t len = s.size();
             if (len == 0)
                 return 0;
+
+            int longtest = 1;
+            int prevCharLongest = 1;
             
-            vector<int> v(len);
-            
-            v[0] = 1;
             for (int i=1; i<len; ++i) {
                 int j = 1;
-                for (; j<=v[i-1] && s[i] != s[i-j]; ++j)
+                for (; j<=prevCharLongest && s[i] != s[i-j]; ++j)
                     ;
-                v[i] = j;
+                prevCharLongest = j;
+                
+                if (prevCharLongest > longtest)
+                    longtest = prevCharLongest;
             }
             
-            int ret = *max_element(v.begin(), v.end());
-            
-            return ret;
+            return longtest;
         }
     };
     
@@ -49,5 +50,13 @@ namespace LTOJ_LONGEST_SUBSTRING_WITHOUT_REPEATING_CHARACTERS {
     
     TEST(LTOJ_LONGEST_SUBSTRING_WITHOUT_REPEATING_CHARACTERS, abcabcbb){
         LONGS_EQUAL(3, sln.lengthOfLongestSubstring("abcabcbb"));
+    }
+    
+    TEST(LTOJ_LONGEST_SUBSTRING_WITHOUT_REPEATING_CHARACTERS, emptyString){
+        LONGS_EQUAL(0, sln.lengthOfLongestSubstring(""));
+    }
+    
+    TEST(LTOJ_LONGEST_SUBSTRING_WITHOUT_REPEATING_CHARACTERS, OneCharacter){
+        LONGS_EQUAL(1, sln.lengthOfLongestSubstring("a"));
     }
 }
