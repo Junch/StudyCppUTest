@@ -99,8 +99,43 @@ namespace LTOJ_JUMP_GAME {
         }
     };
     
+    class Solution4 {
+    public:
+        bool canJump(int A[], int n) {
+            int i = 0;
+            int max_pos = -1;
+            
+            do {
+                int pos = i + A[i];
+                if (pos > max_pos) {
+                    max_pos = pos;
+                    if (max_pos >= n-1)
+                        return true;
+                }
+                
+                ++i;
+            }while (i<n && i<=max_pos);
+            
+            return false;
+        }
+    };
+    
+    class Solution5 {
+    public:
+        bool canJump(int A[], int n) {
+            int max = A[0];
+            
+            for (int i = 1; i <= max && max < n-1; ++i) {
+                if (i+A[i] > max)
+                    max = i+A[i];
+            }
+            
+            return max >= n-1;
+        }
+    };
+    
     TEST_GROUP(LTOJ_JUMP_GAME){
-        Solution3 sln;
+        Solution5 sln;
     };
     
     IGNORE_TEST(LTOJ_JUMP_GAME, A){
