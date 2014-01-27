@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
+#include <unordered_set>
 #include <CppUTest/TestHarness.h>
 using namespace std;
 
@@ -18,12 +20,12 @@ namespace LTOJ_JUMP_GAME {
             if (pos >= n-1)
                 return true;
             
-            if (buffer[pos] == false)
-                return false;
-            
             int max_step = A[pos];
             for (int i=1; i<=max_step; ++i){
                 int next = pos + i;
+                if (buffer[next] == false)
+                    continue;
+                
                 if  (dfs(A, n, next))
                     return true;
             }
@@ -44,11 +46,64 @@ namespace LTOJ_JUMP_GAME {
         vector<bool> buffer;
     };
     
-    TEST_GROUP(LTOJ_JUMP_GAME){
-        Solution sln;
+    class Solution2 {
+    public:
+        bool canJump(int A[], int n) {
+            
+            vector<bool> buffer(n);
+            for (int i=0; i<n; ++i)
+                buffer[i] = false;
+            
+            stack<int> st;
+            st.push(0);
+            buffer[0] = true;
+            while (!st.empty()) {
+                auto pos = st.top();
+                st.pop();
+                
+                if (pos >= n-1)
+                    return true;
+                
+                int max_step = A[pos];
+                for (int i=1; i<=max_step; ++i) {
+                    int newPos = pos + i;
+                    
+                    if (!buffer[newPos]) {
+                        st.push(newPos);
+                        buffer[newPos] = true;
+                    }
+                }
+            }
+            
+            return false;
+        }
     };
     
-    TEST(LTOJ_JUMP_GAME, A){
+    class Solution3 {
+    public:
+        bool canJump(int A[], int n) {
+            int max_pos = A[0];
+            if (max_pos >= n-1)
+                return true;
+            
+            for (int i = 1; i < n && i <= max_pos; ++i) {
+                int pos = i + A[i];
+                if (pos > max_pos)
+                    max_pos = pos;
+                
+                if (max_pos >= n-1)
+                    return true;
+            }
+
+            return false;
+        }
+    };
+    
+    TEST_GROUP(LTOJ_JUMP_GAME){
+        Solution3 sln;
+    };
+    
+    IGNORE_TEST(LTOJ_JUMP_GAME, A){
         int A[]={1,1,4};
         CHECK_TRUE(sln.canJump(A, 3));
     }
@@ -56,5 +111,10 @@ namespace LTOJ_JUMP_GAME {
     TEST(LTOJ_JUMP_GAME, B){
         int A[]={1,0,4};
         CHECK_FALSE(sln.canJump(A, 3));
+    }
+    
+    TEST(LTOJ_JUMP_GAME, C){
+        int A[]={0};
+        CHECK_TRUE(sln.canJump(A, 1));
     }
 }
