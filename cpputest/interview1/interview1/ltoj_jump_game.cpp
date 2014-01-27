@@ -9,7 +9,6 @@
 #include <iostream>
 #include <vector>
 #include <stack>
-#include <unordered_set>
 #include <CppUTest/TestHarness.h>
 using namespace std;
 
