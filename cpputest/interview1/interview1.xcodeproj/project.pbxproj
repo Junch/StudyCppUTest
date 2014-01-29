@@ -77,6 +77,7 @@
 		BFB21B6F18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB21B6D18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp */; };
 		BFB404E0188FF94100C104A1 /* ltoj_convert_sorted_array_to_bst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB404DF188FF94100C104A1 /* ltoj_convert_sorted_array_to_bst.cpp */; };
 		BFB4DE111898D21A0021AEE6 /* ltoj_unique_paths_ii.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB4DE0F1898D21A0021AEE6 /* ltoj_unique_paths_ii.cpp */; };
+		BFB4DE141898E6C70021AEE6 /* ltoj_balanced_binary_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB4DE121898E6C70021AEE6 /* ltoj_balanced_binary_tree.cpp */; };
 		BFC6A2DC186BCBD500AEC46E /* ltoj_implement_strstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */; };
 /* End PBXBuildFile section */
 
@@ -183,6 +184,7 @@
 		BFB21B6D18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_restore_ip_addresses.cpp; sourceTree = "<group>"; };
 		BFB404DF188FF94100C104A1 /* ltoj_convert_sorted_array_to_bst.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_convert_sorted_array_to_bst.cpp; sourceTree = "<group>"; };
 		BFB4DE0F1898D21A0021AEE6 /* ltoj_unique_paths_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_unique_paths_ii.cpp; sourceTree = "<group>"; };
+		BFB4DE121898E6C70021AEE6 /* ltoj_balanced_binary_tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_balanced_binary_tree.cpp; sourceTree = "<group>"; };
 		BFC6A2DA186BCBD500AEC46E /* ltoj_implement_strstr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_implement_strstr.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -337,6 +339,7 @@
 				BFAA67241895F4AF00CC77ED /* ltoj_word_break_ii.cpp */,
 				BFAA6727189609F900CC77ED /* ltoj_jump_game.cpp */,
 				BFAA672A18964EB500CC77ED /* ltoj_jump_game_ii.cpp */,
+				BFB4DE121898E6C70021AEE6 /* ltoj_balanced_binary_tree.cpp */,
 			);
 			name = ltoj;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
 				BF3AC1E8188E2006004FC432 /* ltoj_pascal_triangle_ii.cpp in Sources */,
 				BFAA672C18964EB500CC77ED /* ltoj_jump_game_ii.cpp in Sources */,
+				BFB4DE141898E6C70021AEE6 /* ltoj_balanced_binary_tree.cpp in Sources */,
 				8E7CFC56188A2F6A0003632F /* ltoj_word_ladder_bfs_2.cpp in Sources */,
 				BFAA6729189609F900CC77ED /* ltoj_jump_game.cpp in Sources */,
 				8EA24E1817B5CEFC00458A01 /* hdoj1010.cpp in Sources */,
