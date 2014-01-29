@@ -52,8 +52,35 @@ namespace LTOJ_BALANCED_BINARY_TREE {
         }
     };
     
+    class Solution2 {
+    public:
+        
+        pair<bool, int> balanced(TreeNode *root){
+            if (root == nullptr)
+                return make_pair(true, -1);
+            
+            auto&& l = balanced(root->left);
+            if (l.first == false)
+                return l;
+            
+            auto&& r = balanced(root->right);
+            if (r.first == false)
+                return r;
+            
+            if (abs(l.second - r.second) > 1)
+                return make_pair(false, -1);
+            
+            return make_pair(true, max(l.second, r.second) + 1);
+        }
+        
+        bool isBalanced(TreeNode *root) {
+            auto && p = balanced(root);
+            return p.first;
+        }
+    };
+    
     TEST_GROUP(LTOJ_BALANCED_BINARY_TREE){
-        Solution sln;
+        Solution2 sln;
     };
     
     TEST(LTOJ_BALANCED_BINARY_TREE, ASimple){
