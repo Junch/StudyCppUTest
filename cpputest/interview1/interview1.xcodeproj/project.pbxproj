@@ -67,6 +67,7 @@
 		BF3AC1EB188E46CA004FC432 /* ltoj_triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC1E9188E46CA004FC432 /* ltoj_triangle.cpp */; };
 		BF50D54F189B60C10067C9F2 /* ltoj_balanced_binary_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF50D54D189B60C10067C9F2 /* ltoj_balanced_binary_tree.cpp */; };
 		BF50D550189B60C10067C9F2 /* ltoj_unique_paths_ii.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF50D54E189B60C10067C9F2 /* ltoj_unique_paths_ii.cpp */; };
+		BF50D553189B61D20067C9F2 /* ltoj_path_sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF50D551189B61D20067C9F2 /* ltoj_path_sum.cpp */; };
 		BF67A23718851F1400E9F248 /* ltoj_word_ladder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF67A23518851F1400E9F248 /* ltoj_word_ladder.cpp */; };
 		BF72DEE31893C7DB00A87DD5 /* ltoj_longest_substring_without_repeating_characters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF72DEE11893C7DB00A87DD5 /* ltoj_longest_substring_without_repeating_characters.cpp */; };
 		BF7BEE051873BA93000789DD /* ltoj_3Sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */; };
@@ -175,6 +176,7 @@
 		BF3AC1E9188E46CA004FC432 /* ltoj_triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_triangle.cpp; sourceTree = "<group>"; };
 		BF50D54D189B60C10067C9F2 /* ltoj_balanced_binary_tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_balanced_binary_tree.cpp; sourceTree = "<group>"; };
 		BF50D54E189B60C10067C9F2 /* ltoj_unique_paths_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_unique_paths_ii.cpp; sourceTree = "<group>"; };
+		BF50D551189B61D20067C9F2 /* ltoj_path_sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_path_sum.cpp; sourceTree = "<group>"; };
 		BF67A23518851F1400E9F248 /* ltoj_word_ladder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_word_ladder.cpp; sourceTree = "<group>"; };
 		BF72DEE11893C7DB00A87DD5 /* ltoj_longest_substring_without_repeating_characters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_longest_substring_without_repeating_characters.cpp; sourceTree = "<group>"; };
 		BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_3Sum.cpp; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				BFAA6727189609F900CC77ED /* ltoj_jump_game.cpp */,
 				BFAA672A18964EB500CC77ED /* ltoj_jump_game_ii.cpp */,
 				BF23FFE6189792BD00942238 /* ltoj_n_queens.cpp */,
+				BF50D551189B61D20067C9F2 /* ltoj_path_sum.cpp */,
 			);
 			name = ltoj;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
 				BF3AC1E8188E2006004FC432 /* ltoj_pascal_triangle_ii.cpp in Sources */,
 				BFAA672C18964EB500CC77ED /* ltoj_jump_game_ii.cpp in Sources */,
+				BF50D553189B61D20067C9F2 /* ltoj_path_sum.cpp in Sources */,
 				BF50D54F189B60C10067C9F2 /* ltoj_balanced_binary_tree.cpp in Sources */,
 				8E7CFC56188A2F6A0003632F /* ltoj_word_ladder_bfs_2.cpp in Sources */,
 				BFAA6729189609F900CC77ED /* ltoj_jump_game.cpp in Sources */,
