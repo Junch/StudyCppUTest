@@ -84,7 +84,7 @@ namespace LTOJ_N_QUEENS {
     };
     
     TEST(LTOJ_N_QUEENS, 4x4){
-        auto r = sln.solveNQueens(8);
+        auto r = sln.solveNQueens(4);
         LONGS_EQUAL(2, r.size());
     }
 }
