@@ -12,6 +12,8 @@
 using namespace testing;
 using namespace std;
 
+namespace shared_ptr {
+
 class Foo {
 public:
     Foo() {
@@ -278,4 +280,6 @@ TEST(shared_ptr, enable_shared_from_this)
     // std::shared_ptr<Bad> bp1(new Bad);
     // std::shared_ptr<Bad> bp2 = bp1->getptr();
     // std::cout << "bp2.use_count() = " << bp2.use_count() << '\n';
+}
+    
 }
