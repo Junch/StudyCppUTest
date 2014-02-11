@@ -223,5 +223,46 @@ namespace LTOJ_BINARY_TREE_PREORDER_TRAVERSAL{
         LONGS_EQUAL(3, v[1]);
         LONGS_EQUAL(1, v[2]);
     }
+    
+    class Solution2 {
+    public:
+        vector<int> inorderTranversal(TreeNode *root){
+            vector<int> v;
+            stack<TreeNode *> s;
+
+            while (root || !s.empty()) {
+                while (root) {
+                    s.push(root);
+                    root = root->left;
+                }
+                
+                root = s.top();
+                s.pop();
+                v.push_back(root->val);
+                
+                root = root->right;
+            }
+            
+            return v;
+        }
+    };
+    
+    TEST_GROUP(INORDER){
+        Solution2 sln;
+    };
+    
+    TEST(INORDER, 3Ele) {
+        TreeNode node1(1);
+        TreeNode node2(2);
+        TreeNode node3(3);
+        node1.right = &node2;
+        node2.left = &node3;
+        
+        auto v = sln.inorderTranversal(&node1);
+        LONGS_EQUAL(3, v.size());
+        LONGS_EQUAL(1, v[0]);
+        LONGS_EQUAL(3, v[1]);
+        LONGS_EQUAL(2, v[2]);
+    }
 }//namespace
 
