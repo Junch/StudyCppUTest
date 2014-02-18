@@ -23,7 +23,7 @@ namespace LTOJ_PERMUTATIONS {
             vv.push_back(vector<int>{num[0]});
             
             for (int i=1; i<num.size(); ++i) {
-                for (auto v: *p) {
+                for (const auto &v: *p) {
                     size_t len = v.size();
                     
                     for (int j=0; j<len+1; j++) {
