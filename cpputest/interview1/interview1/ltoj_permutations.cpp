@@ -20,9 +20,7 @@ namespace LTOJ_PERMUTATIONS {
             vector<vector<int>> *p = &vv;
             vector<vector<int>> *q = &ww;
             
-            vector<int> v;
-            v.push_back(num[0]);
-            vv.push_back(v);
+            vv.push_back(vector<int>{num[0]});
             
             for (int i=1; i<num.size(); ++i) {
                 for (auto v: *p) {
