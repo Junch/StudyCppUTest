@@ -73,6 +73,7 @@
 		BF50D550189B60C10067C9F2 /* ltoj_unique_paths_ii.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF50D54E189B60C10067C9F2 /* ltoj_unique_paths_ii.cpp */; };
 		BF50D553189B61D20067C9F2 /* ltoj_path_sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF50D551189B61D20067C9F2 /* ltoj_path_sum.cpp */; };
 		BF67A23718851F1400E9F248 /* ltoj_word_ladder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF67A23518851F1400E9F248 /* ltoj_word_ladder.cpp */; };
+		BF72135118D1DF1300A5284D /* test_mock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF72134F18D1DF1300A5284D /* test_mock.cpp */; };
 		BF72DEE31893C7DB00A87DD5 /* ltoj_longest_substring_without_repeating_characters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF72DEE11893C7DB00A87DD5 /* ltoj_longest_substring_without_repeating_characters.cpp */; };
 		BF7BEE051873BA93000789DD /* ltoj_3Sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */; };
 		BF881B1A189154F7002D26C3 /* ltoj_partition_list .cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF881B18189154F7002D26C3 /* ltoj_partition_list .cpp */; };
@@ -187,6 +188,7 @@
 		BF50D54E189B60C10067C9F2 /* ltoj_unique_paths_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_unique_paths_ii.cpp; sourceTree = "<group>"; };
 		BF50D551189B61D20067C9F2 /* ltoj_path_sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_path_sum.cpp; sourceTree = "<group>"; };
 		BF67A23518851F1400E9F248 /* ltoj_word_ladder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_word_ladder.cpp; sourceTree = "<group>"; };
+		BF72134F18D1DF1300A5284D /* test_mock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_mock.cpp; sourceTree = "<group>"; };
 		BF72DEE11893C7DB00A87DD5 /* ltoj_longest_substring_without_repeating_characters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_longest_substring_without_repeating_characters.cpp; sourceTree = "<group>"; };
 		BF7BEE031873BA93000789DD /* ltoj_3Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ltoj_3Sum.cpp; sourceTree = "<group>"; };
 		BF881B18189154F7002D26C3 /* ltoj_partition_list .cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "ltoj_partition_list .cpp"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				8E00CF7B17ACF6D500F281A3 /* interview1.1 */,
 				8E00CF7917ACF6D500F281A3 /* main.cpp */,
 				8E5D99CB17AE58220066B634 /* bitree.cpp */,
+				BF72134F18D1DF1300A5284D /* test_mock.cpp */,
 				8EB7E71E17C8A44600BF1869 /* template.cpp */,
 				8E8395FA17D58DEF002AF58D /* Timer.h */,
 				8E8395F917D58DEF002AF58D /* Timer.cpp */,
@@ -419,6 +422,7 @@
 				BF3AC1EB188E46CA004FC432 /* ltoj_triangle.cpp in Sources */,
 				8E00CF7A17ACF6D500F281A3 /* main.cpp in Sources */,
 				BF3AC1DF1888DD16004FC432 /* ltoj_evaluate_reverse_polish_notation.cpp in Sources */,
+				BF72135118D1DF1300A5284D /* test_mock.cpp in Sources */,
 				BFB21B6F18923B4A000D2EBC /* ltoj_restore_ip_addresses.cpp in Sources */,
 				BF3AC1E5188E0E90004FC432 /* ltoj_pascal_triangle.cpp in Sources */,
 				8E5D99CD17AE58220066B634 /* bitree.cpp in Sources */,
@@ -547,7 +551,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
-				OTHER_LDFLAGS = "-lCppUTest";
+				OTHER_LDFLAGS = (
+					"-lCppUTest",
+					"-lCppUTestExt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -556,7 +563,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
-				OTHER_LDFLAGS = "-lCppUTest";
+				OTHER_LDFLAGS = (
+					"-lCppUTest",
+					"-lCppUTestExt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
