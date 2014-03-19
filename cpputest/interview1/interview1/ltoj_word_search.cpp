@@ -208,7 +208,7 @@ namespace LTOJ_WORD_SEARCH {
         vector<vector<char>> vv;
         vv.push_back(vector<char>{'A','B'});
         vv.push_back(vector<char>{'C','D'});
-        CHECK_TRUE(sln.exist(vv, "DCBA"));
+        CHECK_FALSE(sln.exist(vv, "DCBA"));
     }
     
     TEST(LTOJ_WORD_SEARCH, case2){
