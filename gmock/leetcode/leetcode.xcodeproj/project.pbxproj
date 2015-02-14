@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCCA01A8F2E1E00E81A35 /* ReverseInteger.cpp */; };
 		BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB811A8CDDBC0010A564 /* GoogleTests.mm */; };
 		BF5CBB9D1A8CE9550010A564 /* Counter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB9A1A8CE9550010A564 /* Counter.cpp */; };
 		BF5CBB9E1A8CE9550010A564 /* Counter.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5CBB9B1A8CE9550010A564 /* Counter.h */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF4DCCA01A8F2E1E00E81A35 /* ReverseInteger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReverseInteger.cpp; sourceTree = "<group>"; };
 		BF5CBB811A8CDDBC0010A564 /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 		BF5CBB9A1A8CE9550010A564 /* Counter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Counter.cpp; path = leetcode/Counter.cpp; sourceTree = "<group>"; };
 		BF5CBB9B1A8CE9550010A564 /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Counter.h; path = leetcode/Counter.h; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				BF5CBB9B1A8CE9550010A564 /* Counter.h */,
 				BF5CBB9C1A8CE9550010A564 /* CounterTest.cpp */,
 				BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */,
+				BF4DCCA01A8F2E1E00E81A35 /* ReverseInteger.cpp */,
 			);
 			name = leetcode;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6984FB1A8EDD8900ABDF77 /* MergeSortedArray.cpp in Sources */,
+				BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */,
 				BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */,
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
 			);
