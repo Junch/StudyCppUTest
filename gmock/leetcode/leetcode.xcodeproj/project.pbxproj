@@ -15,6 +15,8 @@
 		BF6984FB1A8EDD8900ABDF77 /* MergeSortedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */; };
 		BFACFEC01A88F82B00D23C8F /* libleetcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFACFEAC1A88F58A00D23C8F /* libleetcode.a */; };
 		BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */; };
+		BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */; };
+		BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		BFACFEBA1A88F82B00D23C8F /* TestBundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestBundle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBD1A88F82B00D23C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PalindromeNumber.cpp; sourceTree = "<group>"; };
+		BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwapNodesinPairs.cpp; sourceTree = "<group>"; };
+		BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergekSortedLists.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */,
 				BF4DCCA01A8F2E1E00E81A35 /* ReverseInteger.cpp */,
 				BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */,
+				BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */,
+				BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */,
 			);
 			name = leetcode;
 			sourceTree = "<group>";
@@ -214,10 +220,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6984FB1A8EDD8900ABDF77 /* MergeSortedArray.cpp in Sources */,
+				BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */,
 				BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */,
 				BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */,
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
 				BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */,
+				BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
