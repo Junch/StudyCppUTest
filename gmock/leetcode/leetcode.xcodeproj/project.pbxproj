@@ -12,6 +12,7 @@
 		BF5CBB9D1A8CE9550010A564 /* Counter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB9A1A8CE9550010A564 /* Counter.cpp */; };
 		BF5CBB9E1A8CE9550010A564 /* Counter.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5CBB9B1A8CE9550010A564 /* Counter.h */; };
 		BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB9C1A8CE9550010A564 /* CounterTest.cpp */; };
+		BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */; };
 		BF6984FB1A8EDD8900ABDF77 /* MergeSortedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */; };
 		BFACFEC01A88F82B00D23C8F /* libleetcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFACFEAC1A88F58A00D23C8F /* libleetcode.a */; };
 		BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */; };
@@ -35,6 +36,7 @@
 		BF5CBB9A1A8CE9550010A564 /* Counter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Counter.cpp; path = leetcode/Counter.cpp; sourceTree = "<group>"; };
 		BF5CBB9B1A8CE9550010A564 /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Counter.h; path = leetcode/Counter.h; sourceTree = "<group>"; };
 		BF5CBB9C1A8CE9550010A564 /* CounterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CounterTest.cpp; path = leetcode/CounterTest.cpp; sourceTree = "<group>"; };
+		BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoveDuplicatesfromSortedArray.cpp; sourceTree = "<group>"; };
 		BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergeSortedArray.cpp; sourceTree = "<group>"; };
 		BFACFEAC1A88F58A00D23C8F /* libleetcode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libleetcode.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBA1A88F82B00D23C8F /* TestBundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestBundle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 				BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */,
 				BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */,
 				BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */,
+				BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */,
 			);
 			name = leetcode;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */,
 				BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */,
 				BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */,
+				BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */,
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
 				BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */,
 				BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */,
