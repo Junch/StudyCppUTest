@@ -15,6 +15,9 @@
 		BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */; };
 		BF5FF4501A94E4B700730AEE /* ClimbingStairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF44F1A94E4B700730AEE /* ClimbingStairs.cpp */; };
 		BF6984FB1A8EDD8900ABDF77 /* MergeSortedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */; };
+		BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B691A9602EC00416B8C /* SearchforaRange.cpp */; };
+		BF766B6C1A960B4600416B8C /* ValidParentheses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */; };
+		BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */; };
 		BFACFEC01A88F82B00D23C8F /* libleetcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFACFEAC1A88F58A00D23C8F /* libleetcode.a */; };
 		BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */; };
 		BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */; };
@@ -40,6 +43,9 @@
 		BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoveDuplicatesfromSortedArray.cpp; sourceTree = "<group>"; };
 		BF5FF44F1A94E4B700730AEE /* ClimbingStairs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClimbingStairs.cpp; sourceTree = "<group>"; };
 		BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergeSortedArray.cpp; sourceTree = "<group>"; };
+		BF766B691A9602EC00416B8C /* SearchforaRange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SearchforaRange.cpp; sourceTree = "<group>"; };
+		BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValidParentheses.cpp; sourceTree = "<group>"; };
+		BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleNumberII.cpp; sourceTree = "<group>"; };
 		BFACFEAC1A88F58A00D23C8F /* libleetcode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libleetcode.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBA1A88F82B00D23C8F /* TestBundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestBundle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBD1A88F82B00D23C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 				BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */,
 				BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */,
 				BF5FF44F1A94E4B700730AEE /* ClimbingStairs.cpp */,
+				BF766B691A9602EC00416B8C /* SearchforaRange.cpp */,
+				BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */,
+				BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */,
 			);
 			name = leetcode;
 			sourceTree = "<group>";
@@ -229,11 +238,14 @@
 				BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */,
 				BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */,
 				BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */,
+				BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */,
 				BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */,
+				BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */,
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
 				BF5FF4501A94E4B700730AEE /* ClimbingStairs.cpp in Sources */,
 				BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */,
 				BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */,
+				BF766B6C1A960B4600416B8C /* ValidParentheses.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
