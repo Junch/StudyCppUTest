@@ -8,6 +8,7 @@
 
 #include <gtest/gtest.h>
 #include <string>
+#include <stack>
 using namespace std;
 
 namespace ValidParentheses {
@@ -15,11 +16,32 @@ namespace ValidParentheses {
 class Solution {
 public:
     bool isValid(string s) {
-        return true;
+        stack<char> st;
+        
+        for (char c: s) {
+            if (c =='(' || c == '{' || c == '[' ) {
+                st.push(c);
+            }else{
+                if (st.empty()) {
+                    return false;
+                }
+                
+                char d = st.top();
+                st.pop();
+                
+                if(   (c==')' && d != '(')
+                   || (c==']' && d != '[')
+                   || (c=='}' && d != '{')){
+                    return false;
+                }
+            }
+        }
+        
+        return st.empty();
     }
 };
     
-TEST(ValidParentheses, NotValid){
+TEST(ValidParentheses, Invalid){
     string s = "([)]";
 
     Solution* sln = new Solution();
@@ -31,6 +53,13 @@ TEST(ValidParentheses, Valid){
     
     Solution* sln = new Solution();
     ASSERT_TRUE(sln->isValid(s));
+}
+    
+TEST(ValidParentheses, Invalid2){
+    string s = "]";
+    
+    Solution* sln = new Solution();
+    ASSERT_TRUE(!sln->isValid(s));
 }
     
 }

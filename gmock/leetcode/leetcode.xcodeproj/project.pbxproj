@@ -18,6 +18,7 @@
 		BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B691A9602EC00416B8C /* SearchforaRange.cpp */; };
 		BF766B6C1A960B4600416B8C /* ValidParentheses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */; };
 		BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */; };
+		BFA797271A9C627100EA8812 /* MergeIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA797261A9C627100EA8812 /* MergeIntervals.cpp */; };
 		BFACFEC01A88F82B00D23C8F /* libleetcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFACFEAC1A88F58A00D23C8F /* libleetcode.a */; };
 		BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */; };
 		BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */; };
@@ -46,6 +47,7 @@
 		BF766B691A9602EC00416B8C /* SearchforaRange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SearchforaRange.cpp; sourceTree = "<group>"; };
 		BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValidParentheses.cpp; sourceTree = "<group>"; };
 		BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleNumberII.cpp; sourceTree = "<group>"; };
+		BFA797261A9C627100EA8812 /* MergeIntervals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergeIntervals.cpp; sourceTree = "<group>"; };
 		BFACFEAC1A88F58A00D23C8F /* libleetcode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libleetcode.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBA1A88F82B00D23C8F /* TestBundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestBundle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBD1A88F82B00D23C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				BF766B691A9602EC00416B8C /* SearchforaRange.cpp */,
 				BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */,
 				BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */,
+				BFA797261A9C627100EA8812 /* MergeIntervals.cpp */,
 			);
 			name = leetcode;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */,
 				BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */,
 				BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */,
+				BFA797271A9C627100EA8812 /* MergeIntervals.cpp in Sources */,
 				BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */,
 				BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */,
 				BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */,
