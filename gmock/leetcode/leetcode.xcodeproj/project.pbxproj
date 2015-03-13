@@ -23,6 +23,7 @@
 		BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */; };
 		BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */; };
 		BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */; };
+		BFDC4CCE1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFDC4CCD1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PalindromeNumber.cpp; sourceTree = "<group>"; };
 		BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwapNodesinPairs.cpp; sourceTree = "<group>"; };
 		BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergekSortedLists.cpp; sourceTree = "<group>"; };
+		BFDC4CCD1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LargestRectangleinHistogram.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				BF5CBB9A1A8CE9550010A564 /* Counter.cpp */,
+				BFDC4CCD1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp */,
 				BF5CBB9B1A8CE9550010A564 /* Counter.h */,
 				BF5CBB9C1A8CE9550010A564 /* CounterTest.cpp */,
 				BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */,
@@ -245,6 +248,7 @@
 				BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */,
 				BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */,
 				BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */,
+				BFDC4CCE1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp in Sources */,
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
 				BF5FF4501A94E4B700730AEE /* ClimbingStairs.cpp in Sources */,
 				BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */,
