@@ -11,6 +11,7 @@
 		BF57B9611AB4331600C41F37 /* program_options_short.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF57B92E1AB42BFB00C41F37 /* program_options_short.cpp */; };
 		BF57B9771AB4440E00C41F37 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF57B9761AB4440E00C41F37 /* GoogleTests.mm */; };
 		BF57B9791AB44ADB00C41F37 /* regex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF57B9781AB44ADB00C41F37 /* regex.cpp */; };
+		BF5B99351AB558570067F1A7 /* algorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5B99341AB558570067F1A7 /* algorithm.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		BF57B9701AB443C600C41F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF57B9761AB4440E00C41F37 /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 		BF57B9781AB44ADB00C41F37 /* regex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = regex.cpp; sourceTree = "<group>"; };
+		BF5B99341AB558570067F1A7 /* algorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = algorithm.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				BF57B9781AB44ADB00C41F37 /* regex.cpp */,
+				BF5B99341AB558570067F1A7 /* algorithm.cpp */,
 				BF57B9761AB4440E00C41F37 /* GoogleTests.mm */,
 				BF57B96F1AB443C600C41F37 /* Supporting Files */,
 			);
@@ -242,6 +245,7 @@
 			files = (
 				BF57B9771AB4440E00C41F37 /* GoogleTests.mm in Sources */,
 				BF57B9791AB44ADB00C41F37 /* regex.cpp in Sources */,
+				BF5B99351AB558570067F1A7 /* algorithm.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +463,7 @@
 				BF57B9751AB443C600C41F37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
