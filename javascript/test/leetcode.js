@@ -44,3 +44,36 @@ describe("Happy Number", function(){
  		isHappy(10).should.eql(true);
  	});
 });
+
+
+describe("Reverse Linked List", function(){
+	function ListNode(val) {
+		this.val = val;
+		this.next = null;
+	};
+
+	var reverseList = function(head) {
+		var newhead = new ListNode(0);
+
+		while(head != null){
+			var h = head.next;
+			head.next = newhead.next;
+			newhead.next = head;
+			head = h;
+		}
+
+		return newhead.next;
+	};
+
+	it("1,2 => 2,1", function(){
+		var n1 = new ListNode(1);
+ 		var n2 = new ListNode(2);
+ 		n1.next = n2;
+
+ 		var r = reverseList(n1);
+ 		r.val.should.eql(2);
+ 		r.next.val.should.eql(1);
+ 	});
+});
+
+
