@@ -18,3 +18,4 @@ DerivedData
 .idea/
 *.suo
 *.pyc
+node_modules/
