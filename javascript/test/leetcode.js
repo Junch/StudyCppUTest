@@ -76,4 +76,36 @@ describe("Reverse Linked List", function(){
  	});
 });
 
+describe("Count Primes", function(){
+	var countPrimes = function(n) {
+
+		var arr = [];
+		for(var i=0; i<n; ++i){
+			arr.push(true);
+		}
+		arr[0] = arr[1] = false;
+
+		var max = Math.floor(Math.sqrt(n-1));
+		for (i=2; i<=max; ++i){
+			if (arr[i] === false){
+				continue;
+			}
+
+			for(var j=i*i; j<n; j+=i ){
+				arr[j] = false;
+			}
+		}
+
+		return arr.reduce(function(a, b){
+			return b? a+1:a;
+		}, 0);
+	};
+
+	it("Count Primes", function(){
+		countPrimes(3).should.eql(1);
+		countPrimes(6).should.eql(3);
+		countPrimes(12).should.eql(5);
+	});
+});
+
 
