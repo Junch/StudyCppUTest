@@ -233,3 +233,54 @@ describe("Number of Islands ", function(){
         numIslands(grid).should.eql(3);
     });
 });
+
+
+describe("Rotate Array", function(){
+    /**
+     * @param {number[]} nums
+     * @param {number} k
+     * @return {void} Do not return anything, modify nums in-place instead.
+     */
+    var rotate = function(nums, k) {
+        var len = nums.length;
+        if (k>len){
+            k = k%len;
+        }
+
+        function getOldIndex(x){
+            if (x<k){
+                return len-k+x;
+            }else{
+                return x-k;
+            }
+        }
+
+        var newArr = nums.map(function(cv, index){
+            var j = getOldIndex(index);
+            return nums[j];
+        });
+
+        newArr.forEach(function(cv, index){
+            nums[index] = cv;
+        });
+    };
+
+    it("case 1", function(){
+        nums = [1,2,3,4,5,6];
+        rotate(nums, 2);
+        nums.should.eql([5,6,1,2,3,4]);
+    });
+
+    it("case 2", function(){
+        nums = [1,2];
+        rotate(nums, 1);
+        nums.should.eql([2,1]);
+    });
+
+    it("one elem", function(){
+        nums = [1];
+        rotate(nums, 2);
+        nums.should.eql([1]);
+    });
+});
+
