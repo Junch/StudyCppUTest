@@ -284,3 +284,61 @@ describe("Rotate Array", function(){
     });
 });
 
+
+describe("Compare Version Numbers", function(){
+    /**
+     * @param {string} version1
+     * @param {string} version2
+     * @return {number}
+     */
+    var compareVersion = function(version1, version2) {
+        var v1=version1.split('.').map(function(e){
+            return Number(e);
+        });
+
+        var v2=version2.split('.').map(function(e){
+            return Number(e);
+        });
+
+        if(v1.length<v2.length){
+            for(var i=0, len=v2.length-v1.length; i<len; ++i){
+                v1.push('0');
+            }
+        }else if(v1.length>v2.length){
+            for(var i=0, len=v1.length-v2.length; i<len; ++i){
+                v2.push('0');
+            }
+        }
+
+        for(var i=0,len=v1.length; i<len; ++i){
+            if(v1[i] > v2[i]){
+                return 1;
+            }else if(v1[i] < v2[i]){
+                return -1;
+            }
+        }
+
+        return 0;
+    };
+
+    it("1.1 < 1.2", function(){
+        compareVersion("1.1", "1.2").should.eql(-1);
+    });
+
+    it("1 < 1.2", function(){
+        compareVersion("1", "1.2").should.eql(-1);
+    });
+
+    it("1.2 > 1.1", function(){
+        compareVersion("1.2", "1.1").should.eql(1);
+    });
+
+    it("1.2.3 = 1.2.3", function(){
+        compareVersion("1.2.3", "1.2.3").should.eql(0);
+    });
+
+});
+
+
+
+
