@@ -284,3 +284,66 @@ describe("Rotate Array", function(){
     });
 });
 
+describe("Insertion Sort List ", function(){
+     function ListNode(val) {
+         this.val = val;
+         this.next = null;
+     }
+
+    /**
+     * @param {ListNode} head
+     * @return {ListNode}
+     */
+    var insertionSortList = function(head) { 
+        var newhead = new ListNode(0);
+
+        var p = head;
+        while(p != null){
+            var q = p.next;
+
+            var r = newhead;
+            while(r.next && r.next.val <= p.val){
+                r = r.next;
+            }
+            p.next = r.next;
+            r.next = p;
+
+            p = q;
+        }
+
+        return newhead.next;
+    };
+
+    it("2->1", function(){
+        var n = new ListNode(2);
+        n.next = new ListNode(1);
+
+        var list = insertionSortList(n);
+        list.val.should.eql(1);
+        list.next.val.should.eql(2);
+    });
+
+    it("2", function(){
+        var n = new ListNode(2);
+
+        var list = insertionSortList(n);
+        list.val.should.eql(2);
+    });
+});
+
+describe("3Sum Closest", function(){
+    /**
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number}
+     */
+    var threeSumClosest = function(nums, target) {
+        return 0;
+    };
+
+    it("-1,2,1,-4", function(){
+        var nums = [-1, 2, 1, -4];
+        var target = 1;
+        threeSumClosest(nums, target).should.eql(2);
+    })
+});
