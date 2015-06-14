@@ -390,12 +390,106 @@ describe("3Sum Closest", function(){
      * @return {number}
      */
     var threeSumClosest = function(nums, target) {
-        return 0;
+        nums.sort(function(a,b){
+            return a-b;
+        });
+
+        var r=sum=nums[0]+nums[1]+nums[2];
+        var diff=Math.abs(r-target);
+
+        for (var i=0, len=nums.length; i<len-2; ++i){
+            for(var j=i+1; j<len-1; ++j){
+                var sumij = nums[i] + nums[j];
+                var sum = nums[i] + nums[j] + nums[j+1];
+
+                for(var k=j+1; k<len; ++k){
+                    var newsum = sumij+nums[k];
+                    if (newsum>=target){
+                        var d1 = newsum-target;
+                        var d2 = target-sum;
+                        sum = d1<d2? newsum: sum;
+                        break;
+                    }
+                    
+                    sum = newsum;
+                }
+
+                var tmp = Math.abs(sum-target);
+                if (tmp < diff){
+                    r = sum;
+                    diff = tmp;
+                }
+            }
+        }
+
+        return r;
     };
 
-    it("-1,2,1,-4", function(){
-        var nums = [-1, 2, 1, -4];
-        var target = 1;
-        threeSumClosest(nums, target).should.eql(2);
+    it("[-3,-2,-5,3,-4]", function(){
+        var nums = [-3,-2,-5,3,-4];
+        var target = -1;
+        threeSumClosest(nums, target).should.eql(-2);
+    })
+
+    it("[1,2,4,8,16,32,64,128]", function(){
+        var nums = [1,2,4,8,16,32,64,128];
+        var target = 82;
+        threeSumClosest(nums, target).should.eql(82);
     })
 });
+
+describe("3Sum Closest 2", function(){
+    //http://www.programcreek.com/2013/02/leetcode-3sum-closest-java/
+
+    /**
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number}
+     */
+    var threeSumClosest = function(nums, target) {
+        nums.sort(function(a,b){
+            return a-b;
+        });
+
+        var r = nums[0] + nums[1] + nums[2];
+        var min = Math.abs(r-target);
+
+        for (var i=0, len=nums.length; i<len-2; ++i){
+            var j=i+1;
+            var k=len-1;
+
+            while(j<k){
+                var sum = nums[i] + nums[j] + nums[k];
+                var diff = sum-target;
+
+                if (diff == 0){
+                    return sum;
+                }else if(diff > 0){
+                    --k;
+                }else{
+                    ++j;
+                }
+
+                if (Math.abs(diff) < min){
+                    min = Math.abs(diff);
+                    r = sum;
+                } 
+            }
+        }
+
+        return r;
+    };
+
+    it("[-3,-2,-5,3,-4]", function(){
+        var nums = [-3,-2,-5,3,-4];
+        var target = -1;
+        threeSumClosest(nums, target).should.eql(-2);
+    })
+
+    it("[1,2,4,8,16,32,64,128]", function(){
+        var nums = [1,2,4,8,16,32,64,128];
+        var target = 82;
+        threeSumClosest(nums, target).should.eql(82);
+    })
+});
+
