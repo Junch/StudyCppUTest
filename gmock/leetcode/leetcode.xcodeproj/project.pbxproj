@@ -23,6 +23,7 @@
 		BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */; };
 		BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */; };
 		BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */; };
+		BFC957231C64A1BA00EADB0C /* ContainsDuplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFC957211C64A19200EADB0C /* ContainsDuplicate.cpp */; };
 		BFDC4CCE1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFDC4CCD1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PalindromeNumber.cpp; sourceTree = "<group>"; };
 		BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwapNodesinPairs.cpp; sourceTree = "<group>"; };
 		BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergekSortedLists.cpp; sourceTree = "<group>"; };
+		BFC957211C64A19200EADB0C /* ContainsDuplicate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContainsDuplicate.cpp; sourceTree = "<group>"; };
 		BFDC4CCD1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LargestRectangleinHistogram.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */,
 				BF4DCCA01A8F2E1E00E81A35 /* ReverseInteger.cpp */,
 				BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */,
+				BFC957211C64A19200EADB0C /* ContainsDuplicate.cpp */,
 				BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */,
 				BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */,
 				BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */,
@@ -247,6 +250,7 @@
 				BFA797271A9C627100EA8812 /* MergeIntervals.cpp in Sources */,
 				BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */,
 				BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */,
+				BFC957231C64A1BA00EADB0C /* ContainsDuplicate.cpp in Sources */,
 				BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */,
 				BFDC4CCE1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp in Sources */,
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
