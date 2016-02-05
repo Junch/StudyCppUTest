@@ -189,7 +189,7 @@
 		BFACFEA11A88F50F00D23C8F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 				TargetAttributes = {
 					BFACFEAB1A88F58A00D23C8F = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -271,8 +271,10 @@
 		BFACFEA51A88F50F00D23C8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				HEADER_SEARCH_PATHS = ../include;
 				LIBRARY_SEARCH_PATHS = ../lib;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lgmock";
 			};
 			name = Debug;
@@ -413,6 +415,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "JunChen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -455,6 +458,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "JunChen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};

@@ -24,6 +24,7 @@
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
 #import <gtest/gtest.h>
+#import <objc/runtime.h>
 
 using testing::TestCase;
 using testing::TestInfo;
@@ -31,6 +32,24 @@ using testing::TestPartResult;
 using testing::UnitTest;
 
 static NSString * const GoogleTestDisabledPrefix = @"DISABLED_";
+
+/**
+ * Class prefix used for generated Objective-C class names.
+ *
+ * If a class name generated for a Google Test case conflicts with an existing
+ * class the value of this variable can be changed to add a class prefix.
+ */
+static NSString * const GeneratedClassPrefix = @"";
+
+/**
+ * Map of test keys to Google Test filter strings.
+ *
+ * Some names allowed by Google Test would result in illegal Objective-C
+ * identifiers and in such cases the generated class and method names are
+ * adjusted to handle this. This map is used to obtain the original Google Test
+ * filter string associated with a generated Objective-C test method.
+ */
+static NSDictionary *GoogleTestFilterMap;
 
 /**
  * A Google Test listener that reports failures to XCTest.
@@ -45,7 +64,8 @@ public:
             return;
 
         int lineNumber = test_part_result.line_number();
-        NSString *path = [@(test_part_result.file_name()) stringByStandardizingPath];
+        const char *fileName = test_part_result.file_name();
+        NSString *path = fileName ? [@(fileName) stringByStandardizingPath] : nil;
         NSString *description = @(test_part_result.message());
         [_testCase recordFailureWithDescription:description
                                          inFile:path
@@ -58,85 +78,105 @@ private:
 };
 
 /**
- * Test suite used to run Google Test cases.
+ * Registers an XCTestCase subclass for each Google Test case.
  *
- * This test suite skips its own run and instead runs each of its sub-tests. This results
- * in the Google Test cases being reported at the same level as other XCTest cases.
- *
- * Additionally, if a test case has been completely filtered out it is not run at all.
- * This eliminates noise from the test report when running only a subset of tests.
+ * Generating these classes allows Google Test cases to be represented as peers
+ * of standard XCTest suites and supports filtering of test runs to specific
+ * Google Test cases or individual tests via Xcode.
  */
-@interface GoogleTestSuite : XCTestSuite
+@interface GoogleTestLoader : NSObject
 @end
 
-@implementation GoogleTestSuite
+/**
+ * Base class for the generated classes for Google Test cases.
+ */
+@interface GoogleTestCase : XCTestCase
+@end
 
-- (void)performTest:(XCTestSuiteRun *)testRun {
-    for (XCTest *test in self.tests) {
-        if (test.testCaseCount > 0) {
-            [testRun addTestRun:[test run]];
-        }
+@implementation GoogleTestCase
+
+/**
+ * Associates generated Google Test classes with the test bundle.
+ *
+ * This affects how the generated test cases are represented in reports. By
+ * associating the generated classes with a test bundle the Google Test cases
+ * appear to be part of the same test bundle that this source file is compiled
+ * into. Without this association they appear to be part of a bundle
+ * representing the directory of an internal Xcode tool that runs the tests.
+ */
++ (NSBundle *)bundleForClass {
+    return [NSBundle bundleForClass:[GoogleTestLoader class]];
+}
+
+/**
+ * Implementation of +[XCTestCase testInvocations] that returns an array of test
+ * invocations for each test method in the class.
+ *
+ * This differs from the standard implementation of testInvocations, which only
+ * adds methods with a prefix of "test".
+ */
++ (NSArray *)testInvocations {
+    NSMutableArray *invocations = [NSMutableArray array];
+
+    unsigned int methodCount = 0;
+    Method *methods = class_copyMethodList([self class], &methodCount);
+
+    for (unsigned int i = 0; i < methodCount; i++) {
+        SEL sel = method_getName(methods[i]);
+        NSMethodSignature *sig = [self instanceMethodSignatureForSelector:sel];
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:sig];
+        [invocation setSelector:sel];
+        [invocations addObject:invocation];
     }
+
+    free(methods);
+
+    return invocations;
 }
 
 @end
 
 /**
- * A test case that executes Google Test, reporting test results to XCTest.
+ * Runs a single test.
+ */
+static void RunTest(id self, SEL _cmd) {
+    XCTestListener *listener = new XCTestListener(self);
+    UnitTest *googleTest = UnitTest::GetInstance();
+    googleTest->listeners().Append(listener);
+
+    NSString *testKey = [NSString stringWithFormat:@"%@.%@", [self class], NSStringFromSelector(_cmd)];
+    NSString *testFilter = GoogleTestFilterMap[testKey];
+    XCTAssertNotNil(testFilter, @"No test filter found for test %@", testKey);
+
+    testing::GTEST_FLAG(filter) = [testFilter UTF8String];
+
+    (void)RUN_ALL_TESTS();
+
+    delete googleTest->listeners().Release(listener);
+
+    int totalTestsRun = googleTest->successful_test_count() + googleTest->failed_test_count();
+    XCTAssertEqual(totalTestsRun, 1, @"Expected to run a single test for filter \"%@\"", testFilter);
+}
+
+@implementation GoogleTestLoader
+
+/**
+ * Performs registration of classes for Google Test cases after our bundle has
+ * finished loading.
  *
- * XCTest loads tests by looking for all classes derived from XCTestCase and calling
- * +defaultTestSuite on each of them. Normally this method returns an XCTestSuite
- * containing an XCTestCase for each method of the receiver whose name begins with "test".
- * Instead this class returns a custom test suite that runs an XCTestSuite for each Google
- * Test case.
+ * This registration needs to occur before XCTest queries the runtime for test
+ * subclasses, but after C++ static initializers have run so that all Google
+ * Test cases have been registered. This is accomplished by synchronously
+ * observing the NSBundleDidLoadNotification for our own bundle.
  */
-@interface GoogleTests : XCTestCase
-@end
-
-@implementation GoogleTests {
-    NSString *_name;
-    NSString *_className;
-    NSString *_methodName;
-    NSString *_googleTestFilter;
++ (void)load {
+    NSBundle *bundle = [NSBundle bundleForClass:self];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSBundleDidLoadNotification object:bundle queue:nil usingBlock:^(NSNotification *notification) {
+        [self registerTestClasses];
+    }];
 }
 
-- (id)initWithClassName:(NSString *)className methodName:(NSString *)methodName testFilter:(NSString *)filter {
-    self = [super initWithSelector:@selector(runTest)];
-    if (self) {
-        _className = [className copy];
-        _methodName = [methodName copy];
-        _name = [NSString stringWithFormat:@"-[%@ %@]", _className, _methodName];
-        _googleTestFilter = [filter copy];
-    }
-    return self;
-}
-
-- (NSString *)name {
-    return _name;
-}
-
-/**
- * Returns the test name logged to the console for this test.
- */
-- (NSString *)nameForLegacyLogging {
-    return _name;
-}
-
-/**
- * Returns the class name reported to Xcode for this test.
- */
-- (NSString *)testClassName {
-    return _className;
-}
-
-/**
- * Returns the method name reported to Xcode for this test.
- */
-- (NSString *)testMethodName {
-    return _methodName;
-}
-
-+ (id)defaultTestSuite {
++ (void)registerTestClasses {
     // Pass the command-line arguments to Google Test to support the --gtest options
     NSArray *arguments = [[NSProcessInfo processInfo] arguments];
 
@@ -154,9 +194,8 @@ private:
     free(argv);
 
     BOOL runDisabledTests = testing::GTEST_FLAG(also_run_disabled_tests);
+    NSMutableDictionary *testFilterMap = [NSMutableDictionary dictionary];
     NSCharacterSet *decimalDigitCharacterSet = [NSCharacterSet decimalDigitCharacterSet];
-
-    XCTestSuite *testSuite = [GoogleTestSuite testSuiteWithName:NSStringFromClass([self class])];
 
     for (int testCaseIndex = 0; testCaseIndex < googleTest->total_test_case_count(); testCaseIndex++) {
         const TestCase *testCase = googleTest->GetTestCase(testCaseIndex);
@@ -180,13 +219,13 @@ private:
             }
         }
 
-        // Xcode's parsing expects that the test's class and method names are valid
-        // Objective-C names. If they are not the tests will not be displayed properly in
-        // the UI. Join the test case name components with '_' rather than '/' to address
-        // this.
-        NSString *className = [testCaseNameComponents componentsJoinedByString:@"_"];
+        // Join the test case name components with '_' rather than '/' to create
+        // a valid class name.
+        NSString *className = [GeneratedClassPrefix stringByAppendingString:[testCaseNameComponents componentsJoinedByString:@"_"]];
 
-        XCTestSuite *testCaseSuite = [XCTestSuite testSuiteWithName:className];
+        Class testClass = objc_allocateClassPair([GoogleTestCase class], [className UTF8String], 0);
+        NSAssert1(testClass, @"Failed to register Google Test class \"%@\", this class may already exist. The value of GeneratedClassPrefix can be changed to avoid this.", className);
+        BOOL hasMethods = NO;
 
         for (int testIndex = 0; testIndex < testCase->total_test_count(); testIndex++) {
             const TestInfo *testInfo = testCase->GetTestInfo(testIndex);
@@ -202,35 +241,24 @@ private:
                 methodName = [@"_" stringByAppendingString:methodName];
             }
 
+            NSString *testKey = [NSString stringWithFormat:@"%@.%@", className, methodName];
             NSString *testFilter = [NSString stringWithFormat:@"%@.%@", testCaseName, testName];
+            testFilterMap[testKey] = testFilter;
 
-            [testCaseSuite addTest:[[self alloc] initWithClassName:className
-                                                        methodName:methodName
-                                                        testFilter:testFilter]];
+            SEL selector = sel_registerName([methodName UTF8String]);
+            BOOL added = class_addMethod(testClass, selector, (IMP)RunTest, "v@:");
+            NSAssert1(added, @"Failed to add Goole Test method \"%@\", this method may already exist in the class.", methodName);
+            hasMethods = YES;
         }
 
-        [testSuite addTest:testCaseSuite];
+        if (hasMethods) {
+            objc_registerClassPair(testClass);
+        } else {
+            objc_disposeClassPair(testClass);
+        }
     }
 
-    return testSuite;
-}
-
-/**
- * Runs a single test.
- */
-- (void)runTest {
-    XCTestListener *listener = new XCTestListener(self);
-    UnitTest *googleTest = UnitTest::GetInstance();
-    googleTest->listeners().Append(listener);
-
-    testing::GTEST_FLAG(filter) = [_googleTestFilter UTF8String];
-
-    (void)RUN_ALL_TESTS();
-
-    delete googleTest->listeners().Release(listener);
-
-    int totalTestsRun = googleTest->successful_test_count() + googleTest->failed_test_count();
-    XCTAssertEqual(totalTestsRun, 1, @"Expected to run a single test for filter \"%@\"", _googleTestFilter);
+    GoogleTestFilterMap = testFilterMap;
 }
 
 @end
