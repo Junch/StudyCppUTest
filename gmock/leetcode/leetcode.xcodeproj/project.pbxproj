@@ -138,7 +138,6 @@
 				BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */,
 				BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */,
 				BFA797261A9C627100EA8812 /* MergeIntervals.cpp */,
-<<<<<<< .merge_file_CZjJzm
 				BFA5D0F41C6996C500D3C120 /* StringtoInteger.cpp */,
 				BFA5D0F61C69A47500D3C120 /* PathSum_112.cpp */,
 				BFA5D0F81C69B2A500D3C120 /* SumRoottoLeafNumbers_129.cpp */,
@@ -149,9 +148,7 @@
 				BF8625B91C6C4881006D25E4 /* topK.cpp */,
 				BF8625BB1C6D986E006D25E4 /* kSumII.cpp */,
 				BF8625BD1C6DCAE9006D25E4 /* PermutationII.cpp */,
-=======
 				BF22F7151C658F4A003F055F /* LargestNumber_179.cpp */,
->>>>>>> .merge_file_cEW0po
 			);
 			name = leetcode;
 			sourceTree = "<group>";
