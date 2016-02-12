@@ -18,9 +18,19 @@
 		BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B691A9602EC00416B8C /* SearchforaRange.cpp */; };
 		BF766B6C1A960B4600416B8C /* ValidParentheses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */; };
 		BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */; };
+		BF8625BA1C6C4881006D25E4 /* topK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF8625B91C6C4881006D25E4 /* topK.cpp */; };
+		BF8625BC1C6D986E006D25E4 /* kSumII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF8625BB1C6D986E006D25E4 /* kSumII.cpp */; };
+		BF8625BE1C6DCAE9006D25E4 /* PermutationII.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF8625BD1C6DCAE9006D25E4 /* PermutationII.cpp */; };
+		BFA5D0F51C6996C500D3C120 /* StringtoInteger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA5D0F41C6996C500D3C120 /* StringtoInteger.cpp */; };
+		BFA5D0F71C69A47500D3C120 /* PathSum_112.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA5D0F61C69A47500D3C120 /* PathSum_112.cpp */; };
+		BFA5D0F91C69B2A500D3C120 /* SumRoottoLeafNumbers_129.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA5D0F81C69B2A500D3C120 /* SumRoottoLeafNumbers_129.cpp */; };
+		BFA5D0FB1C69BB4C00D3C120 /* PathSumII_113.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA5D0FA1C69BB4C00D3C120 /* PathSumII_113.cpp */; };
 		BFA797271A9C627100EA8812 /* MergeIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA797261A9C627100EA8812 /* MergeIntervals.cpp */; };
 		BFACFEC01A88F82B00D23C8F /* libleetcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFACFEAC1A88F58A00D23C8F /* libleetcode.a */; };
 		BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */; };
+		BFB425481C6AF30300A9717C /* MaximumSubarray_53.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB425471C6AF30300A9717C /* MaximumSubarray_53.cpp */; };
+		BFB4254A1C6AFC9800A9717C /* MaximumProductSubarray_152.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB425491C6AFC9800A9717C /* MaximumProductSubarray_152.cpp */; };
+		BFB4254C1C6B121C00A9717C /* ReverseWordsinaString_151.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB4254B1C6B121C00A9717C /* ReverseWordsinaString_151.cpp */; };
 		BFB808CB1A922576000F0995 /* SwapNodesinPairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */; };
 		BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */; };
 		BFC957231C64A1BA00EADB0C /* ContainsDuplicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFC957211C64A19200EADB0C /* ContainsDuplicate.cpp */; };
@@ -49,11 +59,21 @@
 		BF766B691A9602EC00416B8C /* SearchforaRange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SearchforaRange.cpp; sourceTree = "<group>"; };
 		BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValidParentheses.cpp; sourceTree = "<group>"; };
 		BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleNumberII.cpp; sourceTree = "<group>"; };
+		BF8625B91C6C4881006D25E4 /* topK.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = topK.cpp; sourceTree = "<group>"; };
+		BF8625BB1C6D986E006D25E4 /* kSumII.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kSumII.cpp; sourceTree = "<group>"; };
+		BF8625BD1C6DCAE9006D25E4 /* PermutationII.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PermutationII.cpp; sourceTree = "<group>"; };
+		BFA5D0F41C6996C500D3C120 /* StringtoInteger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringtoInteger.cpp; sourceTree = "<group>"; };
+		BFA5D0F61C69A47500D3C120 /* PathSum_112.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathSum_112.cpp; sourceTree = "<group>"; };
+		BFA5D0F81C69B2A500D3C120 /* SumRoottoLeafNumbers_129.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SumRoottoLeafNumbers_129.cpp; sourceTree = "<group>"; };
+		BFA5D0FA1C69BB4C00D3C120 /* PathSumII_113.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathSumII_113.cpp; sourceTree = "<group>"; };
 		BFA797261A9C627100EA8812 /* MergeIntervals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergeIntervals.cpp; sourceTree = "<group>"; };
 		BFACFEAC1A88F58A00D23C8F /* libleetcode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libleetcode.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBA1A88F82B00D23C8F /* TestBundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestBundle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACFEBD1A88F82B00D23C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFAE63751A90E7CF006EC217 /* PalindromeNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PalindromeNumber.cpp; sourceTree = "<group>"; };
+		BFB425471C6AF30300A9717C /* MaximumSubarray_53.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaximumSubarray_53.cpp; sourceTree = "<group>"; };
+		BFB425491C6AFC9800A9717C /* MaximumProductSubarray_152.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaximumProductSubarray_152.cpp; sourceTree = "<group>"; };
+		BFB4254B1C6B121C00A9717C /* ReverseWordsinaString_151.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReverseWordsinaString_151.cpp; sourceTree = "<group>"; };
 		BFB808CA1A922576000F0995 /* SwapNodesinPairs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwapNodesinPairs.cpp; sourceTree = "<group>"; };
 		BFB808CC1A923396000F0995 /* MergekSortedLists.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergekSortedLists.cpp; sourceTree = "<group>"; };
 		BFC957211C64A19200EADB0C /* ContainsDuplicate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContainsDuplicate.cpp; sourceTree = "<group>"; };
@@ -116,6 +136,16 @@
 				BF766B6B1A960B4600416B8C /* ValidParentheses.cpp */,
 				BF766B6D1A96113D00416B8C /* SingleNumberII.cpp */,
 				BFA797261A9C627100EA8812 /* MergeIntervals.cpp */,
+				BFA5D0F41C6996C500D3C120 /* StringtoInteger.cpp */,
+				BFA5D0F61C69A47500D3C120 /* PathSum_112.cpp */,
+				BFA5D0F81C69B2A500D3C120 /* SumRoottoLeafNumbers_129.cpp */,
+				BFA5D0FA1C69BB4C00D3C120 /* PathSumII_113.cpp */,
+				BFB425471C6AF30300A9717C /* MaximumSubarray_53.cpp */,
+				BFB425491C6AFC9800A9717C /* MaximumProductSubarray_152.cpp */,
+				BFB4254B1C6B121C00A9717C /* ReverseWordsinaString_151.cpp */,
+				BF8625B91C6C4881006D25E4 /* topK.cpp */,
+				BF8625BB1C6D986E006D25E4 /* kSumII.cpp */,
+				BF8625BD1C6DCAE9006D25E4 /* PermutationII.cpp */,
 			);
 			name = leetcode;
 			sourceTree = "<group>";
@@ -248,15 +278,25 @@
 				BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */,
 				BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */,
 				BFA797271A9C627100EA8812 /* MergeIntervals.cpp in Sources */,
+				BF8625BC1C6D986E006D25E4 /* kSumII.cpp in Sources */,
+				BFB425481C6AF30300A9717C /* MaximumSubarray_53.cpp in Sources */,
 				BF766B6E1A96113D00416B8C /* SingleNumberII.cpp in Sources */,
 				BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */,
 				BFC957231C64A1BA00EADB0C /* ContainsDuplicate.cpp in Sources */,
+				BFA5D0F71C69A47500D3C120 /* PathSum_112.cpp in Sources */,
+				BF8625BA1C6C4881006D25E4 /* topK.cpp in Sources */,
+				BFA5D0F91C69B2A500D3C120 /* SumRoottoLeafNumbers_129.cpp in Sources */,
 				BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */,
 				BFDC4CCE1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp in Sources */,
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
 				BF5FF4501A94E4B700730AEE /* ClimbingStairs.cpp in Sources */,
+				BFA5D0F51C6996C500D3C120 /* StringtoInteger.cpp in Sources */,
 				BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */,
+				BFB4254A1C6AFC9800A9717C /* MaximumProductSubarray_152.cpp in Sources */,
+				BFB4254C1C6B121C00A9717C /* ReverseWordsinaString_151.cpp in Sources */,
+				BF8625BE1C6DCAE9006D25E4 /* PermutationII.cpp in Sources */,
 				BFB808CD1A923396000F0995 /* MergekSortedLists.cpp in Sources */,
+				BFA5D0FB1C69BB4C00D3C120 /* PathSumII_113.cpp in Sources */,
 				BF766B6C1A960B4600416B8C /* ValidParentheses.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
