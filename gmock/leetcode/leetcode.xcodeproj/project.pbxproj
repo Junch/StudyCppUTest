@@ -13,6 +13,7 @@
 		BF5CBB9D1A8CE9550010A564 /* Counter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB9A1A8CE9550010A564 /* Counter.cpp */; };
 		BF5CBB9E1A8CE9550010A564 /* Counter.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5CBB9B1A8CE9550010A564 /* Counter.h */; };
 		BF5CBBA01A8CE9E70010A564 /* CounterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB9C1A8CE9550010A564 /* CounterTest.cpp */; };
+		BF5DC8FF1C71A48700F7AB73 /* WordSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC8FE1C71A48700F7AB73 /* WordSearch.cpp */; };
 		BF5FF44E1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */; };
 		BF5FF4501A94E4B700730AEE /* ClimbingStairs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5FF44F1A94E4B700730AEE /* ClimbingStairs.cpp */; };
 		BF6984FB1A8EDD8900ABDF77 /* MergeSortedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */; };
@@ -56,6 +57,7 @@
 		BF5CBB9A1A8CE9550010A564 /* Counter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Counter.cpp; path = leetcode/Counter.cpp; sourceTree = "<group>"; };
 		BF5CBB9B1A8CE9550010A564 /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Counter.h; path = leetcode/Counter.h; sourceTree = "<group>"; };
 		BF5CBB9C1A8CE9550010A564 /* CounterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CounterTest.cpp; path = leetcode/CounterTest.cpp; sourceTree = "<group>"; };
+		BF5DC8FE1C71A48700F7AB73 /* WordSearch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSearch.cpp; sourceTree = "<group>"; };
 		BF5FF44D1A94D6A400730AEE /* RemoveDuplicatesfromSortedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoveDuplicatesfromSortedArray.cpp; sourceTree = "<group>"; };
 		BF5FF44F1A94E4B700730AEE /* ClimbingStairs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClimbingStairs.cpp; sourceTree = "<group>"; };
 		BF6984FA1A8EDD8900ABDF77 /* MergeSortedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MergeSortedArray.cpp; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				BF8625BD1C6DCAE9006D25E4 /* PermutationII.cpp */,
 				BF22F7151C658F4A003F055F /* LargestNumber_179.cpp */,
 				BFE13D671C6E1CE3006373D4 /* Sum3Closest.cpp */,
+				BF5DC8FE1C71A48700F7AB73 /* WordSearch.cpp */,
 			);
 			name = leetcode;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				BFC957231C64A1BA00EADB0C /* ContainsDuplicate.cpp in Sources */,
 				BFA5D0F71C69A47500D3C120 /* PathSum_112.cpp in Sources */,
 				BF8625BA1C6C4881006D25E4 /* topK.cpp in Sources */,
+				BF5DC8FF1C71A48700F7AB73 /* WordSearch.cpp in Sources */,
 				BFA5D0F91C69B2A500D3C120 /* SumRoottoLeafNumbers_129.cpp in Sources */,
 				BF766B6A1A9602EC00416B8C /* SearchforaRange.cpp in Sources */,
 				BFE13D681C6E1CE3006373D4 /* Sum3Closest.cpp in Sources */,

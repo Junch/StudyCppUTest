@@ -41,7 +41,7 @@ namespace Sum3Closest {
             }
             
             
-            for (int i=start, len=nums.size(); i<len; ++i) {
+            for (int i=start, len=(int)nums.size(); i<len; ++i) {
                 dfs(nums, target, i+1, k-1, sum+nums[i]);
             }
         }
