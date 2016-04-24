@@ -1,0 +1,5 @@
+Import('env')
+# toolkit.h is located in this directory, add it to the include path
+env.Append(CPPPATH=['.'])
+# Let's declare a library named toolkit, using toolkit.c as its only source
+env.Library('toolkit', ['toolkit.c'])
