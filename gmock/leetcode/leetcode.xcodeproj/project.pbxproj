@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF22F7171C6594AB003F055F /* LargestNumber_179.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF22F7151C658F4A003F055F /* LargestNumber_179.cpp */; };
+		BF3BEC471CCCDEF2005C78F5 /* SortLettersbyCase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF3BEC451CCCDEE1005C78F5 /* SortLettersbyCase.cpp */; };
 		BF4DCCA11A8F2E1E00E81A35 /* ReverseInteger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCCA01A8F2E1E00E81A35 /* ReverseInteger.cpp */; };
 		BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB811A8CDDBC0010A564 /* GoogleTests.mm */; };
 		BF5CBB9D1A8CE9550010A564 /* Counter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF5CBB9A1A8CE9550010A564 /* Counter.cpp */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		BF22F7151C658F4A003F055F /* LargestNumber_179.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LargestNumber_179.cpp; sourceTree = "<group>"; };
+		BF3BEC451CCCDEE1005C78F5 /* SortLettersbyCase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SortLettersbyCase.cpp; sourceTree = "<group>"; };
 		BF4DCCA01A8F2E1E00E81A35 /* ReverseInteger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReverseInteger.cpp; sourceTree = "<group>"; };
 		BF5CBB811A8CDDBC0010A564 /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 		BF5CBB9A1A8CE9550010A564 /* Counter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Counter.cpp; path = leetcode/Counter.cpp; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		BFACFEB11A88F59800D23C8F /* leetcode */ = {
 			isa = PBXGroup;
 			children = (
+				BF3BEC451CCCDEE1005C78F5 /* SortLettersbyCase.cpp */,
 				BF5CBB9A1A8CE9550010A564 /* Counter.cpp */,
 				BFDC4CCD1AB32B4300C16E0C /* LargestRectangleinHistogram.cpp */,
 				BF5CBB9B1A8CE9550010A564 /* Counter.h */,
@@ -303,6 +306,7 @@
 				BF5CBB821A8CDDBC0010A564 /* GoogleTests.mm in Sources */,
 				BF5FF4501A94E4B700730AEE /* ClimbingStairs.cpp in Sources */,
 				BFA5D0F51C6996C500D3C120 /* StringtoInteger.cpp in Sources */,
+				BF3BEC471CCCDEF2005C78F5 /* SortLettersbyCase.cpp in Sources */,
 				BFAE63761A90E7CF006EC217 /* PalindromeNumber.cpp in Sources */,
 				BFB4254A1C6AFC9800A9717C /* MaximumProductSubarray_152.cpp in Sources */,
 				BFB4254C1C6B121C00A9717C /* ReverseWordsinaString_151.cpp in Sources */,
