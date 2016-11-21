@@ -8,6 +8,12 @@ extern "C"
 {
 	JNIEXPORT void JNICALL Java_com_example_AntNDKApp_onCreateNative( JNIEnv* env, jobject obj )
 	{
+		// A endless loop, so the debugger can attach with ease
+		int i=1, j=0;
+		while (i) {
+			j = (++j)/100;
+		}
+
 		LOGI( "Hello Android NDK!" );
 	}
 }
